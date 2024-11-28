@@ -1,0 +1,390 @@
+{
+  "Fort Boyard": {
+    "2015": {
+      "Émission 01": {
+        "Indices": ["SILENCE", "REVEIL", "STATION", "POSTE", "FREQUENCE", "ANTENNE"],
+        "MOT-CODE": "RADIO"
+      },
+      "Émission 02": {
+        "Indices": ["CHEVEUX", "NID", "GARDIEN", "AILES", "FILS", "AUREOLE"],
+        "MOT-CODE": "ANGE"
+      },
+      "Émission 03": {
+        "Indices": ["SAUT", "OREILLE", "CHIEN", "INSECTE", "ELECTRONIQUE", "CARTE"],
+        "MOT-CODE": "PUCE"
+      },
+      "Émission 04": {
+        "Indices": ["JARDIN", "BEAUTE", "DANSES", "PROFESSIONNEL", "FOIRE", "AGRICULTURE"],
+        "MOT-CODE": "SALON"
+      },
+      "Émission 05": {
+        "Indices": ["GOLF", "MEMOIRE", "SERRURE", "SOURIS", "NOIR", "EAU"],
+        "MOT-CODE": "TROU"
+      },
+      "Émission 06": {
+        "Indices": ["MARCHÉ", "GATEAU", "PORTION", "FAIRE", "PARTAGE", "TRANCHE"],
+        "MOT-CODE": "PART"
+      },
+      "Émission 07": {
+        "Indices": ["BLANC", "NUIT", "GROS", "BAIN", "ANE", "SKI"],
+        "MOT-CODE": "BONNET"
+      },
+      "Émission 08": {
+        "Indices": ["GOUTTIERE", "POISSON", "HERBE", "LANGUE", "FELIN", "SIAMOIS"],
+        "MOT-CODE": "CHAT"
+      },
+      "Émission 09": {
+        "Indices": ["SPECTACLE", "CAVALIER", "MARTEAU", "GIROFLE", "POINTE", "QUINCAILLERIE"],
+        "MOT-CODE": "CLOU"
+      },
+      "Émission 10": {
+        "Indices": ["MAITRE", "CHAMBRE", "PARTICULIER", "VILLE", "ETOILE", "NUIT"],
+        "MOT-CODE": "HOTEL"
+      }
+    },
+    "2016": {
+      "Émission 01": {
+        "Indices": ["OREILLE", "COEUR", "FINE", "BAIN", "AMUSE", "EAU"],
+        "MOT-CODE": "BOUCHE"
+      },
+      "Émission 02": {
+        "Indices": ["SOIN", "FRAICHE", "CAFE", "SOLAIRE", "PATISSIERE", "BRULEE"],
+        "MOT-CODE": "CREME"
+      },
+      "Émission 03": {
+        "Indices": ["VIE", "HORAIRE", "ANANAS", "LIVRE", "IMPOTS", "MORCEAU"],
+        "MOT-CODE": "TRANCHE"
+      },
+      "Émission 04": {
+        "Indices": ["VIDE", "VITESSE", "NIVEAU", "AVIS", "EXTRAIT", "PIETON"],
+        "MOT-CODE": "PASSAGE"
+      },
+      "Émission 05": {
+        "Indices": ["FOND", "AIR", "CHAMBRE", "INSTRUMENT", "NOTE", "PARTITION"],
+        "MOT-CODE": "MUSIQUE"
+      },
+      "Émission 06": {
+        "Indices": ["GUITARE", "VERBAL", "MINEUR", "PRINCIPE", "VERBE", "SIGNATURE"],
+        "MOT-CODE": "ACCORD"
+      },
+      "Émission 07": {
+        "Indices": ["VENGEANCE", "JOUR", "OEUF", "PIED", "PRINCIPAL", "FAUX"],
+        "MOT-CODE": "PLAT"
+      },
+      "Émission 08": {
+        "Indices": ["FER", "GORGE", "ALERTE", "STENDHAL", "LEVRE", "RUBIS"],
+        "MOT-CODE": "ROUGE"
+      },
+      "Émission 09": {
+        "Indices": ["OEIL", "POISSON", "PERCHE", "GOUTTIERE", "POILS", "LANGUE"],
+        "MOT-CODE": "CHAT"
+      },
+      "Émission 10": {
+        "Indices": ["CERCLE", "CORDE", "CIEL", "TRIOMPHE", "ARCADE", "TIR"],
+        "MOT-CODE": "ARC"
+      }
+    },
+    "2017": {
+      "Émission 01": {
+        "Indices": ["DROIT", "TABLE", "FER", "REBROUSSER", "HALAGE", "COMPOSTELLE"],
+        "MOT-CODE": "CHEMIN"
+      },
+      "Émission 02": {
+        "Indices": ["FORT", "VOIX", "BANQUE", "MEUBLE", "JOUETS", "TOIT"],
+        "MOT-CODE": "COFFRE"
+      },
+      "Émission 03": {
+        "Indices": ["CHANCE", "ORDRE", "CONTRE", "FÊTE", "NUIT", "AN"],
+        "MOT-CODE": "JOUR"
+      },
+      "Émission 04": {
+        "Indices": ["TETE", "OEIL", "REQUIN", "FLEUVE", "BENGALE", "FELINDRA"],
+        "MOT-CODE": "TIGRE"
+      },
+      "Émission 05": {
+        "Indices": ["SERRURE", "PROBLEME", "BRAS", "VOÛTE", "MOLETTE", "CHAMPS"],
+        "MOT-CODE": "CLE"
+      },
+      "Émission 06": {
+        "Indices": ["VACHE", "BRUME", "DIABLE", "PIED", "PATISSERIE", "IVOIRE"],
+        "MOT-CODE": "CORNE"
+      },
+      "Émission 07": {
+        "Indices": ["COUPE", "AGNEAU", "TÊTE", "CHOCOLAT", "AS", "POKER"],
+        "MOT-CODE": "CARRE"
+      },
+      "Émission 08": {
+        "Indices": ["NOIR", "FARINE", "PAILLE", "ÉPI", "CHAMPS", "ARGENT"],
+        "MOT-CODE": "BLE"
+      },
+      "Émission 09": {
+        "Indices": ["CACHE", "BLANC", "CLAUDINE", "FEMUR", "TOURMALET", "CYGNE"],
+        "MOT-CODE": "COL"
+      },
+      "Émission 10": {
+        "Indices": ["FLEUR", "PÂTE", "BLANC", "BAIN", "ALUN", "GUERANDE"],
+        "MOT-CODE": "SEL"
+      }
+    },
+    "2018": {
+      "Émission 01": {
+        "Indices": ["GUERRE", "COEUR", "DERNIER", "HURLEMENT", "ANIMAUX", "DOULEUR"],
+        "MOT-CODE": "CRI"
+      },
+      "Émission 02": {
+        "Indices": ["POUDRE", "LAIT", "BOL", "GRAIN", "FRAPPE", "TASSE"],
+        "MOT-CODE": "CAFE"
+      },
+      "Émission 03": {
+        "Indices": ["CARTE", "PUBLIC", "PIRATE", "ILE", "COFFRE", "SALLE"],
+        "MOT-CODE": "TRESOR"
+      },
+      "Émission 04": {
+        "Indices": ["AVOCAT", "LEGITIME", "FOOTBALL", "SECRET", "ELEPHANT", "ARCHE"],
+        "MOT-CODE": "DEFENSE"
+      },
+      "Émission 05": {
+        "Indices": ["VERRE", "PETITE", "BONNET", "TISSU", "PELOTE", "FIL"],
+        "MOT-CODE": "LAINE"
+      },
+      "Émission 06": {
+        "Indices": ["MAIN", "PAPIER", "PLAGE", "VOYAGE", "NOEUDS", "POUBELLE"],
+        "MOT-CODE": "SAC"
+      },
+      "Émission 07": {
+        "Indices": ["DENTAIRE", "RUE", "VERGLAS", "CUISSON", "IMMATRICULATION", "EGOUT"],
+        "MOT-CODE": "PLAQUE"
+      },
+      "Émission 08": {
+        "Indices": ["ROUTE", "TIMBRES", "BORD", "NOTES", "ADRESSES", "LIVRET"],
+        "MOT-CODE": "CARNET"
+      },
+      "Émission 09": {
+        "Indices": ["CROISSANT", "SATELLITE", "CLAIR", "GIBBEUSE", "APOLLO", "CIEL"],
+        "MOT-CODE": "LUNE"
+      },
+      "Émission 10": {
+        "Indices": ["PRIX", "CONSEIL", "PETIT", "ENNEMI", "ENFANCE", "MEILLEUR"],
+        "MOT-CODE": "AMI"
+      }
+    },
+    "2019": {
+      "Émission 01": {
+        "Indices": ["BEAU", "SPIRITUEL", "FAMILLE", "NOEL", "FOUETTARD", "PAPA"],
+        "MOT-CODE": "PERE"
+      },
+      "Émission 02": {
+        "Indices": ["TISSU", "LIBRE", "EAU", "CHEVEUX", "POINT", "TENSION"],
+        "MOT-CODE": "CHUTE"
+      },
+      "Émission 03": {
+        "Indices": ["TRAITE", "HAVRE", "GARDIEN", "GUERRE", "NOBEL", "FAIRE"],
+        "MOT-CODE": "PAIX"
+      },
+      "Émission 04": {
+        "Indices": ["CROCHE", "VELOURS", "FIXATION", "INSECTE", "OIE", "BLANCHE"],
+        "MOT-CODE": "PATTE"
+      },
+      "Émission 05": {
+        "Indices": ["AIR", "SAVON", "NIVEAU", "GAZ", "BANDE-DESSINÉE", "CHAMPAGNE"],
+        "MOT-CODE": "BULLE"
+      },
+      "Émission 06": {
+        "Indices": ["CHATEAU", "TEMPS", "COFFRE", "ESPRIT", "PORTE", "CAFÉ"],
+        "MOT-CODE": "FORT"
+      },
+      "Émission 07": {
+        "Indices": ["CIVIL", "MAL", "IDÉE", "INTELLIGENCE", "LAMPE", "DON"],
+        "MOT-CODE": "GÉNIE"
+      },
+      "Émission 08": {
+        "Indices": ["FROID", "CREUX", "SURF", "TERRAIN", "SOMMET", "MASCARET"],
+        "MOT-CODE": "VAGUE"
+      },
+      "Émission 09": {
+        "Indices": ["VIVRE", "FEU", "LARMES", "RABAT", "HYMNE", "SAUT"],
+        "MOT-CODE": "JOIE"
+      },
+      "Émission 10": {
+        "Indices": ["LANGUE", "CORAIL", "MORSURE", "MER", "SONNETTE", "OPHIOPHOBIE"],
+        "MOT-CODE": "SERPENT"
+      },
+      "Émission 11": {
+        "Indices": ["IDÉE", "COFFRET", "NAISSANCE", "ANNIVERSAIRE", "PAPIER", "NOËL"],
+        "MOT-CODE": "CADEAU"
+      }
+    },
+    "2020": {
+      "Émission 01": {
+        "Indices": ["COULEUR", "PEAU", "JUS", "VILLE", "FRUIT", "PULPE"],
+        "MOT-CODE": "ORANGE"
+      },
+      "Émission 02": {
+        "Indices": ["LUMIÈRE", "PAUPIÈRE", "TABLEAU", "CHINOISE", "SILHOUETTE", "PEUR"],
+        "MOT-CODE": "OMBRE"
+      },
+      "Émission 03": {
+        "Indices": ["POISSONS", "PUBLIC", "ESSAI", "SABLE", "ÉCOLE", "COFFRE"],
+        "MOT-CODE": "BANC"
+      },
+      "Émission 04": {
+        "Indices": ["HISTOIRE", "OBJET", "RÈGLES", "ŒUVRE", "CONTEMPORAIN", "MARTIAL"],
+        "MOT-CODE": "ART"
+      },
+      "Émission 05": {
+        "Indices": ["CORPS", "ÉTAT", "MORT", "VAGUE", "SŒUR", "CONSCIENCE"],
+        "MOT-CODE": "ÂME"
+      },
+      "Émission 06": {
+        "Indices": ["REFROIDISSEMENT", "FREIN", "ARGENT", "VAISSELLE", "ÉTAT", "BOISSON"],
+        "MOT-CODE": "LIQUIDE"
+      },
+      "Émission 07": {
+        "Indices": ["LIGNE", "CHASSE", "PILOTE", "PAPIER", "AILE", "PLANEUR"],
+        "MOT-CODE": "AVION"
+      },
+      "Émission 08": {
+        "Indices": ["ASCENSEUR", "VALISE", "TÉLÉPHONIQUE", "AVION", "PEINTURE", "ESSAYAGE"],
+        "MOT-CODE": "CABINE"
+      },
+      "Émission 09": {
+        "Indices": ["MISE", "FEUILLE", "CARNET", "SOIE", "RHUM", "CODE"],
+        "MOT-CODE": "ROUTE"
+      },
+      "Émission 10": {
+        "Indices": ["PASSE", "RÉPONSE", "ABUS", "AUTEUR", "AUTORISATION", "ANGLE"],
+        "MOT-CODE": "DROIT"
+      },
+      "Émission 11": {
+        "Indices": ["CACHET", "POUPÉE", "ABEILLE", "BOUGIE", "STATUE", "ÉPILATION"],
+        "MOT-CODE": "CIRE"
+      }
+    },
+    "2021": {
+      "Émission 01": {
+        "Indices": ["CROCHET", "CARAÏBES", "TRÉSOR", "INFORMATIQUE", "BARBE NOIRE", "PLANCHE"],
+        "MOT-CODE": "PIRATE"
+      },
+      "Émission 02": {
+        "Indices": ["ABEILLE", "MÈRE", "BEAUTÉ", "COURONNE", "PALAIS", "CONSORT"],
+        "MOT-CODE": "REINE"
+      },
+      "Émission 03": {
+        "Indices": ["DESSIN", "ROULETTES", "PAIN", "BILLETS", "VOILE", "BOIS"],
+        "MOT-CODE": "PLANCHE"
+      },
+      "Émission 04": {
+        "Indices": ["PAILLE", "BOIS", "COUP", "CHEMINÉE", "PHARE", "FLAMME"],
+        "MOT-CODE": "FEU"
+      },
+      "Émission 05": {
+        "Indices": ["TOILETTE", "VELOURS", "BASEBALL", "PROTECTION", "MITAINE", "MAIN"],
+        "MOT-CODE": "GANT"
+      },
+      "Émission 06": {
+        "Indices": ["ARRIÈRE", "MAUVAIS", "JOUR", "EXHAUSTEUR", "SAVEUR", "SENS"],
+        "MOT-CODE": "GOÛT"
+      },
+      "Émission 07": {
+        "Indices": ["LUMIÈRE", "NAISSANCE", "MOIS", "BISSEXTILE", "SCOLAIRE", "SABBATIQUE"],
+        "MOT-CODE": "ANNÉE"
+      },
+      "Émission 08": {
+        "Indices": ["SANG", "VENT", "JUDO", "CONTROLE", "ESCALADE", "ÉLECTRIQUE"],
+        "MOT-CODE": "PRISE"
+      },
+      "Émission 09": {
+        "Indices": ["FLEUVE", "THÉÂTRE", "TEMPS", "SOIR", "EAU", "COLLÈGE"],
+        "MOT-CODE": "COURS"
+      },
+      "Émission 10": {
+        "Indices": ["AVANT", "EAU", "DÉLIT", "GAZ", "POINT", "CAVALE"],
+        "MOT-CODE": "FUITE"
+      },
+      "Émission 11": {
+        "Indices": ["PROJET", "SILENCE", "TALION", "TEXTE", "JUNGLE", "RATIFICATION"],
+        "MOT-CODE": "LOI"
+      }
+    },
+    "2022": {
+      "Émission 01": {
+        "Indices": ["CHAUD", "MOUSSE", "PAIN", "CARRE", "BLANC", "ŒUF"],
+        "MOT-CODE": "CHOCOLAT"
+      },
+      "Émission 02": {
+        "Indices": ["EFFET", "COUTEAU", "NŒUD", "NAGE", "CHENILLE", "AILE"],
+        "MOT-CODE": "PAPILLON"
+      },
+      "Émission 03": {
+        "Indices": ["SECOND", "ANGLE", "TEMPÉRATURE", "GRAVITE", "LATITUDE", "CELSIUS"],
+        "MOT-CODE": "DEGRÉ"
+      },
+      "Émission 04": {
+        "Indices": ["PEAU", "TROUPEAU", "CUIR", "CORNE", "CLOCHE", "LAIT"],
+        "MOT-CODE": "VACHE"
+      },
+      "Émission 05": {
+        "Indices": ["FRAPPE", "AGE", "NATURE", "CENTRIFUGE", "AGE", "CAMISOLE"],
+        "MOT-CODE": "FORCE"
+      },
+      "Émission 06": {
+        "Indices": ["NUMÉRO", "FIN", "TÊTE", "TUEUR", "BRANCHEMENT", "ÉPISODE"],
+        "MOT-CODE": "SÉRIE"
+      },
+      "Émission 07": {
+        "Indices": ["CHANSON", "MOULIN", "MUET", "TENIR", "PORTE", "PRENDRE"],
+        "MOT-CODE": "PAROLE"
+      },
+      "Émission 08": {
+        "Indices": ["COULEUR", "MINE", "PAPIER", "TRAIT", "TAILLE", "PORTE"],
+        "MOT-CODE": "CRAYON"
+      },
+      "Émission 09": {
+        "Indices": ["SERRE", "ANNONCE", "BOULE DE NEIGE", "SECONDAIRE", "PERSONNEL", "PAPILLON"],
+        "MOT-CODE": "EFFET"
+      }
+    },
+    "2023": {
+      "Émission 01": {
+        "Indices": ["PLUIE", "ROSÉE", "COMPTE", "SUEUR", "FROIDE", "EAU"],
+        "MOT-CODE": "GOUTTE"
+      },
+      "Émission 02": {
+        "Indices": ["ÉTENDUE", "MER", "RIVAGE", "SABLE", "VACANCES", "PISCINE"],
+        "MOT-CODE": "PLAGE"
+      },
+      "Émission 03": {
+        "Indices": ["BOIS", "HEURE", "TUBE", "GLUE", "POT", "BLANCHE"],
+        "MOT-CODE": "COLLE"
+      },
+      "Émission 04A": {
+        "Indices": ["NAISSANCE", "VIN", "ROUSSEUR", "FAIRE", "TRAVAIL", "INDÉLÉBILE"],
+        "MOT-CODE": "TACHE"
+      },
+      "Émission 04B": {
+        "Indices": ["ARBRE", "LUNETTES", "TREMPE", "CRISTAL", "BOUTEILLE", "TRANSPARENT"],
+        "MOT-CODE": "VERRE"
+      },
+      "Émission 05": {
+        "Indices": ["CHEVEU", "BOIS", "POCHE", "VIPÈRE", "BŒUF", "PAYS"],
+        "MOT-CODE": "LANGUE"
+      },
+      "Émission 06": {
+        "Indices": ["EAU", "FLEUR", "FLACON", "COFFRET", "ODEUR", "NEZ"],
+        "MOT-CODE": "PARFUM"
+      },
+      "Émission 07": {
+        "Indices": ["CHAGRIN", "OURS", "CUIR", "BANANE", "CICATRICE", "VACHE"],
+        "MOT-CODE": "PEAU"
+      },
+      "Émission 08": {
+        "Indices": ["RELAIS", "MARIAGE", "PROCÈS", "À CHARGE", "MAISON", "LUMINEUX"],
+        "MOT-CODE": "TÉMOIN"
+      },
+      "Émission 09": {
+        "Indices": ["ÉCLAIR", "POINTE", "RAPIDITÉ", "NŒUD", "LIMITE", "LUMIÈRE"],
+        "MOT-CODE": "VITESSE"
+      }
+    }
+  }
+}
