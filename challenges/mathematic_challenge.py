@@ -32,11 +32,11 @@ def isPrime(n):
 
 #Quelle est le nombre premier le plus proche d'un nombre
 def nearestPrimeNumber(n):
-    found = false
+    found = False
     if isPrime(n):
         return n
     i = 1
-    while found == false:
+    while found == False:
         if isPrime(n+i) == True:
             prime_number = n + i
             found = True
