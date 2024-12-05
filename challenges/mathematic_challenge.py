@@ -16,6 +16,34 @@ def factorial(n):
             result *= i
         return result
 
+#Verifier si le nombre est premier
+def isPrime(n):
+    is_prime = True
+    i = 2
+    if n <= 1:
+        is_prime = False
+    else:
+        while is_prime and i < n:
+            if n % i == 0:
+                is_prime = False
+            else:
+                i += 1
+    return is_prime
+
+#Quelle est le nombre premier le plus proche d'un nombre
+def nearestPrimeNumber(n):
+    found = false
+    if isPrime(n):
+        return n
+    i = 1
+    while found == false:
+        if isPrime(n+i) == True:
+            prime_number = n + i
+            found = True
+        else:
+            i += 1
+    return prime_number
+
 
 ##### Fonctions des énigmes mathématiques #####
 # Pour chaque fonction :
@@ -28,6 +56,6 @@ def factorialChallenge():
     return number, expected_answer
 
 def primeNumberChallenge():
-    number = 14
-    expected_answer = 17
+    number = randint(10,20)
+    expected_answer = nearestPrimeNumber(number)
     return number, expected_answer
