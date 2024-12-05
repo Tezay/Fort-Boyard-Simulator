@@ -39,3 +39,22 @@ def addToKeyCounter(value):
     
     except FileNotFoundError:
         print("Error : Specified JSON file is not found.")
+
+
+def resetKeyCounter():
+    try:
+        # Lecture des données existantes
+        with open(ADDITIONNAL_DATA_FILE_PATH, 'r') as file:
+            data = json.load(file)
+        
+        # Remet à 0 la valeur de keyCounter
+        data["keyCounter"] = 0
+
+        # Mise à jour du fichier JSON
+        with open(ADDITIONNAL_DATA_FILE_PATH, 'w') as file:
+            json.dump(data, file, indent=4)  # Sauvegarde avec une mise en forme lisible
+        
+        print(f"Value successfuly added. New keyCounter : {data['keyCounter']}")
+    
+    except FileNotFoundError:
+        print("Error : Specified JSON file is not found.")

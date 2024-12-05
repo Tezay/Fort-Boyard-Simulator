@@ -9,6 +9,8 @@ app = Flask(__name__)
 #Route du menu principal
 @app.route("/")
 def menu():
+    # Appelle la fonction qui permet de réinitialiser le nombre de clés
+    resetKeyCounter()
     return render_template("index.html")
 
 
@@ -19,6 +21,7 @@ def fortBoyard():
     #Renvoie la page HTML du Fort Boyard (salle où les joueurs reviennent après chaque épreuve)
     # Transmet en paramètre la variable key_count:int (pour afficher le nombre de clés obtenues)
     return render_template("fort-boyard.html", key_count=key_count)
+
 
 ###### Routes pour les énigmes mathématiques ######
 
@@ -52,6 +55,15 @@ def linearEquation():
 def primeNumber():
     number, expected_answer = primeNumberChallenge()
     return render_template("math_challenge_template/prime-number.html", number=number, expected_answer=expected_answer)
+
+
+###### Routes pour les énigmes aléatoires ######
+
+# Route pour l'énigme bonneteaux
+@app.route("/random-challenge/bonneteau")
+def bonneteau():
+    bonneteaux_list, right_bonneteau = bonneteauChallenge()
+    return render_template("random_challenge_template/bonneteau.html", bonneteaux_list=bonneteaux_list, right_bonneteau=right_bonneteau)
 
 
 #Route pour créer une nouvelle connaissance

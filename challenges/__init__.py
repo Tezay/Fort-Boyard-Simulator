@@ -3,4 +3,4 @@
 from .final_challenge import * # A compléter
 from .logic_challenge import * # A compléter
 from .mathematic_challenge import factorialChallenge, primeNumberChallenge # A compléter
-from .random_challenge import * # A compléter
+from .random_challenge import bonneteauChallenge # A compléter

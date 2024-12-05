@@ -10,7 +10,9 @@
         },
         "randomChallenges": {
             "actualChallengeCount": 0,
-            "challengesList": []
+            "challengesList": [
+                "bonneteau"
+            ]
         },
         "logicChallenges": {
             "actualChallengeCount": 0,
