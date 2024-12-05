@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Import de la feuille de style -->
+    <link rel="stylesheet" href="{{url_for('static', filename='css/math-style.css')}}">
+    <title>Epreuve : Nombre premier</title>
+</head>
+<body>
+    <h1>Epreuve nombre premier</h1>
+    <div class="question-box">
+        <p>Trouver le nombre premier le plus proche de {{ number }} ?</p>
+    </div>
+    <div id="user-input-box" class="user-input-box">
+        <input id="user-answer" type="number" placeholder="Entrez votre réponse">
+        <button id="submit-answer">Envoyer</button>
+    </div>
+    <div id="answer-box" class="answer-box hidden" data-expected="{{ expected_answer }}">
+        <div id="right-answer" class="hidden">
+            <p>Bravo, tu as trouvé la bonne réponse !</p>
+            <a href="{{url_for('newKey', key_number='1')}}">Ouvrir la boite à clé 🔑</a>
+        </div>
+        <div id="wrong-answer" class="hidden">
+            <p>Mauvaise réponse ! La bonne réponse était : {{ expected_answer }}</p>
+            <a href="{{url_for('fortBoyard')}}">Retourner sur le fort 🚪</a>
+        </div>
+    </div>
+
+    <!-- Import de la feuille de Javascript (pour gérer l'affichage des div question/réponse) -->
+    <script src="{{ url_for('static', filename='js/answer-comparator.js') }}"></script>
+
+</body>
+</html>

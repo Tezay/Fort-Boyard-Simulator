@@ -1,0 +1,21 @@
+{
+    "challengesTypes": {
+        "mathChallenges": {
+            "actualChallengeCount": 0,
+            "challengesList": [
+                "factorial",
+                "linearEquation",
+                "primeNumber"
+            ]
+        },
+        "randomChallenges": {
+            "actualChallengeCount": 0,
+            "challengesList": []
+        },
+        "logicChallenges": {
+            "actualChallengeCount": 0,
+            "challengesList": []
+        }
+    },
+    "keyCounter": 1
+}
