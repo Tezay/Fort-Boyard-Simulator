@@ -9,6 +9,8 @@
     <h1>Vous êtes dans le fort</h1>
     <h2>Nombre actuel de clés : {{key_count}}</h2>
     <a href="{{url_for('nextChallenge')}}">Prochaine épreuve</a>
-    
+    {% if debug_mode == True %}
+        <a href="{{url_for('challengesList')}}">🛠️ Liste de toutes les énigmes</a>
+    {% endif %}
 </body>
 </html>

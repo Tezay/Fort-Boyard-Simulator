@@ -22,3 +22,15 @@ def chooseRandomChallenge():
     chosen_challenge = random.choice(all_challenges)
     
     return chosen_challenge
+
+
+# Fonction qui renvoie la liste de tous les challenges par type (sous forme de dictionnaire)
+def getChallengesListByType():
+    data = loadData()
+    
+    # Créer un dictionnaire avec en clé le type de challenge et en valeur la liste des challenges
+    challenges_by_type = {}
+    for challenge_type, challenge_data in data['challengesTypes'].items():
+        challenges_by_type[challenge_type] = challenge_data['challengesList']
+
+    return challenges_by_type

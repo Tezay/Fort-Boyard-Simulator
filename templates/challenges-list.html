@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>List des énigmes</title>
+</head>
+<body>
+    <h1>Liste de toutes les énigmes disponibles</h1>
+    {% for challenge_type, challenges in challenges_list.items() %}
+        <div id="challenge_type_box">
+            <h2>{{ challenge_type }}</h2>
+            {% for challenge in challenges %}
+                <a href="{{ url_for(challenge) }}">{{ challenge }}</a>
+            {% endfor %}
+        </div>
+    {% endfor %}
+</body>
+
+</html>

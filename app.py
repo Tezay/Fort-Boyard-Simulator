@@ -1,5 +1,5 @@
 from flask import Flask, render_template, request, redirect, url_for, abort, session
-from select_next_challenge import chooseRandomChallenge
+from select_next_challenge import chooseRandomChallenge, getChallengesListByType
 from challenges import *
 from utils import *
 
@@ -18,9 +18,12 @@ def menu():
 @app.route("/fort-boyard")
 def fortBoyard():
     key_count = getKeyCounter()
+    # Vérifie si le mode debug est actif ou pas
+    # Permet d'avoir accès à la page admin (repertorie toutes les énigmes dispo) lorsqu'actif
+    debug_mode = app.debug
     #Renvoie la page HTML du Fort Boyard (salle où les joueurs reviennent après chaque épreuve)
     # Transmet en paramètre la variable key_count:int (pour afficher le nombre de clés obtenues)
-    return render_template("fort-boyard.html", key_count=key_count)
+    return render_template("fort-boyard.html", key_count=key_count, debug_mode=debug_mode)
 
 
 ###### Routes pour les énigmes mathématiques ######
@@ -100,6 +103,13 @@ def newKey():
     addToKeyCounter(key_number)
     return render_template('new-key.html')
 
+# Route pour afficher la liste de toutes les énigmes disponibles dans le jeu
+# Note : Ne sert que pour debug des énigmes, ou pour démo (pas utile dans le jeu)
+@app.route("/challenges-list")
+def challengesList():
+     # Récupère dans la variable la liste de toutes les énigmes disponibles (du fichier JSON)
+     challenges_list = getChallengesListByType()
+     return render_template("/challenges-list.html", challenges_list=challenges_list)
 
 
 # Gestionnaire d'erreur

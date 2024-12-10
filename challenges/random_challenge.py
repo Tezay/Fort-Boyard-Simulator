@@ -17,7 +17,7 @@ def dices():
     return users_dice_roll, game_master_dice_roll
 
 
-def diceGameChallenge():
+#def diceGameChallenge():
     try_number = 1
     number = 6
     win = False
@@ -37,5 +37,5 @@ def diceGameChallenge():
             try_number += 1
 
     return win
-oui = diceGameChallenge()
-print(oui)
+#oui = diceGameChallenge()
+#print(oui)
