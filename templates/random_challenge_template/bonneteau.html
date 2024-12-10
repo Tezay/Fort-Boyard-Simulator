@@ -9,26 +9,28 @@
 </head>
 <body>
     <h1>Epreuve Bonneteau</h1>
+
     <div class="question-box">
         <p>Choisissez un bonneteau parmis les suivants : {{ bonneteaux_list }} ?</p>
     </div>
-    <div id="user-input-box" class="user-input-box">
-        <input id="user-answer" type="text" placeholder="Entrez votre réponse">
-        <button id="submit-answer">Envoyer</button>
-    </div>
-    <div id="answer-box" class="answer-box hidden" data-expected="{{ expected_answer }}">
-        <div id="right-answer" class="hidden">
+    {% if answer == None %}
+        <form method="POST">
+            <div id="user-input-box" class="user-input-box">
+                <input id="user-answer" name="user-answer" type="text" placeholder="Entrez votre réponse">
+                <button id="submit-answer">Envoyer</button>
+            </div>
+        </form>
+    {% elif answer == right_bonneteau  %}
+        <div id="right-answer">
             <p>Bravo, tu as choisi le bon bonneteau !</p>
             <a href="{{url_for('newKey', key_number='1')}}">Récupérer la clé 🔑</a>
         </div>
-        <div id="wrong-answer" class="hidden">
+    {% elif answer != None %}
+        <div id="wrong-answer">
             <p>Mauvais bonneteau ! La bon bonneteau était : {{ right_bonneteau }}</p>
             <a href="{{url_for('fortBoyard')}}">Retourner sur le fort 🚪</a>
         </div>
-    </div>
-
-    <!-- Import de la feuille de Javascript (pour gérer l'affichage des div question/réponse) -->
-    <script src="{{ url_for('static', filename='js/answer-comparator.js') }}"></script>
+    {% endif %}
 
 </body>
 </html>
