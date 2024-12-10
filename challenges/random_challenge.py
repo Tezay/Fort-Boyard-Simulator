@@ -28,7 +28,7 @@ def diceGameChallenge():
         if number in users_dice_roll:
             win = 1
         print(game_master_dice_roll)
-        elif number in game_master_dice_roll:
+        if number in game_master_dice_roll:
             win = 0
         else:
             try_number += 1
