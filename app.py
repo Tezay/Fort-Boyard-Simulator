@@ -55,10 +55,22 @@ def linearEquation():
         return render_template("math_challenge_template/linear-equation.html", question=question, expected_answer=expected_answer)
 
 
-@app.route("/math-challenge/prime-number")
+@app.route("/math-challenge/prime-number", methods=["POST","GET"])
 def primeNumber():
-    number, expected_answer = primeNumberChallenge()
-    return render_template("math_challenge_template/prime-number.html", number=number, expected_answer=expected_answer)
+    # On vérifie si l'utilisateur charge la page après avoir répondu à a question (form)
+    # Si c'est le cas, il utilise la méthode POST
+    if request.method == 'POST':
+        user_answer = int(request.form.get("user-answer"))
+    # Sinon, il charge la page une première fois pour poser la question
+    else:
+        # On initialise la réponse à None (car pas encore donnée par l'utilisateur)
+        user_answer = None
+        # Appelle de la fonction énigme associée
+        # [compléter la docstring ici]
+        primeNumber.question, primeNumber.right_answer = primeNumberChallenge()
+
+    print(primeNumber.right_answer, type(primeNumber.right_answer), "|", primeNumber.question)
+    return render_template("math_challenge_template/prime-number.html", question=primeNumber.question, right_answer=primeNumber.right_answer, user_answer=user_answer)
 
 @app.route("/math-challenge/roulette")
 def roulette():

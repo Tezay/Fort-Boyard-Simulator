@@ -87,9 +87,9 @@ def factorialChallenge():
     return question, right_answer
 
 def primeNumberChallenge():
-    number = randint(10,20)
-    expected_answer = nearestPrimeNumber(number)
-    return number, expected_answer
+    question = randint(10,20)
+    right_answer = nearestPrimeNumber(question)
+    return question, right_answer
 
 def linearEquationChallenge():
     a , b = randint(1,10), randint(1,10)
