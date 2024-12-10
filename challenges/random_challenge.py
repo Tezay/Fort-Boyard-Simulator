@@ -18,18 +18,25 @@ def dices():
 
 
 def diceGameChallenge():
-    try_number = 0
+    try_number = 1
     number = 6
-    win = -1
-    while try_number < 3 and win == -1:
-        print(try_number)
+    win = False
+    nb = -1
+    while try_number < 3 and nb == -1 and win == False:
+        input("Press enter to continue...")
+        print("vous avez fait ",try_number,"essai")
         users_dice_roll, game_master_dice_roll = dices()
-        print(users_dice_roll)
+        print("vos dés son", users_dice_roll)
         if number in users_dice_roll:
-            win = 1
+            win = True
+            nb = 1
         print(game_master_dice_roll)
         if number in game_master_dice_roll:
-            win = 0
+            win = False
         else:
             try_number += 1
 
+    return win
+
+oui = diceGameChallenge()
+print(oui)
