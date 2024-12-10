@@ -82,9 +82,9 @@ def rouletteMath():
 # Sortie : Booléen (énigme réussie ou pas), Entier (réponse donnée)
 
 def factorialChallenge():
-    number = randint(1,10)
-    expected_answer = factorial(number)
-    return number, expected_answer
+    question = randint(1,10)
+    right_answer = factorial(question)
+    return question, right_answer
 
 def primeNumberChallenge():
     number = randint(10,20)

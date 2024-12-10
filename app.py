@@ -26,14 +26,23 @@ def fortBoyard():
 ###### Routes pour les énigmes mathématiques ######
 
 # Route pour l'énigme factorielle
-@app.route("/math-challenge/factorial")
+@app.route("/math-challenge/factorial", methods=["POST","GET"])
 def factorial():
-        # Appel de la fonction challenge factorielle
-        # La fonction renvoie number:int (le nombre dont on cherche la factorielle) et expected_answer:int (la réponse attendue)
-        number, expected_answer = factorialChallenge()
-        # Renvoie la page HTML de l'énigme factorielle
-        # Transmet en paramètres les variables number:int et expected_answer:int
-        return render_template("math_challenge_template/factorial.html", number=number, expected_answer=expected_answer)
+    # On vérifie si l'utilisateur charge la page après avoir répondu à a question (form)
+    # Si c'est le cas, il utilise la méthode POST
+    if request.method == 'POST':
+        # On récupère la réponse de l'utilisateur (provenant du formulaire)
+        # On converti sa réponse en entier, afin de pouvoir la comparer avec la réponse attendue par la fonction factorial
+        user_answer = int(request.form.get("user-answer"))
+    # Sinon, il charge la page une première fois pour poser la question
+    else:
+        # On initialise la réponse à None (car pas encore donnée par l'utilisateur)
+        user_answer = None
+        # Appelle de la fonction énigme associée
+        # [compléter la docstring ici]
+        factorial.question, factorial.right_answer = factorialChallenge()
+
+    return render_template("math_challenge_template/factorial.html", question=factorial.question, right_answer=factorial.right_answer, user_answer=user_answer)
 
 # Route pour l'énigme d'équation linéaire
 @app.route("/math-challenge/linear-equation")
@@ -57,24 +66,24 @@ def bonneteau():
     # On vérifie si l'utilisateur charge la page après avoir répondu à a question (form)
     # Si c'est le cas, il utilise la méthode POST
     if request.method == 'POST':
-        answer = request.form.get("user-answer")
+        user_answer = request.form.get("user-answer")
     # Sinon, il charge la page une première fois pour poser la question
     else:
         # On initialise la réponse à None (car pas encore donnée par l'utilisateur)
-        answer = None
+        user_answer = None
         # Appelle de la fonction énigme associée
         # [compléter la docstring ici]
         bonneteau.bonneteaux_list, bonneteau.right_bonneteau = bonneteauChallenge()
 
-    return render_template("random_challenge_template/bonneteau.html", bonneteaux_list=bonneteau.bonneteaux_list, right_bonneteau=bonneteau.right_bonneteau, answer=answer)
+    return render_template("random_challenge_template/bonneteau.html", bonneteaux_list=bonneteau.bonneteaux_list, right_answer=bonneteau.right_bonneteau, user_answer=user_answer)
 
 
 #Route pour créer une nouvelle connaissance
-@app.route("/next-challenge", methods=["POST","GET"])
+@app.route("/next-challenge")
 def nextChallenge():
     chosen_challenge = chooseRandomChallenge()
     print(f"CHOSEN CHALLENGE : {chosen_challenge}")
-    return redirect(url_for(chosen_challenge, via_redirect=True))
+    return redirect(url_for(chosen_challenge))
 
 
 #Route pour afficher l'obtention d'une nouvelle clé
