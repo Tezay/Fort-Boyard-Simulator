@@ -45,10 +45,41 @@ def nearestPrimeNumber(n):
     return prime_number
 
 
+# Creation de 5 nombre aléatoire
+def fiveNumbersRandom():
+    five_number = []
+    for i in range(5):
+        five_number[i] = randint(1, 20)
+    return five_number
+
+#Choix d'un opérateur aléatoire
+def randomOperator():
+    # 1 = + ; 2 = - ; 3 = *
+    operator = randint(1, 3)
+    return operator
+
+#Roulette mathématique
+def rouletteMath():
+    numbers = fiveNumbersRandom()
+    operator = randomOperator() # 1 = + ; 2 = - ; 3 = *
+    if operator == 1:
+        result = 0
+        for i in numbers:
+            result = result + i
+    if operator == 2:
+        result = 0
+        for i in numbers:
+            result = result - i
+    if operator == 3:
+        result = 1
+        for i in numbers:
+            result = result * i
+    return result
+
+
 ##### Fonctions des énigmes mathématiques #####
 # Pour chaque fonction :
-# Entrée : Entier (entrée utilisateur)
-# Sortie : Booléen (énime réussie ou pas), Entier (réponse donnée)
+# Sortie : Booléen (énigme réussie ou pas), Entier (réponse donnée)
 
 def factorialChallenge():
     number = randint(1,10)
@@ -59,3 +90,15 @@ def primeNumberChallenge():
     number = randint(10,20)
     expected_answer = nearestPrimeNumber(number)
     return number, expected_answer
+
+def linearEquationChallenge():
+    a , b = randint(1,10), randint(1,10)
+    expected_answer = -b/a
+    question = {'a': a, 'b': b}
+    return question, expected_answer
+
+def mathematicalRouletteChallenge():
+    question_list = fiveNumbersRandom()
+    operator = randomOperator()
+    expected_answer = rouletteMath()
+    return question_list, operator, expected_answer

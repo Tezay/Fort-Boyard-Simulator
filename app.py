@@ -38,8 +38,9 @@ def factorial():
 # Route pour l'énigme d'équation linéaire
 @app.route("/math-challenge/linear-equation")
 def linearEquation():
-        # Call de la fonction challenge associée
-        return render_template("math_challenge_template/linear-equation.html")
+        # Appelle de la fonction équation linéaire associée
+        question, expected_answer = linearEquationChallenge()
+        return render_template("math_challenge_template/linear-equation.html", question=question, expected_answer=expected_answer)
 
 
 @app.route("/math-challenge/prime-number")
