@@ -57,6 +57,13 @@ def primeNumber():
     number, expected_answer = primeNumberChallenge()
     return render_template("math_challenge_template/prime-number.html", number=number, expected_answer=expected_answer)
 
+@app.route("/math-challenge/roulette")
+def roulette():
+        # Appelle de la fonction équation linéaire associée
+        question , expected_answer = rouletteChallenge()
+        return render_template("math_challenge_template/roulette.html", question = question, expected_answer = expected_answer)
+
+
 
 ###### Routes pour les énigmes aléatoires ######
 

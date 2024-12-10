@@ -48,8 +48,8 @@ def nearestPrimeNumber(n):
 # Creation de 5 nombre aléatoire
 def fiveNumbersRandom():
     five_number = []
-    for i in range(5):
-        five_number[i] = randint(1, 20)
+    for nb in range(5):
+        five_number.append(randint(1, 20))
     return five_number
 
 #Choix d'un opérateur aléatoire
@@ -97,8 +97,16 @@ def linearEquationChallenge():
     question = {'a': a, 'b': b}
     return question, expected_answer
 
-def mathematicalRouletteChallenge():
+def rouletteChallenge():
     question_list = fiveNumbersRandom()
     operator = randomOperator()
+    match operator:
+        case 1:
+            operator = "+"
+        case 2:
+            operator = "-"
+        case 3:
+            operator = "*"
     expected_answer = rouletteMath()
-    return question_list, operator, expected_answer
+    question = (question_list, operator)
+    return question, expected_answer
