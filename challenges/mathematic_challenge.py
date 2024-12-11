@@ -93,9 +93,10 @@ def primeNumberChallenge():
 
 def linearEquationChallenge():
     a , b = randint(1,10), randint(1,10)
-    expected_answer = -b/a
+    right_answer = -b/a
     question = {'a': a, 'b': b}
-    return question, expected_answer
+    print(right_answer)
+    return question, right_answer
 
 def rouletteChallenge():
     question_list = fiveNumbersRandom()
@@ -107,6 +108,6 @@ def rouletteChallenge():
             operator = "-"
         case 3:
             operator = "*"
-    expected_answer = rouletteMath()
-    question = (question_list, operator)
-    return question, expected_answer
+    right_answer = rouletteMath()
+    question = {"question_list":question_list, "operator":operator}
+    return question, right_answer

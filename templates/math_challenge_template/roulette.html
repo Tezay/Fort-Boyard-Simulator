@@ -17,11 +17,11 @@
         <button id="submit-answer">Envoyer</button>
     </div>
     <div id="answer-box" class="answer-box hidden" data-expected="{{ expected_answer }}">
-        <div id="right-answer" class="hidden">
+        <div id="right-answer">
             <p>Bravo, tu as trouvé la bonne réponse !</p>
             <a href="{{url_for('newKey', key_number='1')}}">Ouvrir la boite à clé 🔑</a>
         </div>
-        <div id="wrong-answer" class="hidden">
+        <div id="wrong-answer">
             <p>Mauvaise réponse ! La bonne réponse était : {{ expected_answer }}</p>
             <a href="{{url_for('fortBoyard')}}">Retourner sur le fort 🚪</a>
         </div>

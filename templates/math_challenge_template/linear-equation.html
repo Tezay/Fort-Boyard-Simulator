@@ -12,20 +12,23 @@
     <div class="question-box">
         <p>Résoudre l'équation {{ question['a']}}x + {{ question['b']}} = 0. Que vaut x ?</p>
     </div>
-    <div id="user-input-box" class="user-input-box">
-        <input id="user-answer" type="number" placeholder="Entrez la valeur de x">
-        <button id="submit-answer">Envoyer</button>
-    </div>
-    <div id="answer-box" class="answer-box hidden" data-expected="{{ expected_answer }}">
-        <div id="right-answer" class="hidden">
+    {% if user_answer == None %}
+        <form method="POST">
+            <div id="user-input-box" class="user-input-box">
+                <input id="user-answer" name="user-answer" type="text" placeholder="Entrez la valeur de x">
+                <button id="submit-answer">Envoyer</button>
+            </div>
+        </form>
+    {% elif user_answer == right_aswer %}
+        <div id="right-answer">
             <p>Bravo, tu as trouvé la bonne réponse !</p>
             <a href="{{url_for('newKey', key_number='1')}}">Ouvrir la boite à clé 🔑</a>
         </div>
-        <div id="wrong-answer" class="hidden">
-            <p>Mauvaise réponse ! La bonne réponse était : x = {{ expected_answer }}</p>
+    {% elif user_answer != None %}
+        <div id="wrong-answer">
+            <p>Mauvaise réponse ! La bonne réponse était : x = {{ right_answer }}</p>
             <a href="{{url_for('fortBoyard')}}">Retourner sur le fort 🚪</a>
         </div>
-    </div>
-
+    {% endif %}
 </body>
 </html>

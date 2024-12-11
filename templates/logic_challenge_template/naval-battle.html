@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bataille Navale</title>
+</head>
+<body>
+
+    <h1>Bataille Navale</h1>
+
+    <div id="game">
+        <form method="POST">
+            <table id="player1" border="1">
+                <caption>Joueur 1</caption>
+
+                {% if error == "batteau" %}
+                    <div>Il faut placer 4 bateaux</div>
+                {% endif %}
+
+                <tbody>
+                    {% for row in range(8) %}
+                        <tr>
+                            {% for col in range(8) %}
+                                <td>
+                                    {% if moment_game == "beginning" %}
+                                        <div id="user-input-box-{{row}}-{{col}}" class="user-input-box">
+                                            <input type="checkbox" name="cell" value="{{row}}-{{col}}">
+                                        </div>
+                                    {% endif %}
+                                </td>
+                            {% endfor %}
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+            <button id="submit-answer">Prochain Tour</button>
+        </form>
+
+        <!-- Grille du joueur 2 -->
+        <table id="player2" border="1">
+            <caption>Joueur 2</caption>
+            <tbody>
+            {% for i in range(8) %}
+                <tr>
+                    {% for i in range(8) %}
+                        <td></td>
+                    {% endfor %}
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</body>
+</html>

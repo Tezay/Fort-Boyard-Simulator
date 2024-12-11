@@ -48,11 +48,26 @@ def factorial():
     return render_template("math_challenge_template/factorial.html", question=factorial.question, right_answer=factorial.right_answer, user_answer=user_answer)
 
 # Route pour l'énigme d'équation linéaire
-@app.route("/math-challenge/linear-equation")
+@app.route("/math-challenge/linear-equation", methods=["POST","GET"])
 def linearEquation():
-        # Appelle de la fonction équation linéaire associée
-        question, expected_answer = linearEquationChallenge()
-        return render_template("math_challenge_template/linear-equation.html", question=question, expected_answer=expected_answer)
+        # On vérifie si l'utilisateur charge la page après avoir répondu à a question (form)
+        # Si c'est le cas, il utilise la méthode POST
+        if request.method == 'POST':
+            user_answer = str(request.form.get("user-answer"))
+        # Sinon, il charge la page une première fois pour poser la question
+        else:
+            # On initialise la réponse à None (car pas encore donnée par l'utilisateur)
+            user_answer = None
+            # Appelle de la fonction énigme associée
+            # [compléter la docstring ici]
+            linearEquation.question, linearEquation.right_answer = linearEquationChallenge()
+            linearEquation.right_answer = str(linearEquation.right_answer)
+
+        # Lignes de debug, cette énigme de fonctionne pas encore
+        print("ANSWER TYPE :",type(linearEquation.right_answer), linearEquation.right_answer)
+        print("USER ANSWER TYPE :",type(user_answer), user_answer)
+
+        return render_template("math_challenge_template/linear-equation.html", question=linearEquation.question, right_answer=linearEquation.right_answer, user_answer=user_answer)
 
 
 @app.route("/math-challenge/prime-number", methods=["POST","GET"])
@@ -75,8 +90,8 @@ def primeNumber():
 @app.route("/math-challenge/roulette")
 def roulette():
         # Appelle de la fonction équation linéaire associée
-        question , expected_answer = rouletteChallenge()
-        return render_template("math_challenge_template/roulette.html", question = question, expected_answer = expected_answer)
+        question, right_answer = rouletteChallenge()
+        return render_template("math_challenge_template/roulette.html", question = question, right_answer = right_answer)
 
 
 
@@ -98,6 +113,27 @@ def bonneteau():
         bonneteau.bonneteaux_list, bonneteau.right_bonneteau = bonneteauChallenge()
 
     return render_template("random_challenge_template/bonneteau.html", bonneteaux_list=bonneteau.bonneteaux_list, right_answer=bonneteau.right_bonneteau, user_answer=user_answer)
+
+
+# Routes pour les énigmes de logique
+
+# Route pour l'énigme bataille navale
+@app.route("/logic-challenges/naval-battle", methods=['GET','POST'])
+def navalBattle():
+
+    if request.method == 'POST':
+        if navalBattle.moment_game == "beginning":
+            user_answer = request.form.getlist("cell")
+            if len(user_answer) == 4:
+                navalBattle.moment_game = "game"
+                navalBattle.error = None
+            else:
+                navalBattle.error = "batteau"
+    else:
+        navalBattle.moment_game = "beginning"
+        navalBattle.error = None
+
+    return render_template("logic_challenge_template/naval-battle.html", moment_game=navalBattle.moment_game, error = navalBattle.error)
 
 
 #Route pour créer une nouvelle connaissance
