@@ -124,16 +124,45 @@ def navalBattle():
     if request.method == 'POST':
         if navalBattle.moment_game == "beginning":
             user_answer = request.form.getlist("cell")
-            if len(user_answer) == 4:
-                navalBattle.moment_game = "game"
+
+            if errorNavalBattle(user_answer, navalBattle.moment_game):
+                navalBattle.moment_game = "middle"
+                navalBattle.bateaux = []
+
+                for answer in user_answer:
+                    navalBattle.bateaux.append(tuple(map(int, answer.split("-"))))
+                navalBattle.error = None
+
+            else:
+                navalBattle.error = "bateau"
+
+        elif navalBattle.moment_game == "middle":
+            user_answer = request.form.getlist("cell")
+
+            if errorNavalBattle(user_answer, navalBattle.moment_game):
+                user_answer = tuple(map(int, user_answer[0].split("-")))
+                navalBattle.liste_tir[user_answer] = navalBattleGame(navalBattle.bateaux_ordi, user_answer)
+
+                tir_ordi = tirOrdi()
+                while tir_ordi in navalBattle.liste_tir_ordi:
+                    tir_ordi = tirOrdi()
+                navalBattle.liste_tir_ordi[tir_ordi] = navalBattleGame(navalBattle.bateaux, tir_ordi)
+
                 navalBattle.error = None
             else:
-                navalBattle.error = "batteau"
+                navalBattle.error = "tir"
+
     else:
         navalBattle.moment_game = "beginning"
         navalBattle.error = None
+        navalBattle.toucher = None
+        navalBattle.tir = None
+        navalBattle.bateaux = None
+        navalBattle.liste_tir = {}
+        navalBattle.bateaux_ordi = bateauxOrdi([])
+        navalBattle.liste_tir_ordi = {}
 
-    return render_template("logic_challenge_template/naval-battle.html", moment_game=navalBattle.moment_game, error = navalBattle.error)
+    return render_template("logic_challenge_template/naval-battle.html", moment_game=navalBattle.moment_game, error=navalBattle.error, bateaux=navalBattle.bateaux, liste_tir=navalBattle.liste_tir, liste_tir_ordi=navalBattle.liste_tir_ordi)
 
 
 #Route pour créer une nouvelle connaissance

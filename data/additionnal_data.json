@@ -17,7 +17,9 @@
         },
         "logicChallenges": {
             "actualChallengeCount": 0,
-            "challengesList": []
+            "challengesList": [
+                "navalBattle"
+            ]
         }
     },
     "keyCounter": 0

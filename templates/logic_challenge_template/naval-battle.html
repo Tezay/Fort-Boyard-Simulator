@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="fr">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -14,7 +14,7 @@
             <table id="player1" border="1">
                 <caption>Joueur 1</caption>
 
-                {% if error == "batteau" %}
+                {% if error == "bateau" %}
                     <div>Il faut placer 4 bateaux</div>
                 {% endif %}
 
@@ -27,6 +27,12 @@
                                         <div id="user-input-box-{{row}}-{{col}}" class="user-input-box">
                                             <input type="checkbox" name="cell" value="{{row}}-{{col}}">
                                         </div>
+                                    {% elif moment_game == "middle" %}
+                                            {% if (row, col) in bateaux %}
+                                                <div id = "with-boat">boat</div>
+                                            {% else %}
+                                                <div></div>
+                                            {% endif %}
                                     {% endif %}
                                 </td>
                             {% endfor %}
@@ -34,22 +40,39 @@
                     {% endfor %}
                 </tbody>
             </table>
-            <button id="submit-answer">Prochain Tour</button>
-        </form>
 
         <!-- Grille du joueur 2 -->
         <table id="player2" border="1">
             <caption>Joueur 2</caption>
-            <tbody>
-            {% for i in range(8) %}
-                <tr>
-                    {% for i in range(8) %}
-                        <td></td>
+            {% if error == "tir" %}
+                <div>Il ne faut tirer qu'un seul missile</div>
+            {% endif %}
+                <tbody>
+                    {% for row in range(8) %}
+                        <tr>
+                            {% for col in range(8) %}
+                                <td>
+                                    {% if moment_game == "middle" %}
+                                        {% if (row, col) in liste_tir and liste_tir[row, col] %}
+                                            <div id="couler">couler</div>
+                                        {% elif (row, col) in liste_tir %}
+                                            <div id="toucher"></div>
+                                        {% else %}
+                                            <div id="user-input-box-{{row}}-{{col}}" class="user-input-box">
+                                                <input type="checkbox" name="cell" value="{{row}}-{{col}}">
+                                            </div>
+                                        {% endif %}
+                                    {% elif moment_game == "beginning" %}
+                                        <div></div>
+                                    {% endif %}
+                                </td>
+                            {% endfor %}
+                        </tr>
                     {% endfor %}
-                </tr>
-            {% endfor %}
-            </tbody>
+                </tbody>
         </table>
+            <button id="submit-answer">Prochain Tour</button>
+        </form>
     </div>
 </body>
 </html>
