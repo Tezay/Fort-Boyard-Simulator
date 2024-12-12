@@ -53,7 +53,7 @@ def linearEquation():
         # On vérifie si l'utilisateur charge la page après avoir répondu à a question (form)
         # Si c'est le cas, il utilise la méthode POST
         if request.method == 'POST':
-            user_answer = str(request.form.get("user-answer"))
+            user_answer = request.form.get("user-answer")
         # Sinon, il charge la page une première fois pour poser la question
         else:
             # On initialise la réponse à None (car pas encore donnée par l'utilisateur)
@@ -61,11 +61,6 @@ def linearEquation():
             # Appelle de la fonction énigme associée
             # [compléter la docstring ici]
             linearEquation.question, linearEquation.right_answer = linearEquationChallenge()
-            linearEquation.right_answer = str(linearEquation.right_answer)
-
-        # Lignes de debug, cette énigme de fonctionne pas encore
-        print("ANSWER TYPE :",type(linearEquation.right_answer), linearEquation.right_answer)
-        print("USER ANSWER TYPE :",type(user_answer), user_answer)
 
         return render_template("math_challenge_template/linear-equation.html", question=linearEquation.question, right_answer=linearEquation.right_answer, user_answer=user_answer)
 

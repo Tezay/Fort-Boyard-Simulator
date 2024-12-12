@@ -1,4 +1,5 @@
 # Moduls import
+import random
 from random import randint
 
 
@@ -92,11 +93,41 @@ def primeNumberChallenge():
     return question, right_answer
 
 def linearEquationChallenge():
-    a , b = randint(1,10), randint(1,10)
-    right_answer = -b/a
+    # Générer les coefficients a et b
+    a = randint(1, 10)
+    b = 0
+    while b == 0:
+        b = random.randint(-10, 10)
+
+    # Calculer la solution exacte
+    solution_exacte = -b / a
+
+    # Construire une liste de réponses acceptables
+    right_answer = []
+
+    # Ajouter la fraction exacte sous forme de chaîne
+    right_answer.append(f"{-b}/{a}")
+
+    # Ajouter la version décimale avec arrondi à différentes précisions
+    for precision in range(1, 4):  # On arrondit jusqu'à 3 décimales
+        arrondi = round(solution_exacte, precision)
+        right_answer.append(f"{arrondi}".replace(".", ","))  # Format français avec virgule
+        right_answer.append(f"{arrondi}".replace(",", "."))  # Format anglais avec point
+
+    # Ajouter une marge d'erreur pour les réponses proches
+    marge_erreur = 0.05
+    for delta in [-marge_erreur, marge_erreur]:
+        valeur_proche = solution_exacte + delta
+        valeur_proche_arrondie = round(valeur_proche, 2)  # Arrondi à 2 décimales
+        right_answer.append(f"{valeur_proche_arrondie}".replace(".", ","))
+        right_answer.append(f"{valeur_proche_arrondie}".replace(",", "."))
+
+    # Retirer les doublons
+    right_answer = list(set(right_answer))
     question = {'a': a, 'b': b}
-    print(right_answer)
+
     return question, right_answer
+
 
 def rouletteChallenge():
     question_list = fiveNumbersRandom()
