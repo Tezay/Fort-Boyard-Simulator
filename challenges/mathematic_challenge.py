@@ -109,21 +109,20 @@ def linearEquationChallenge():
     right_answer.append(f"{-b}/{a}")
 
     # Ajouter la version décimale avec arrondi à différentes précisions
-    for precision in range(1, 4):  # On arrondit jusqu'à 3 décimales
+    for precision in range(1, 10):  # On arrondit jusqu'à 3 décimales
         arrondi = round(solution_exacte, precision)
         right_answer.append(f"{arrondi}".replace(".", ","))  # Format français avec virgule
         right_answer.append(f"{arrondi}".replace(",", "."))  # Format anglais avec point
 
     # Ajouter une marge d'erreur pour les réponses proches
-    marge_erreur = 0.05
+    marge_erreur = 0.005
     for delta in [-marge_erreur, marge_erreur]:
         valeur_proche = solution_exacte + delta
         valeur_proche_arrondie = round(valeur_proche, 2)  # Arrondi à 2 décimales
         right_answer.append(f"{valeur_proche_arrondie}".replace(".", ","))
         right_answer.append(f"{valeur_proche_arrondie}".replace(",", "."))
 
-    # Retirer les doublons
-    right_answer = list(set(right_answer))
+    b = f"+{b}" if b > 0 else f"{b}"
     question = {'a': a, 'b': b}
 
     return question, right_answer
