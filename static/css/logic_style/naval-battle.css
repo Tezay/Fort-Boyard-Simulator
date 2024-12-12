@@ -1,0 +1,33 @@
+#game {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0; /* Supprime les marges par défaut */
+}
+#game-board {
+    display: flex; /* Utilise Flexbox pour aligner horizontalement les enfants */
+    gap: 10px; /* Espacement optionnel entre les éléments */
+    padding: 10px; /* Optionnel : pour ajouter de l'espace intérieur */
+}
+table {
+    border-collapse: collapse;
+}
+table td, table th {
+width: 50px;
+height: 50px;
+text-align: center;
+border: 1px solid #000;
+}
+form {
+    display: flex;
+    flex-direction: column; /* Aligne les éléments verticalement */
+    justify-content: center;
+    align-items: center; /* Centre horizontalement */
+    height: 100%; /* Prend toute la hauteur possible */
+}
+#submit-answer {
+    margin-top: 20px;
+    padding: 10px 20px;
+    font-size: 16px; /* Taille du texte pour le bouton */
+    cursor: pointer; /* Change le curseur en main au survol */
+}
