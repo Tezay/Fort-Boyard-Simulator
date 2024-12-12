@@ -112,12 +112,13 @@ def bonneteau():
 
 # Routes pour les énigmes de logique
 
-# Route pour l'énigme bataille navale
+# Route pour l'énigme bonneteaux
 @app.route("/logic-challenges/naval-battle", methods=['GET','POST'])
 def navalBattle():
 
-    if request.method == 'POST':
+    if request.method == 'POST' and hasattr(navalBattle, 'moment_game'):
         if navalBattle.moment_game == "beginning":
+            win = None
             user_answer = request.form.getlist("cell")
 
             if errorNavalBattle(user_answer, navalBattle.moment_game):
@@ -142,6 +143,12 @@ def navalBattle():
                 while tir_ordi in navalBattle.liste_tir_ordi:
                     tir_ordi = tirOrdi()
                 navalBattle.liste_tir_ordi[tir_ordi] = navalBattleGame(navalBattle.bateaux, tir_ordi)
+                print(navalBattle.liste_tir_ordi)
+                winner_ordi = gagnant(navalBattle.liste_tir_ordi)
+
+                winner = gagnant(navalBattle.liste_tir)
+
+                win = whoWin(winner, winner_ordi)
 
                 navalBattle.error = None
             else:
@@ -156,8 +163,10 @@ def navalBattle():
         navalBattle.liste_tir = {}
         navalBattle.bateaux_ordi = bateauxOrdi([])
         navalBattle.liste_tir_ordi = {}
+        win = None
 
-    return render_template("logic_challenge_template/naval-battle.html", moment_game=navalBattle.moment_game, error=navalBattle.error, bateaux=navalBattle.bateaux, liste_tir=navalBattle.liste_tir, liste_tir_ordi=navalBattle.liste_tir_ordi)
+
+    return render_template("logic_challenge_template/naval-battle.html", moment_game=navalBattle.moment_game, error=navalBattle.error, bateaux=navalBattle.bateaux, liste_tir=navalBattle.liste_tir, liste_tir_ordi=navalBattle.liste_tir_ordi, win=win)
 
 
 #Route pour créer une nouvelle connaissance

@@ -1,7 +1,5 @@
 import random as rd
 
-# Fonctions pour l'énigme bataille navale
-
 def errorNavalBattle(L, moment_game):
     if len(L) == 4 and moment_game == "beginning":
         return True
@@ -11,18 +9,33 @@ def errorNavalBattle(L, moment_game):
         return False
 
 def navalBattleGame(bateaux, case):
-    print(bateaux, case)
     for bateau in bateaux:
         if case == bateau:
             return True
     return False
 
 def tirOrdi():
-    return (rd.randint(0,8), rd.randint(0,8))
+    return (rd.randint(0,7), rd.randint(0,7))
 
 def bateauxOrdi(L):
     for i in range(4):
-        bateau = (rd.randint(0, 8), rd.randint(0, 8))
+        bateau = (rd.randint(0, 7), rd.randint(0, 7))
         if bateau not in L:
             L.append(bateau)
     return L
+
+def gagnant(dico):
+    compteur = 0
+    for tir in dico.values():
+        if tir:
+            compteur += 1
+
+    return compteur == 4
+
+def whoWin(player1, ordi):
+    if player1:
+        return "player"
+    elif ordi:
+        return "ordi"
+    else:
+        return None
