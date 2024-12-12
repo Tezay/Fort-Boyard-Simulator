@@ -48,13 +48,13 @@
                                                 </div>
                                             {% elif moment_game == "middle" %}
                                                 {% if (row, col) in liste_tir_ordi and liste_tir_ordi[row, col] %}
-                                                    <div id="couler"></div>
+                                                    <div id="couler">💥</div>
                                                 {% elif (row, col) in liste_tir_ordi %}
-                                                    <div id="toucher">touch</div>
+                                                    <div id="toucher">✖️</div>
                                                 {% elif (row, col) in bateaux %}
-                                                    <div id = "with-boat">BOAT</div>
+                                                    <div id = "with-boat">⛵</div>
                                                 {% else %}
-                                                    <div id="empty">empty</div>
+                                                    <div id="empty">🌊</div>
                                                 {% endif %}
                                             {% endif %}
                                         </td>
@@ -74,9 +74,9 @@
                                             <td>
                                                 {% if moment_game == "middle" %}
                                                     {% if (row, col) in liste_tir and liste_tir[row, col] %}
-                                                        <div id="couler"></div>
+                                                        <div id="couler">💥</div>
                                                             {% elif (row, col) in liste_tir %}
-                                                        <div id="toucher">touch</div>
+                                                        <div id="toucher">✖️</div>
                                                     {% else %}
                                                         <div id="user-input-box-{{row}}-{{col}}" class="user-input-box">
                                                             <input type="checkbox" name="cell" value="{{row}}-{{col}}">
