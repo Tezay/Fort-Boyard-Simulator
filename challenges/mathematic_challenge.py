@@ -55,30 +55,33 @@ def fiveNumbersRandom():
 
 #Choix d'un opérateur aléatoire
 def randomOperator():
-    L = ["+","-","*"]
-    operator = random.choices(L)
-    return operator
+    operators_list = ["+","-","*"]
+    return random.choice(operators_list)
 
-#Roulette mathématique
-def rouletteMath():
-    numbers = fiveNumbersRandom()
-    operator = randomOperator()
+# Roulette mathématique
+def rouletteMath(operator, numbers_list):
+    result = numbers_list[0]
+    print(result)
     if operator == "+":
-        result = 0
-        for i in numbers:
+        for i in numbers_list[1:]:
             result += i
-    if operator == "-":
-        result = 0
-        for i in numbers:
+            print(result)
+        return result
+    elif operator == "-":
+        for i in numbers_list[1:]:
             result -= i
-    if operator == "*":
-        result = 1
-        for i in numbers:
-            result += i
-    return result
+            print(result)
+        return result
+    elif operator == "*":
+        for i in numbers_list[1:]:
+            result *= i
+            print(result)
+        return result
+    else:
+        return None
 
 
-                    ##### Fonctions des énigmes mathématiques #####
+##### Fonctions des énigmes mathématiques #####
 # Pour chaque fonction :
 # Sortie : Booléen (énigme réussie ou pas), Entier (réponse donnée)
 
@@ -129,8 +132,8 @@ def linearEquationChallenge():
 
 
 def rouletteChallenge():
-    question_list = fiveNumbersRandom()
+    numbers_list = fiveNumbersRandom()
     operator = randomOperator()
-    right_answer = rouletteMath()
-    question = {"question_list":question_list, "operator":operator}
+    right_answer = rouletteMath(operator, numbers_list)
+    question = {"question_list":numbers_list, "operator":operator}
     return question, right_answer
