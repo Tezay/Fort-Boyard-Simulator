@@ -61,21 +61,17 @@ def randomOperator():
 # Roulette mathématique
 def rouletteMath(operator, numbers_list):
     result = numbers_list[0]
-    print(result)
     if operator == "+":
         for i in numbers_list[1:]:
             result += i
-            print(result)
         return result
     elif operator == "-":
         for i in numbers_list[1:]:
             result -= i
-            print(result)
         return result
     elif operator == "*":
         for i in numbers_list[1:]:
             result *= i
-            print(result)
         return result
     else:
         return None
@@ -135,5 +131,5 @@ def rouletteChallenge():
     numbers_list = fiveNumbersRandom()
     operator = randomOperator()
     right_answer = rouletteMath(operator, numbers_list)
-    question = {"question_list":numbers_list, "operator":operator}
+    question = {"numbers_list":numbers_list, "operator":operator}
     return question, right_answer

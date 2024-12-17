@@ -27,7 +27,7 @@
         </div>
     {% elif user_answer != None %}
         <div id="wrong-answer">
-            <p>Mauvais bonneteau ! La bon bonneteau était : {{ right_answer }}</p>
+            <p>Mauvais bonneteau ! Le bon bonneteau était : {{ right_answer }}</p>
             <a href="{{url_for('fortBoyard')}}">Retourner sur le fort 🚪</a>
         </div>
     {% endif %}

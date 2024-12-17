@@ -10,22 +10,25 @@
 <body>
     <h1>Epreuve : Roulette Mathématique</h1>
     <div class="question-box">
-        <p>Ajouter l'opérateur suivant : {{ operator }} entre chaque chiffre de cette liste {{ question_list }}?</p>
+        <p>Calculer le résultat de l'opération suivante : {{ question["numbers_list"] | join(question["operator"]) }}</p>
     </div>
-    <div id="user-input-box" class="user-input-box">
-        <input id="user-answer" type="number" placeholder="Entrez votre réponse">
-        <button id="submit-answer">Envoyer</button>
-    </div>
-    <div id="answer-box" class="answer-box hidden" data-expected="{{ expected_answer }}">
+    {% if user_answer == None %}
+        <form method="POST">
+            <div id="user-input-box" class="user-input-box">
+                <input id="user-answer" name="user-answer" type="number" placeholder="Entrez votre réponse">
+                <button id="submit-answer">Envoyer</button>
+            </div>
+        </form>
+    {% elif user_answer == right_answer %}
         <div id="right-answer">
             <p>Bravo, tu as trouvé la bonne réponse !</p>
             <a href="{{url_for('newKey', key_number='1')}}">Ouvrir la boite à clé 🔑</a>
         </div>
+    {% elif user_answer != None %}
         <div id="wrong-answer">
-            <p>Mauvaise réponse ! La bonne réponse était : {{ expected_answer }}</p>
+            <p>Mauvaise réponse ! La bonne réponse était : {{ right_answer }}</p>
             <a href="{{url_for('fortBoyard')}}">Retourner sur le fort 🚪</a>
         </div>
-    </div>
-
+    {% endif %}
 </body>
 </html>
