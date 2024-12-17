@@ -1,3 +1,3 @@
-# Permet de considérer tous les fichiers du projet comme des fichiers Python
-# (pour que le repo GitHub apparraisse comme projet Python à 100%)
-* linguist-language=Python
+# Permet d'ignorer les dossiers templates et static dans les statistiques de language du repo GitHub (partie bonus, avec du HTML et CSS)
+templates/** linguist-vendored
+static/** linguist-vendored
