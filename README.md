@@ -32,30 +32,30 @@ Python 3.9+, pip, un navigateur internet.
 
 #### 1. Instructions pour cloner le dépôt Git
 ```bash
-$ git clone https://github.com/Tezay/Fort-Boyard-Simulator.git
-$ cd Fort-Boyard-Simulator
+git clone https://github.com/Tezay/Fort-Boyard-Simulator.git
+cd Fort-Boyard-Simulator
 ```
 #### 2. Configuration de l'environnement de développement (optionnel)
 ```bash
-$ python -m venv env
+python -m venv env
 ```
 - Sous Windows :
     ```
-    $ .\env\Scripts\activate
+    .\env\Scripts\activate
     ```
 - Sous macOS/Linux :
     ```
-    $ source env/bin/activate
+    source env/bin/activate
     ```
 #### 3. Installation des dépendances nécessaires
 ```bash
-$ pip install -r requirements.txt
+pip install -r requirements.txt
 ```
 
 ### Utilisation
 Pour lancer le projet, exécuter le fichier **app.py**
 ```bash
-$ python app.py
+python app.py
 ```
 Depuis un navigateur, se connecter en local sur le port 5000 (Flask) :
 ```url
