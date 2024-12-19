@@ -11,21 +11,25 @@
     <h1>Epreuve Bonneteau</h1>
 
     <div class="question-box">
-        <p>Choisissez un bonneteau parmis les suivants : {{ bonneteaux_list }} ?</p>
+        <p>Choisissez un bonneteau parmi les suivants : {{ bonneteaux_list }} ?</p>
     </div>
-    {% if user_answer == None %}
+
+    {% if user_answer == None or (user_answer != right_answer and counter < 2) %}
         <form method="POST">
             <div id="user-input-box" class="user-input-box">
                 <input id="user-answer" name="user-answer" type="text" placeholder="Entrez votre réponse" required>
                 <button id="submit-answer">Envoyer</button>
             </div>
+            {% if counter > 0 %}
+                <p>Essai {{ counter }} sur 2. Réessayez !</p>
+            {% endif %}
         </form>
-    {% elif user_answer == right_answer  %}
+    {% elif user_answer == right_answer %}
         <div id="right-answer">
             <p>Bravo, tu as choisi le bon bonneteau !</p>
             <a href="{{url_for('newKey', key_number='1')}}">Récupérer la clé 🔑</a>
         </div>
-    {% elif user_answer != None %}
+    {% else %}
         <div id="wrong-answer">
             <p>Mauvais bonneteau ! Le bon bonneteau était : {{ right_answer }}</p>
             <a href="{{url_for('fortBoyard')}}">Retourner sur le fort 🚪</a>

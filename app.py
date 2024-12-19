@@ -110,15 +110,19 @@ def bonneteau():
     # Si c'est le cas, il utilise la méthode POST
     if request.method == 'POST':
         user_answer = request.form.get("user-answer")
+        # On incrémente de 1 le compteur d'essai du joueur
+        bonneteau.counter += 1
     # Sinon, il charge la page une première fois pour poser la question
     else:
         # On initialise la réponse à None (car pas encore donnée par l'utilisateur)
         user_answer = None
+        # On initialise le compteur d'essai à 0
+        bonneteau.counter = 0
         # Appelle de la fonction énigme associée
         # [compléter la docstring ici]
         bonneteau.bonneteaux_list, bonneteau.right_bonneteau = bonneteauChallenge()
 
-    return render_template("random_challenge_template/bonneteau.html", bonneteaux_list=bonneteau.bonneteaux_list, right_answer=bonneteau.right_bonneteau, user_answer=user_answer)
+    return render_template("random_challenge_template/bonneteau.html", bonneteaux_list=bonneteau.bonneteaux_list, right_answer=bonneteau.right_bonneteau, user_answer=user_answer, counter=bonneteau.counter)
 
 
 # Routes pour les énigmes de logique
