@@ -37,5 +37,3 @@ def dices():
             try_number += 1
 
     return win
-#oui = diceGameChallenge()
-#print(oui)

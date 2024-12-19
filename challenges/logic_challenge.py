@@ -1,5 +1,7 @@
 import random as rd
 
+#epreuve bataille Navale
+
 def errorNavalBattle(L, moment_game):
     if len(L) == 4 and moment_game == "beginning":
         return True
