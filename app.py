@@ -109,7 +109,7 @@ def bonneteau():
     # On vérifie si l'utilisateur charge la page après avoir répondu à a question (form)
     # Si c'est le cas, il utilise la méthode POST
     if request.method == 'POST':
-        user_answer = request.form.get("user-answer")
+        user_answer = request.form.get("user-answer").lower()
         # On incrémente de 1 le compteur d'essai du joueur
         bonneteau.counter += 1
     # Sinon, il charge la page une première fois pour poser la question
