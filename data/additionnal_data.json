@@ -20,6 +20,12 @@
             "challengesList": [
                 "navalBattle"
             ]
+        },
+        "pereFourasChallenges": {
+            "actualChallengeCount": 0,
+            "challengesList": [
+                "pereFouras"
+            ]
         }
     },
     "keyCounter": 0

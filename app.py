@@ -184,6 +184,29 @@ def navalBattle():
     return render_template("logic_challenge_template/naval-battle.html", moment_game=navalBattle.moment_game, error=navalBattle.error, bateaux=navalBattle.bateaux, liste_tir=navalBattle.liste_tir, liste_tir_ordi=navalBattle.liste_tir_ordi, win=win)
 
 
+##### Route pour l'énigme de Père Fouras ####
+
+@app.route("/pere-fouras-challenge", methods=['GET','POST'])
+def pereFouras():
+    # On vérifie si l'utilisateur charge la page après avoir répondu à a question (form)
+    # Si c'est le cas, il utilise la méthode POST
+    if request.method == 'POST':
+        # On récupère la réponse de l'utilisateur (provenant du formulaire)
+        # On converti sa réponse en entier, afin de pouvoir la comparer avec la réponse attendue par la fonction factorial
+        user_answer = request.form.get("user-answer").lower()
+    # Sinon, il charge la page une première fois pour poser la question
+    else:
+        # On initialise la réponse à None (car pas encore donnée par l'utilisateur)
+        user_answer = None
+        # Appelle de la fonction énigme associée
+        # [compléter la docstring ici]
+        pereFouras.question, pereFouras.right_answer = pereFourasChallenge()
+        # Passe la réponse attendue en minuscules
+        pereFouras.right_answer = pereFouras.right_answer
+
+    return render_template("pere-fouras.html", question=pereFouras.question, right_answer=pereFouras.right_answer, user_answer=user_answer)
+
+
 #Route pour créer une nouvelle connaissance
 @app.route("/next-challenge")
 def nextChallenge():
