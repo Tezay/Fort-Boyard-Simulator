@@ -6,11 +6,13 @@
     <title>Fort Boyard Simulator</title>
 </head>
 <body>
-    <a href="{{url_for('fortBoyard')}}">Aller sur le fort</a>
 
     <h1>Bienvenue à Fort Boyard !</h1>
-    <p>Voici les règles pour votre aventure : vous formerez une équipe de 1 à 3 personnes. Ensemble, vous devrez affronter 6 épreuves pour récupérer un maximum de clés. Chaque clé gagnée vous donnera un indice crucial pour la fin du jeu.</p>
-    <p>Avant chaque épreuve, vous choisirez son type : mathématiques, logique, hasard, ou les célèbres énigmes du Père Fouras. L’épreuve sera ensuite tirée au sort. Et attention ! Vous devrez aussi choisir quel coéquipier relèvera le défi avec vous.</p>
-    <p>Alors, stratégie, courage et un brin de chance : êtes-vous prêts à affronter les mystères du fort ? </p>
+
+    <p>Voici les règles pour votre aventure : vous formerez une équipe de 1 à 3 personnes. Ensemble, vous devrez affronter 6 épreuves pour récupérer un maximum de clés. Chaque clé gagnée vous donnera un indice crucial pour la fin du jeu.<br>Avant chaque épreuve, vous choisirez son type : mathématiques, logique, hasard, ou les célèbres énigmes du Père Fouras. L’épreuve sera ensuite tirée au sort. Et attention ! Vous devrez aussi choisir quel coéquipier relèvera le défi avec vous.<br>Alors, stratégie, courage et un brin de chance : êtes-vous prêts à affronter les mystères du fort ? </p>
+
+    <a href="{{url_for('fortBoyard')}}">Aller sur le fort</a>
+
+    <p>Note : Toutes les fonctionnalités le sont pas encore entièrement développées. Afin de pouvoir tester toutes les épreuves indépendamment, une page "liste de toutes les énigmes" est disponible sur le fort lorsque le mode debug de Flask est activé (par défaut)</p>
 </body>
 </html>

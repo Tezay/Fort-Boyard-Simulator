@@ -79,7 +79,6 @@ def primeNumber():
         # [compléter la docstring ici]
         primeNumber.question, primeNumber.right_answer = primeNumberChallenge()
 
-    print(primeNumber.right_answer, type(primeNumber.right_answer), "|", primeNumber.question)
     return render_template("math_challenge_template/prime-number.html", question=primeNumber.question, right_answer=primeNumber.right_answer, user_answer=user_answer)
 
 # Route pour l'énigme roulette mathématique
