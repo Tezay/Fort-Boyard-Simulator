@@ -6,7 +6,8 @@
                 "factorial",
                 "linearEquation",
                 "primeNumber",
-                "roulette"
+                "roulette",
+                "whoisprimeNumber"
             ]
         },
         "randomChallenges": {
@@ -28,5 +29,5 @@
             ]
         }
     },
-    "keyCounter": 0
+    "keyCounter": 1
 }
