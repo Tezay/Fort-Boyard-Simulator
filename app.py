@@ -116,6 +116,21 @@ def whoisprimeNumber():
         whoisprimeNumber.question, whoisprimeNumber.right_answer = findPrimeNumberChallenge()
     return render_template("math_challenge_template/who-is-prime.html", question=whoisprimeNumber.question, right_answer=whoisprimeNumber.right_answer, user_answer=user_answer)
 
+# route pour l'énigme trouver le carré
+@app.route("/math-challenge/what-the-square", methods=["POST","GET"])
+def whatTheSquare():
+    # On vérifie si l'utilisateur charge la page après avoir répondu à a question (form)
+    # Si c'est le cas, il utilise la méthode POST
+    if request.method == 'POST':
+        user_answer = int(request.form.get("user-answer"))
+    # Sinon, il charge la page une première fois pour poser la question
+    else:
+        # On initialise la réponse à None (car pas encore donnée par l'utilisateur)
+        user_answer = None
+        # Appelle de la fonction énigme associée
+        # [compléter la docstring ici]
+        whatTheSquare.question, whatTheSquare.right_answer = squareChallenge()
+    return render_template("math_challenge_template/who-is-prime.html", question=whatTheSquare.question, right_answer=whatTheSquare.right_answer, user_answer=user_answer)
 ###### Routes pour les énigmes aléatoires ######
 
 # Route pour l'énigme bonneteaux

@@ -77,11 +77,11 @@ def rouletteMath(operator, numbers_list):
         return None
 
 # carre d'un nombre
-def sqrtNum(n):
+def squareNum(n):
     return n*n
 
 # racine carre d'un nombre
-def sqrtRoot(n):
+def squareRoot(n):
     return n**(1/2)
 
 #verification si le nombre est entier ou non
@@ -93,6 +93,7 @@ def randomPrimeNumber():
     prime_number = [2, 3, 5, 7, 11, 13, 17, 19]
     return random.choice(prime_number)
 
+# Quel est le nombre premier
 def whoIsPrime():
     #Variable
     numbers_list = []
@@ -113,7 +114,11 @@ def whoIsPrime():
     random.shuffle(numbers_list)
     return numbers_list , prime_number
 
-
+#Quel est sont nombres premier
+def squareOfWhat():
+    number = random.randint(1, 20)
+    squared_number = squareNum(number)
+    return number , squared_number
 
 ##### Fonctions des énigmes mathématiques #####
 # Pour chaque fonction :
@@ -176,4 +181,8 @@ def findPrimeNumberChallenge():
     numbers_list, prime_number = whoIsPrime()
     question = numbers_list
     right_answer = prime_number
+    return question, right_answer
+
+def squareChallenge():
+    question, right_answer = squareOfWhat()
     return question, right_answer

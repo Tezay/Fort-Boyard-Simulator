@@ -7,7 +7,8 @@
                 "linearEquation",
                 "primeNumber",
                 "roulette",
-                "whoisprimeNumber"
+                "whoisprimeNumber",
+                "whatTheSquare"
             ]
         },
         "randomChallenges": {
@@ -29,5 +30,5 @@
             ]
         }
     },
-    "keyCounter": 1
+    "keyCounter": 3
 }
