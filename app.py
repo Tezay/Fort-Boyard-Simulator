@@ -247,17 +247,21 @@ def pereFouras():
         # On récupère la réponse de l'utilisateur (provenant du formulaire)
         # On converti sa réponse en entier, afin de pouvoir la comparer avec la réponse attendue par la fonction factorial
         user_answer = request.form.get("user-answer").lower()
+        # On incrémente le nombre d'essai
+        pereFouras.number_of_try += 1
     # Sinon, il charge la page une première fois pour poser la question
     else:
         # On initialise la réponse à None (car pas encore donnée par l'utilisateur)
         user_answer = None
+        # On initialise le nombre d'essai à 0
+        pereFouras.number_of_try = 0 
         # Appelle de la fonction énigme associée
         # [compléter la docstring ici]
         pereFouras.question, pereFouras.right_answer = pereFourasChallenge()
         # Passe la réponse attendue en minuscules
         pereFouras.right_answer = pereFouras.right_answer
 
-    return render_template("pere-fouras.html", question=pereFouras.question, right_answer=pereFouras.right_answer, user_answer=user_answer)
+    return render_template("pere-fouras.html", question=pereFouras.question, right_answer=pereFouras.right_answer, user_answer=user_answer, number_of_try=pereFouras.number_of_try)
 
 #Route pour créer une nouvelle connaissance
 @app.route("/next-challenge")
