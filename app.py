@@ -123,6 +123,30 @@ def bonneteau():
 
     return render_template("random_challenge_template/bonneteau.html", bonneteaux_list=bonneteau.bonneteaux_list, right_answer=bonneteau.right_bonneteau, user_answer=user_answer, counter=bonneteau.counter)
 
+# Route pour l'énigme de lancer de dés
+@app.route("/random-challenge/dice-roll", methods=['GET','POST'])
+def diceRoll():
+
+    # Structure de l'énigme à optimiser
+
+    if request.method == 'POST':
+        # On vérifie à qui était le tour précédent, et définie le prochain tour pour l'autre joueur
+        if diceRoll.turn == 'player':
+            diceRoll.turn = 'master'
+            diceRoll.number_of_try += 1
+        else:
+            diceRoll.turn = 'player'
+    
+    else:
+        diceRoll.number_of_try = 0
+        diceRoll.turn = 'player'
+    
+    # On tire les dés à chaque tour
+    roll = diceRollChallenge()
+
+    return render_template("random_challenge_template/dice-roll.html", roll=roll, turn=diceRoll.turn, number_of_try=diceRoll.number_of_try)
+
+
 
 # Routes pour les énigmes de logique
 

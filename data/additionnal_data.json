@@ -12,7 +12,8 @@
         "randomChallenges": {
             "actualChallengeCount": 0,
             "challengesList": [
-                "bonneteau"
+                "bonneteau",
+                "diceRoll"
             ]
         },
         "logicChallenges": {
@@ -28,5 +29,5 @@
             ]
         }
     },
-    "keyCounter": 0
+    "keyCounter": 1
 }
