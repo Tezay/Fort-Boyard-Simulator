@@ -24,7 +24,7 @@ def isPrime(n):
     if n <= 1:
         is_prime = False
     else:
-        while is_prime and i < n:
+        while is_prime and i < sqrtRoot(n):
             if n % i == 0:
                 is_prime = False
             else:
@@ -76,6 +76,49 @@ def rouletteMath(operator, numbers_list):
     else:
         return None
 
+# carre d'un nombre
+def squareNum(n):
+    return n*n
+
+# racine carre d'un nombre
+def squareRoot(n):
+    return n**(1/2)
+
+#verification si le nombre est entier ou non
+def isInteger(n):
+    return n == int(n)
+
+#choix d'un nombre premier
+def randomPrimeNumber():
+    prime_number = [2, 3, 5, 7, 11, 13, 17, 19]
+    return random.choice(prime_number)
+
+# Quel est le nombre premier
+def whoIsPrime():
+    #Variable
+    numbers_list = []
+    prime_numbers = [2, 3, 5, 7, 11, 13, 17, 19]
+    prime_number = randomPrimeNumber()
+    valid_numbers = [i for i in range(21) if i not in prime_numbers]
+    five_valid_numbers = []
+
+    #ajout de 5 nombre aleatoire qui ne sont pas premier a la liste 5 nombre valide
+    for n in range(5):
+        five_valid_numbers.append(random.choice(valid_numbers))
+    #ajout du nombre premier aleatoir a la liste de la question
+    numbers_list.append(prime_number)
+    #ajout des 5 nombre aleatoire dans la liste question
+    for number in five_valid_numbers:
+        numbers_list.append(number)
+    #melange des éléments de la liste
+    random.shuffle(numbers_list)
+    return numbers_list , prime_number
+
+#Quel est sont nombres premier
+def squareOfWhat():
+    number = random.randint(1, 20)
+    squared_number = squareNum(number)
+    return number , squared_number
 
 ##### Fonctions des énigmes mathématiques #####
 # Pour chaque fonction :
@@ -132,4 +175,14 @@ def rouletteChallenge():
     operator = randomOperator()
     right_answer = rouletteMath(operator, numbers_list)
     question = {"numbers_list":numbers_list, "operator":operator}
+    return question, right_answer
+
+def findPrimeNumberChallenge():
+    numbers_list, prime_number = whoIsPrime()
+    question = numbers_list
+    right_answer = prime_number
+    return question, right_answer
+
+def squareChallenge():
+    question, right_answer = squareOfWhat()
     return question, right_answer

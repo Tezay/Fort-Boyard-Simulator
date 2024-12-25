@@ -6,7 +6,9 @@
                 "factorial",
                 "linearEquation",
                 "primeNumber",
-                "roulette"
+                "roulette",
+                "whoisprimeNumber",
+                "whatTheSquare"
             ]
         },
         "randomChallenges": {
@@ -29,5 +31,5 @@
             ]
         }
     },
-    "keyCounter": 1
+    "keyCounter": 0
 }
