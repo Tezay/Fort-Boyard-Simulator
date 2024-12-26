@@ -29,7 +29,13 @@
             "challengesList": [
                 "pereFouras"
             ]
+        },
+        "finalChallenge": {
+            "actualChallengeCount": 0,
+            "challengesList": [
+                "finalChallenge"
+            ]
         }
     },
-    "keyCounter": 0
+    "keyCounter": 6
 }

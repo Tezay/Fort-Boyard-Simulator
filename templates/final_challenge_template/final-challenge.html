@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Epreuve : Enigme finale</title>
+</head>
+<body>
+    <h1>Epreuve : Enigme finale</h1>
+
+    <h2>Vous venez d'arriver à l'épreuve finale. Vous devez réussir à déchiffrer le code nécessaire pour ouvrir la porte et accéder au trésor.</h2>
+    <p>Vous avez récupéré {{ keyCount }} clés.</p>
+    <p>Voilà commencez donc avec {{keyCount}} indices qui vous aideront à trouver le code.</p>
+
+    <div class="clues-box">
+        <ul>
+            {% for i in range(number_of_clues) %}
+                <li>{{ clues_list[i] }}</li>
+            {% endfor %}
+        </ul>
+    </div>
+
+    {% if user_answer == None %}
+        <form method="POST">
+            <div id="user-input-box" class="user-input-box">
+                <input id="user-answer" name="user-answer" type="text" placeholder="Entrez votre réponse" required>
+                <button id="submit-answer">Envoyer</button>
+            </div>
+        </form>
+
+    {% elif number_of_try <= 2 %}
+
+        {% if user_answer == code_word.lower() %}
+            <div id="right-answer" class="hidden">
+                <p>Bravo, tu as trouvé la bonne réponse !</p>
+                <a href="{{url_for('newKey', key_number='1')}}">Ouvrir la boite à clé 🔑</a>
+            </div>
+        {% else %}
+            <p>Mauvaise réponse, tu as encore {{ 3-number_of_try }} essai(s)</p>
+            <form method="POST">
+                <div id="user-input-box" class="user-input-box">
+                    <input id="user-answer" name="user-answer" type="text" placeholder="Entrez votre réponse" required>
+                    <button id="submit-answer">Envoyer</button>
+                </div>
+            </form>
+        {% endif %}
+            
+
+    {% else %}
+
+        <div id="wrong-answer" class="hidden">
+            <p>Mauvaise réponse ! La bonne réponse était : {{ code_word }}</p>
+            <a href="{{url_for('fortBoyard')}}">Retourner sur le fort 🚪</a>
+        </div>
+    
+    {% endif %}
+
+</body>
+</html>

@@ -263,6 +263,27 @@ def pereFouras():
 
     return render_template("pere-fouras.html", question=pereFouras.question, right_answer=pereFouras.right_answer, user_answer=user_answer, number_of_try=pereFouras.number_of_try)
 
+
+#### Route pour l'épreuve finale ####
+
+@app.route("/final-challenge", methods=['GET','POST'])
+def finalChallenge():
+
+    if request.method == 'POST':
+        user_answer = request.form.get("user-answer").lower()
+        finalChallenge.number_of_try += 1
+        finalChallenge.number_of_clues += 1
+
+    else: 
+        user_answer = None
+        finalChallenge.keyCount = getKeyCounter()
+        finalChallenge.number_of_clues = finalChallenge.keyCount
+        finalChallenge.number_of_try = 0
+        finalChallenge.code_word, finalChallenge.clues_list = final()
+
+    return render_template("final_challenge_template/final-challenge.html", keyCount=finalChallenge.keyCount, code_word=finalChallenge.code_word, clues_list=finalChallenge.clues_list, number_of_clues=finalChallenge.number_of_clues, number_of_try=finalChallenge.number_of_try, user_answer=user_answer)
+
+
 #Route pour créer une nouvelle connaissance
 @app.route("/next-challenge")
 def nextChallenge():

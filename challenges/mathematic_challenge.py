@@ -24,7 +24,7 @@ def isPrime(n):
     if n <= 1:
         is_prime = False
     else:
-        while is_prime and i < sqrtRoot(n):
+        while is_prime and i < squareRoot(n):
             if n % i == 0:
                 is_prime = False
             else:
