@@ -133,10 +133,38 @@ def squareRootOfWhat():
 
     return number, squared_number
 
+def valueSequence():
+    U0 = randint(-25, 25)
+    r = randint(-10,10)
+    return U0, r
+
+def sequence(U0, r):
+    sequence = []
+    opperator = randomOperator()
+    for n in range(6):
+        if opperator == "+" or opperator == "-":
+            number = U0 + r*n
+        elif opperator == "*":
+            number = U0 * r ** n
+        sequence.append(number)
+    return sequence
+
+def sequenceNumber(sequence):
+    show_sequence = sequence[0:-1]
+    number = sequence[-1]
+    return number , show_sequence
+
 
 ##### Fonctions des énigmes mathématiques #####
 # Pour chaque fonction :
 # Sortie : Booléen (énigme réussie ou pas), Entier (réponse donnée)
+
+def sequenceChallenge():
+    U0, r = valueSequence()
+    number = randint(4,20)
+    entire_sequence = sequence(U0, r)
+    right_answer, question = sequenceNumber(entire_sequence)
+    return question, right_answer
 
 def factorialChallenge():
     question = randint(1,10)

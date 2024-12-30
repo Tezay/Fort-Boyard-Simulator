@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Import de la feuille de style -->
+    <link rel="stylesheet" href="{{url_for('static', filename='css/math-style.css')}}">
+    <title>Epreuve : Quelle est le nombre suivant de la suite ?</title>
+</head>
+<body>
+    <h1>Epreuve : Quelle est le nombre suivant de la suite ?</h1>
+    <div class="question-box">
+        <p>Trouver la valeur suivante de la suite suivante : {{ question }}  ?</p>
+    </div>
+    {% if user_answer == None %}
+        <form method="POST">
+            <div id="user-input-box" class="user-input-box">
+                <input id="user-answer" name="user-answer" type="number" placeholder="Entrez votre réponse" required>
+                <button id="submit-answer">Envoyer</button>
+            </div>
+        </form>
+    {% elif user_answer == right_answer %}
+        <div id="right-answer">
+            <p>Bravo, tu as trouvé la bonne réponse !</p>
+            <a href="{{url_for('newKey', key_number='1')}}">Ouvrir la boite à clé 🔑</a>
+        </div>
+    {% elif user_answer != None %}
+        <div id="wrong-answer">
+            <p>Mauvaise réponse ! La bonne réponse était : {{ right_answer }}</p>
+            <a href="{{url_for('fortBoyard')}}">Retourner sur le fort 🚪</a>
+        </div>
+    {% endif %}
+
+</body>
+</html>
