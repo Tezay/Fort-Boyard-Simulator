@@ -37,10 +37,12 @@ def teamChoice():
         action = request.form['action']
         if action == "confirm-team":
             teamChoice.team_completed = True
-        # On récupère le nom du joueur dans la variable player_name
+        # On récupère le nom et la profession du joueur dans la variable player_name et player_job
         player_name = request.form.get('player-name')
-        # On ajoute le joueur au fichier JSON avec la fonction dédiée
-        addToTeam(player_name)
+        player_job = request.form.get('player-job')
+
+        # On ajoute le joueur au fichier JSON avec la fonction dédiée (Par défaut on initialise is_leader à False)
+        addToTeam(player_name,False,player_job)
     else:
         # On initialise la variable à False une première fois
         teamChoice.team_completed = False

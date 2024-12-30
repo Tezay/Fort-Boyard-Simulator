@@ -14,7 +14,7 @@
         <div class="players-list">
             <ul>
                 {% for i in range(player_indice-1) %}
-                    <li>{{ team[i] }}</li>
+                    <li>{{ team[i]['name'] }}, {{ team[i]['job'] }}</li>
                 {% endfor %}
             </ul>
         </div>
@@ -26,6 +26,7 @@
 
             <div class="input-box">
                 <input id="player-name" name="player-name" type="text" placeholder="Joueur {{ player_indice }}" required>
+                <input id="player-job" name="player-job" type="text" placeholder="Profession" required>
                 {% if player_indice < 3 %}
                     <div class="add-player-box">
                         <button id="add-player" name="action" value="add-player">Ajouter un joueur</button>

@@ -51,6 +51,11 @@ python -m venv env
 ```bash
 pip install -r requirements.txt
 ```
+#### 4. Création du fichier de données locales
+Dans le dossier `data/`, dupliquer le fichier `local_data_example.json` et le renommer `local_data.json` (commande ci-dessous)
+```bash
+cp data/local_data_example.json data/local_data.Json
+```
 
 ### Utilisation
 Pour lancer le projet, exécuter le fichier **app.py**
