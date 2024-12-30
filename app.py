@@ -148,6 +148,20 @@ def whatTheSquareRoot():
         whatTheSquareRoot.question, whatTheSquareRoot.right_answer = squareRootChallenge()
     return render_template("math_challenge_template/what-the-square-root.html", question=whatTheSquareRoot.question, right_answer=whatTheSquareRoot.right_answer, user_answer=user_answer)
 
+@app.route("/math-challenge/what-the-sequence", methods=["POST","GET"])
+def whatTheSequence():
+    # On vérifie si l'utilisateur charge la page après avoir répondu à a question (form)
+    # Si c'est le cas, il utilise la méthode POST
+    if request.method == 'POST':
+        user_answer = int(request.form.get("user-answer"))
+    # Sinon, il charge la page une première fois pour poser la question
+    else:
+        # On initialise la réponse à None (car pas encore donnée par l'utilisateur)
+        user_answer = None
+        # Appelle de la fonction énigme associée
+        # [compléter la docstring ici]
+        whatTheSequence.question, whatTheSequence.right_answer = sequenceChallenge()
+    return render_template("math_challenge_template/what-the-sequence.html", question=whatTheSequence.question, right_answer=whatTheSequence.right_answer, user_answer=user_answer)
 
 
 
