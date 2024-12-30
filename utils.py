@@ -40,7 +40,7 @@ def addToKeyCounter(value):
     except FileNotFoundError:
         print("Error : Specified JSON file is not found.")
 
-
+# Fonction pour réinitialiser le nombre de clé (appelée au début de chaque partie)
 def resetKeyCounter():
     try:
         # Lecture des données existantes
@@ -58,3 +58,57 @@ def resetKeyCounter():
     
     except FileNotFoundError:
         print("Error : Specified JSON file is not found.")
+
+
+# Fonction pour ajouter un nouveau joueur à l'équipe
+def addToTeam(player_name):
+    try:
+        # Lire le contenu du fichier JSON
+        with open(ADDITIONNAL_DATA_FILE_PATH, 'r', encoding='utf-8') as file:
+            data = json.load(file)
+        
+        # Ajouter le joueur à la liste "team"
+        if "team" in data:
+            data["team"].append(player_name)
+        else:
+            data["team"] = [player_name]
+        
+        # Écrire les modifications dans le fichier
+        with open(ADDITIONNAL_DATA_FILE_PATH, 'w', encoding='utf-8') as file:
+            json.dump(data, file, ensure_ascii=False, indent=4)
+        
+        print(f"{player_name} has been added in the team.")
+
+    except Exception as e:
+        print(f"Error: {e}")
+
+
+def resetTeam():
+    try:
+        # Lire le contenu du fichier JSON
+        with open(ADDITIONNAL_DATA_FILE_PATH, 'r', encoding='utf-8') as file:
+            data = json.load(file)
+        
+        # Vider la liste "team"
+        data["team"] = []
+        
+        # Écrire les modifications dans le fichier
+        with open(ADDITIONNAL_DATA_FILE_PATH, 'w', encoding='utf-8') as file:
+            json.dump(data, file, ensure_ascii=False, indent=4)
+        
+        print("Team reinitialised")
+    except Exception as e:
+        print(f"Error: {e}")
+
+
+def getTeam():
+    try:
+        # Lire le contenu du fichier JSON
+        with open(ADDITIONNAL_DATA_FILE_PATH, 'r', encoding='utf-8') as file:
+            data = json.load(file)
+        
+        # Renvoyer la liste "team"
+        return data.get("team", [])
+    except Exception as e:
+        print(f"Error: {e}")
+        return []

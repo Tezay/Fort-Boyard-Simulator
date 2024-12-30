@@ -11,6 +11,8 @@ app = Flask(__name__)
 def menu():
     # Appelle la fonction qui permet de réinitialiser le nombre de clés
     resetKeyCounter()
+    # Appelle la fonction qui permet fe réinitialiser la composition de l'équipe
+    resetTeam()
     return render_template("index.html")
 
 
@@ -24,6 +26,31 @@ def fortBoyard():
     #Renvoie la page HTML du Fort Boyard (salle où les joueurs reviennent après chaque épreuve)
     # Transmet en paramètre la variable key_count:int (pour afficher le nombre de clés obtenues)
     return render_template("fort-boyard.html", key_count=key_count, debug_mode=debug_mode)
+
+
+# Route pour le choix de l'équipe
+@app.route('/team-choice', methods=['GET', 'POST'])
+def teamChoice():
+
+    if request.method == 'POST':
+        # Vérifie si l'utilisateur ajoute encore un joueur ou s'il confirme l'équipe, et affecte la variable team_completed en fonction
+        action = request.form['action']
+        if action == "confirm-team":
+            teamChoice.team_completed = True
+        # On récupère le nom du joueur dans la variable player_name
+        player_name = request.form.get('player-name')
+        # On ajoute le joueur au fichier JSON avec la fonction dédiée
+        addToTeam(player_name)
+    else:
+        # On initialise la variable à False une première fois
+        teamChoice.team_completed = False
+
+    # Récupère la liste des joueurs de l'équipe
+    team = getTeam()
+    player_indice = len(team) + 1
+
+    return render_template('team-choice.html', team=team, player_indice=player_indice, team_completed=teamChoice.team_completed)
+
 
 
 ###### Routes pour les énigmes mathématiques ######
@@ -205,6 +232,7 @@ def diceRoll():
 @app.route("/logic-challenges/naval-battle", methods=['GET','POST'])
 def navalBattle():
 
+    # On vérifie si l'utilisateur charge la page après avoir répondu au questionnaire ET qu'il 
     if request.method == 'POST' and hasattr(navalBattle, 'moment_game'):
         if navalBattle.moment_game == "beginning":
             win = None

@@ -38,5 +38,6 @@
             ]
         }
     },
-    "keyCounter": 0
+    "keyCounter": 0,
+    "team": []
 }
