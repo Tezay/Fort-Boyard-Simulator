@@ -86,7 +86,11 @@ def squareRoot(n):
 
 #verification si le nombre est entier ou non
 def isInteger(n):
-    return n == int(n)
+    if n ==int(n):
+        Integer = True
+    else:
+        Integer = False
+    return Integer
 
 #choix d'un nombre premier
 def randomPrimeNumber():
@@ -114,11 +118,21 @@ def whoIsPrime():
     random.shuffle(numbers_list)
     return numbers_list , prime_number
 
-#Quel est sont nombres premier
+#Quel est son carré
 def squareOfWhat():
-    number = random.randint(1, 20)
+    number = random.randint(1, 50)
     squared_number = squareNum(number)
     return number , squared_number
+
+#Quel est sa racine carré
+def squareRootOfWhat():
+    squared_number = 1.5
+    while isInteger(squared_number) == False:
+        number = random.randint(1, 100)
+        squared_number = squareRoot(number)
+
+    return number, squared_number
+
 
 ##### Fonctions des énigmes mathématiques #####
 # Pour chaque fonction :
@@ -185,4 +199,8 @@ def findPrimeNumberChallenge():
 
 def squareChallenge():
     question, right_answer = squareOfWhat()
+    return question, right_answer
+
+def squareRootChallenge():
+    question, right_answer = squareRootOfWhat()
     return question, right_answer
