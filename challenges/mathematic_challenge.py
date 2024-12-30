@@ -1,6 +1,8 @@
 # Moduls import
 import random
+from multiprocessing.connection import answer_challenge
 from random import randint
+from wsgiref.util import request_uri
 
 
 ##### Fonctions utiles #####
@@ -140,11 +142,11 @@ def valueSequence():
 
 def sequence(U0, r):
     sequence = []
-    opperator = randomOperator()
+    operator = randomOperator()
     for n in range(6):
-        if opperator == "+" or opperator == "-":
+        if operator == "+" or operator == "-":
             number = U0 + r*n
-        elif opperator == "*":
+        elif operator == "*":
             number = U0 * r ** n
         sequence.append(number)
     return sequence
@@ -155,9 +157,39 @@ def sequenceNumber(sequence):
     return number , show_sequence
 
 
+def equality():
+    number1 = randint(-25, 25)
+    number2 = randint(-25, 25)
+    operator = randomOperator()
+    return number1, number2 ,operator
+
+def equalityResult(number1,number2,operator):
+    if operator == "+":
+        right_result = number1 + number2
+    elif operator == "-":
+        right_result = number1 - number2
+    elif operator == "*":
+        right_result = number1 * number2
+    result_liste = [randint(right_result-10,right_result+10),right_result]
+    return right_result, random.choice(result_liste)
+
+def equalityAnswer(right_result,result):
+    if right_result == result:
+        return True
+    else:
+        return False
+
 ##### Fonctions des énigmes mathématiques #####
 # Pour chaque fonction :
 # Sortie : Booléen (énigme réussie ou pas), Entier (réponse donnée)
+
+def equalityChallenge():
+    number1 , number2, operator = equality()
+    right_result, result = equalityResult(number1,number2,operator)
+    question = f"{number1}{operator}{number2} = {result}"
+    right_answer = equalityAnswer(right_result, result)
+    return question, right_answer
+
 
 def sequenceChallenge():
     U0, r = valueSequence()

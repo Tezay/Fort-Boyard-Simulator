@@ -190,6 +190,28 @@ def whatTheSequence():
         whatTheSequence.question, whatTheSequence.right_answer = sequenceChallenge()
     return render_template("math_challenge_template/what-the-sequence.html", question=whatTheSequence.question, right_answer=whatTheSequence.right_answer, user_answer=user_answer)
 
+@app.route("/math-challenge/is-the-equation-correct", methods=["POST","GET"])
+def isTheEquationCorrect():
+    # On vérifie si l'utilisateur charge la page après avoir répondu à a question (form)
+    # Si c'est le cas, il utilise la méthode POST
+    if request.method == 'POST':
+        choice = request.form['choice']
+        question , right_answer= equalityChallenge()
+        if choice == "yes":
+            user_answer = True
+        elif choice == "no":
+            user_answer = False
+        else:
+            user_answer = None
+
+    # Sinon, il charge la page une première fois pour poser la question
+    else:
+        # On initialise la réponse à None (car pas encore donnée par l'utilisateur)
+        user_answer = None
+        # Appelle de la fonction énigme associée
+        # [compléter la docstring ici]
+        isTheEquationCorrect.question, isTheEquationCorrect.right_answer = equalityChallenge()
+    return render_template("math_challenge_template/is-the-equation-correct.html", question=isTheEquationCorrect.question, right_answer=isTheEquationCorrect.right_answer, user_answer=user_answer)
 
 
 ###### Routes pour les énigmes aléatoires ######

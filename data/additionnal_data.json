@@ -10,7 +10,8 @@
                 "whoisprimeNumber",
                 "whatTheSquare",
                 "whatTheSquareRoot",
-                "whatTheSequence"
+                "whatTheSequence",
+                "isTheEquationCorrect"
             ]
         },
         "randomChallenges": {
@@ -39,6 +40,9 @@
             ]
         }
     },
-    "keyCounter": 0,
-    "team": []
+    "keyCounter": 4,
+    "team": [
+        "Eliot",
+        "Mey"
+    ]
 }
