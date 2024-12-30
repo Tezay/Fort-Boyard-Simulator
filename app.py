@@ -280,11 +280,16 @@ def finalChallenge():
         finalChallenge.number_of_clues = finalChallenge.keyCount
         finalChallenge.number_of_try = 0
         finalChallenge.code_word, finalChallenge.clues_list = final()
+        print(finalChallenge.code_word)
 
     return render_template("final_challenge_template/final-challenge.html", keyCount=finalChallenge.keyCount, code_word=finalChallenge.code_word, clues_list=finalChallenge.clues_list, number_of_clues=finalChallenge.number_of_clues, number_of_try=finalChallenge.number_of_try, user_answer=user_answer)
 
+@app.route("/treasure-room")
+def treasureRoom():
+    return render_template("final_challenge_template/treasure-room.html")
 
-#Route pour créer une nouvelle connaissance
+
+# Route pour accéder à la prochaine énigme (à refaire pour correspondre aux critères d'évaluation)
 @app.route("/next-challenge")
 def nextChallenge():
     chosen_challenge = chooseRandomChallenge()

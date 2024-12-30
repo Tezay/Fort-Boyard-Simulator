@@ -11,7 +11,7 @@
 
     <h2>Vous venez d'arriver à l'épreuve finale. Vous devez réussir à déchiffrer le code nécessaire pour ouvrir la porte et accéder au trésor.</h2>
     <p>Vous avez récupéré {{ keyCount }} clés.</p>
-    <p>Voilà commencez donc avec {{keyCount}} indices qui vous aideront à trouver le code.</p>
+    <p>Vous commencez donc avec {{keyCount}} indices qui vous aideront à trouver le code.</p>
 
     <div class="clues-box">
         <ul>
@@ -29,12 +29,12 @@
             </div>
         </form>
 
-    {% elif number_of_try <= 2 %}
+    {% elif number_of_try < 3 %}
 
         {% if user_answer == code_word.lower() %}
             <div id="right-answer" class="hidden">
                 <p>Bravo, tu as trouvé la bonne réponse !</p>
-                <a href="{{url_for('newKey', key_number='1')}}">Ouvrir la boite à clé 🔑</a>
+                <a href="{{url_for('treasureRoom')}}">Aller à la salle du trésor 🪙</a>
             </div>
         {% else %}
             <p>Mauvaise réponse, tu as encore {{ 3-number_of_try }} essai(s)</p>
