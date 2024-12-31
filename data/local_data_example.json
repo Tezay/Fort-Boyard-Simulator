@@ -1,4 +1,11 @@
 {
     "keyCounter": 0,
-    "team": {}
+    "team": {},
+    "challengesCount":{
+        "mathematic":0,
+        "logic":0,
+        "random":0,
+        "pereFouras":0
+    },
+    "remainingChallengesCounter":5
 }

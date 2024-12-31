@@ -1,0 +1,23 @@
+{
+    "mathematic":[
+        "factorial",
+        "linearEquation",
+        "primeNumber",
+        "roulette",
+        "whoisprimeNumber",
+        "whatTheSquare",
+        "whatTheSquareRoot",
+        "whatTheSequence",
+        "isTheEquationCorrect"
+    ],
+    "random":[
+        "bonneteau",
+        "diceRoll"
+    ],
+    "logic":[
+        "navalBattle"
+    ],
+    "pereFouras":[
+        "pereFouras"
+    ]
+}

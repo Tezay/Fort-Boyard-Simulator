@@ -1,5 +1,5 @@
 from flask import Flask, render_template, request, redirect, url_for, abort, session
-from select_next_challenge import chooseRandomChallenge, getChallengesListByType
+from select_next_challenge import chooseRandomChallenge
 from challenges import *
 from utils import *
 
@@ -376,12 +376,35 @@ def treasureRoom():
     return render_template("final_challenge_template/treasure-room.html")
 
 
-# Route pour accéder à la prochaine énigme (à refaire pour correspondre aux critères d'évaluation)
+# Route pour séléctionner le joueur pour la prochaine épreuve
+@app.route("/next-player", methods=['GET','POST'])
+def nextPlayer():
+    if request.method == 'POST':
+        # On récupère le joueur qui a été séléctionné
+        selected_player = request.form['identity']
+        # On incrémente le compteur d'épreuve passée du joueur
+        addToPassedChallenges(selected_player)
+    else:
+        # On initialise la variable à None
+        selected_player = None
+
+    # On récupère la liste des joueurs
+    team = getTeam()
+    return render_template("next-player.html", team=team, selected_player=selected_player)
+
+# Route pour accéder à la prochaine épreuve
+# A TERMINER (il est 2h du mat mieux vaut aller dormir...)
 @app.route("/next-challenge")
 def nextChallenge():
-    chosen_challenge = chooseRandomChallenge()
-    print(f"CHOSEN CHALLENGE : {chosen_challenge}")
-    return redirect(url_for(chosen_challenge))
+    challenges_count = getChallengesCount()
+    remaining_challenges_counter = getRemainingChallengesCounter()
+    key_count = getKeyCounter()
+    # Initialise la variable qui donne accès à l'épreuve finale à False, et si les joueurs ont cumulé +3 clés passe à True
+    final_challenge_access = False
+    if key_count >= 3:
+        final_challenge_access = True
+
+    return render_template("next-challenge.html", challenges_count=challenges_count,remaining_challenges_counter=remaining_challenges_counter,key_count=key_count, final_challenge_access=final_challenge_access)
 
 
 #Route pour afficher l'obtention d'une nouvelle clé
@@ -396,7 +419,7 @@ def newKey():
 @app.route("/challenges-list")
 def challengesList():
      # Récupère dans la variable la liste de toutes les énigmes disponibles (du fichier JSON)
-     challenges_list = getChallengesListByType()
+     challenges_list = getChallengesList()
      return render_template("/challenges-list.html", challenges_list=challenges_list)
 
 

@@ -1,6 +1,8 @@
 import json
+import random
 
 LOCAL_DATA_FILE_PATH = "data/local_data.json"
+CHALLENGES_LIST_FILE_PATH = "data/challenges_list.json"
 
 
 ###### Toutes les fonctions qui permettent la liaison avec les fichiers de données JSON ######
@@ -122,3 +124,72 @@ def getTeam():
     except Exception as e:
         print(f"Error: {e}")
         return []
+
+
+def addToPassedChallenges(player):
+    # Charger le contenu du fichier JSON
+    with open(LOCAL_DATA_FILE_PATH, 'r') as file:
+        data = json.load(file)
+
+    # Vérifier si le joueur existe dans l'équipe
+    if player in data['team']:
+        # Ajouter +1 à passedChallenges du joueur
+        data['team'][player]['passedChallenges'] += 1
+
+        # Enregistrer les modifications dans le fichier JSON
+        with open(LOCAL_DATA_FILE_PATH, 'w') as file:
+            json.dump(data, file, indent=4)
+        print(f"Challenge ajouté pour {player}.")
+    else:
+        print(f"{player} is not in the file.")
+
+
+# Fonction qui renvoie une énigme au hasard parmi la catégorie spécifiée
+def chooseChallengeByType(type):
+    try:
+        # Charger les données JSON depuis le fichier
+        with open(CHALLENGES_LIST_FILE_PATH, "r") as file:
+            data = json.load(file)
+        
+        # Vérifier si le type existe dans les données
+        if type in data:
+            challenges = data[type]
+            # Retourner une épreuve aléatoire dans la catégorie spécifiée
+            return random.choice(challenges)
+        else:
+            print(f"Type :'{type}' is not in the file.")
+    except Exception as e:
+        print(f"Error: {e}")
+
+# Fonction qui renvoie la liste de tous les challenges par type (sous forme de dictionnaire)
+# Note : sert uniquement pour le mode debug
+def getChallengesList():
+    try:  
+        # Ouvrir le fichier JSON et charger les données
+        with open(CHALLENGES_LIST_FILE_PATH, 'r') as file:
+            data = json.load(file)
+        # Retourner toutes les énigmes par catégorie
+        return data
+    except Exception as e:
+        print(f"Error: {e}")
+
+
+# Fonction pour renvoyer le compteur de chaque type d'énigme
+def getChallengesCount():
+    try:
+        with open(LOCAL_DATA_FILE_PATH, 'r') as file:
+            data = json.load(file)
+            return data['challengesCount']
+    except Exception as e:
+        print(f"Error: {e}")
+
+
+# Fonction pour renvoyer le nombre d'énigmes restantes
+def getRemainingChallengesCounter():
+    try:
+        with open(LOCAL_DATA_FILE_PATH, 'r') as file:
+            data = json.load(file)
+            return data.get("remainingChallengesCounter", 0)  # Retourne 0 si 'keyCounter' n'existe pas
+    except FileNotFoundError:
+        print("Error : Specified JSON file is not found.")
+        return None
