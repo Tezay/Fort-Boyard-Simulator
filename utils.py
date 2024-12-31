@@ -139,7 +139,7 @@ def addToPassedChallenges(player):
         # Enregistrer les modifications dans le fichier JSON
         with open(LOCAL_DATA_FILE_PATH, 'w') as file:
             json.dump(data, file, indent=4)
-        print(f"Challenge ajouté pour {player}.")
+        print(f"Challenge added for {player}.")
     else:
         print(f"{player} is not in the file.")
 
@@ -193,3 +193,23 @@ def getRemainingChallengesCounter():
     except FileNotFoundError:
         print("Error : Specified JSON file is not found.")
         return None
+
+
+# Fonction pour incrémenter le compteur d'une épreuve spécifiée
+def addToChallengesCount(challenge):
+    # Charger le contenu du fichier JSON
+    with open(LOCAL_DATA_FILE_PATH, 'r') as file:
+        data = json.load(file)
+
+    # Vérifier si le challenge existe
+    if challenge in data['challengesCount']:
+        # Ajouter +1 au challenge
+        data['challengesCount'][challenge] += 1
+
+        # Enregistrer les modifications dans le fichier JSON
+        with open(LOCAL_DATA_FILE_PATH, 'w') as file:
+            json.dump(data, file, indent=4)
+        print(f"Challenge counter incremented for {challenge}.")
+    else:
+        print(f"{challenge} is not in the file.")
+

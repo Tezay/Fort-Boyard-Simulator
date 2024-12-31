@@ -7,9 +7,41 @@
 </head>
 <body>
     <h1>Choix de la prochaine épreuve</h1>
-    <div class="stat-box">
+    <div class="info-box">
         <p>Vous avez {{key_count}} clé(s)</p>
-        <p>Là faudra permettre de choisir le type d'épreuve etc.</p>
+        <h2>Vous avez le droit de faire 2 épreuves par catégorie au total. Il faudra en faire au minimum une par catégorie ! Vous pouvez récupérer au maximum 5 clés.</h2>
+        <p>Choisissez le type d'épreuve que vous voulez faire.</p>
+        <p>A chaque épreuve réussie, vous gagnerez une clé. Il vaut faut un minimum de 3 clés pour pouvoir accéder à l'épreuve finale.</p>
+    </div>
+    <div class="challenges-list">
+
+        {% for challenge_type in challenges_count %}
+            <div class="{{challenge_type}}">
+                <div class="challenge-type-selector">
+                    {% if challenges_count[challenge_type] < 2 and key_count < 5 %}
+                        <a href="{{url_for('selectRandomChallenge', challenge_type=challenge_type)}}">{{challenge_type}}</a>
+                    {% else %}
+                        <p>{{challenge_type}}</p>
+                    {% endif %}
+                </div>
+                <div class="challenge-type-counter">
+                    {% if key_count >= 5 %}
+                        <p>Trop fort, vous avez déjà le total du nombre de clés.</p>
+                    {% elif challenges_count[challenge_type] < 2 %}
+                        <p>Nombe d'épreuve(s) restante(s) : {{ 2 - challenges_count[challenge_type] }}</p>
+                    {% else %}
+                    <p>Vous ne pouvez plus faire d'épreuve dans cette catégorie.</p>
+                    {% endif %}
+                </div>
+            </div>
+        {% endfor %}
+
+        {% if final_challenge_access %}
+        <div class="final-challenge-box">
+            <a href="{{url_for('finalChallenge')}}">Accéder à l'épreuve finale</a>
+        </div>
+        {% endif %}
+
     </div>
 </body>
 </html>

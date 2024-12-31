@@ -424,6 +424,7 @@ def nextPlayer():
     team = getTeam()
     return render_template("next-player.html", team=team, selected_player=selected_player)
 
+
 # Route pour accéder à la prochaine épreuve
 # A TERMINER (il est 2h du mat mieux vaut aller dormir...)
 @app.route("/next-challenge")
@@ -438,6 +439,19 @@ def nextChallenge():
 
     return render_template("next-challenge.html", challenges_count=challenges_count,remaining_challenges_counter=remaining_challenges_counter,key_count=key_count, final_challenge_access=final_challenge_access)
 
+
+# Route pour séléctionner une épreuve aléatoire parmi la catégorie spécifiée
+@app.route("/random-challenge-selector")
+def selectRandomChallenge():
+    # On récupère la catégorie séléctionnée, en paramètre de l'URL
+    challenge_type = request.args.get('challenge_type')
+    # On incrémente le compteur du type d'épreuve
+    addToChallengesCount(challenge_type)
+    # On séléctionne une épreuve au hasard parmi la catégorie donnée, et on la stock dans la variable selected_challenge
+    selected_challenge = chooseChallengeByType(challenge_type)
+
+    # On renvoie l'url de l'épreuve séléctionnée
+    return redirect(url_for(selected_challenge))
 
 #Route pour afficher l'obtention d'une nouvelle clé
 @app.route("/new-key")
