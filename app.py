@@ -1,5 +1,4 @@
 from flask import Flask, render_template, request, redirect, url_for, abort, session
-from select_next_challenge import chooseRandomChallenge
 from challenges import *
 from utils import *
 
