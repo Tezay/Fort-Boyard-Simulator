@@ -1,6 +1,6 @@
 import random as rd
 
-#epreuve bataille Navale
+##### Fonctions pour l'épreuve bataille navale #####
 
 def errorNavalBattle(L, moment_game):
     if len(L) == 4 and moment_game == "beginning":
@@ -41,3 +41,84 @@ def whoWin(player1, ordi):
         return "ordi"
     else:
         return None
+
+
+
+##### Fonctions pour l'épreuve morpion #####
+
+def updateBoard(pos_morpion, move, person):
+    if person == "player":
+        pos_morpion[move[0]][move[1]] = 1
+    else:
+        pos_morpion[move[0]][move[1]] = 2
+    return pos_morpion
+
+def masterMove():
+    return (rd.randint(0, 2), rd.randint(0, 2))
+
+def verifLin(pos_morpion, person):
+    n = len(pos_morpion)
+    if person == "player":
+        key = 1
+    else:
+        key = 2
+    for elt in pos_morpion:
+        if elt[0] == elt[1] == elt[2] and elt[0] == key:
+            return True
+    return False
+
+def verifCol(pos_morpion, person):
+    if person == "player":
+        key = 1
+    else:
+        key = 2
+    for i in range(len(pos_morpion)):
+        if pos_morpion[0][i] == pos_morpion[1][i] == pos_morpion[2][i] and pos_morpion[0][i] == key:
+            return True
+    return False
+
+def verifAntiDiag(pos_morpion, person):
+    n = len(pos_morpion)
+    counterDict = {}
+    if person == "player":
+        key = 1
+    else:
+        key = 2
+    for i in range(n):
+        for j in range(n):
+            if i+j in counterDict and pos_morpion[i][j] == key:
+                counterDict[i+j] += 1
+            elif i+j not in counterDict and pos_morpion[i][j] == key:
+                counterDict[i+j] = 1
+    if 2 in counterDict and counterDict[2] == 3:
+        return True
+    return False
+
+def verifDiag(pos_morpion, person):
+    n = len(pos_morpion)
+    counterDict = {}
+    if person == "player":
+        key = 1
+    else:
+        key = 2
+    for i in range(n):
+        for j in range(n):
+            if i-j in counterDict and pos_morpion[i][j] == key:
+                counterDict[i-j] += 1
+            elif i-j not in counterDict and pos_morpion[i][j] == key:
+                counterDict[i-j] = 1
+    if 0 in counterDict and counterDict[0] == 3:
+        return True
+    return False
+
+def estSol(pos_morpion, person):
+    print("lin:", verifLin(pos_morpion, person))
+    print("col:", verifCol(pos_morpion, person))
+    print("anti-diag:", verifAntiDiag(pos_morpion, person))
+    print("diag:", verifDiag(pos_morpion, person))
+    return verifLin(pos_morpion, person) or verifCol(pos_morpion, person) or verifAntiDiag(pos_morpion, person) or verifDiag(pos_morpion, person)
+
+def errorTicTacToe(player_move):
+    if len(player_move) != 1:
+        return False
+    return True

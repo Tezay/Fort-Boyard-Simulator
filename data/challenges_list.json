@@ -15,6 +15,7 @@
         "diceRoll"
     ],
     "logic":[
+        "ticTacToe",
         "navalBattle"
     ],
     "pereFouras":[

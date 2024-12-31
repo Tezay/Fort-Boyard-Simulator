@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Import de la feuille de style -->
+    <link rel="stylesheet" href="{{url_for('static', filename='css/logic_style/naval-battle.css')}}">
+    <title>Epreuve : Morpion</title>
+</head>
+<body>
+
+    <h1>Epreuve : Morpion</h1>
+
+    {% if win == "player" %}
+        <div id="right-answer" class="hidden">
+            <p>Bravo, vous avez gagné !</p>
+            <a href="{{url_for('newKey', key_number='1')}}">Ouvrir la boite à clé 🔑</a>
+        </div>
+    {% elif win == "master" %}
+        <div id="wrong-answer" class="hidden">
+            <p>Dommage, vous avez perdu</p>
+            <a href="{{url_for('fortBoyard')}}">Retourner sur le fort 🚪</a>
+        </div>
+    {% else %}
+
+        <div id="game">
+            <div id="error-message">
+                {% if error == "verif_player" %}
+                    <div>vous n'avez le droit de jouer qu'un seul symbole</div>
+                {% endif %}
+            </div>
+            <form method="POST">
+                <div id="game-board">
+                    <table id="player" border="1">
+                        <tbody>
+                            {% for row in range(3) %}
+                                <tr>
+                                    {% for col in range(3) %}
+                                        <td>
+                                            {% if pos_morpion[row][col] == 1 %}
+                                                <div id="circle">⭕</div>
+                                            {% elif pos_morpion[row][col] == 2 %}
+                                                <div id="cross">❌</div>
+                                            {% else %}
+                                                <div id="empty">
+                                                    <input type="checkbox" name="cell" value="{{row}}-{{col}}">
+                                                </div>
+                                            {% endif %}
+                                        </td>
+                                    {% endfor %}
+                                </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+                <button id="submit-answer">Prochain Tour</button>
+            </form>
+        </div>
+    {% endif %}
+</body>
+</html>

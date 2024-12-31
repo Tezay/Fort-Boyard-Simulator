@@ -200,10 +200,8 @@ def isTheEquationCorrect():
         question , right_answer= equalityChallenge()
         if choice == "yes":
             user_answer = True
-        elif choice == "no":
-            user_answer = False
         else:
-            user_answer = None
+            user_answer = False
 
     # Sinon, il charge la page une première fois pour poser la question
     else:
@@ -263,7 +261,42 @@ def diceRoll():
 
 
 
-# Routes pour les énigmes de logique
+##### Routes pour les énigmes de logique #####
+
+# Route pour l'épreuve morpion
+@app.route("/logic-challenges/tic-tac-toe", methods=['GET','POST'])
+def ticTacToe():
+    if request.method == 'POST' and hasattr(ticTacToe, 'pos_morpion'):
+        player_move = request.form.getlist("cell")
+
+        if errorTicTacToe(player_move):
+            player_move = tuple(map(int, player_move[0].split("-")))
+            ticTacToe.pos_morpion = updateBoard(ticTacToe.pos_morpion, player_move, "player")
+            if estSol(ticTacToe.pos_morpion, "player"):
+                win = "player"
+            else:
+                master_move = masterMove()
+                while ticTacToe.pos_morpion[master_move[0]][master_move[1]] != 0:
+                    master_move = masterMove()
+                ticTacToe.pos_morpion = updateBoard(ticTacToe.pos_morpion, master_move, "master")
+                if estSol(ticTacToe.pos_morpion, "master"):
+                    win = "master"
+                else:
+                    win = None
+
+            error  = None
+
+        else:
+            win = None
+            error = "verif_player"
+
+    else:
+        win = None
+        ticTacToe.pos_morpion = [[0 for j in range(3)] for i in range(3)]
+        error = None
+
+    return render_template("logic_challenge_template/tic-tac-toe.html", pos_morpion=ticTacToe.pos_morpion, win=win, error=error)
+
 
 # Route pour l'énigme bonneteaux
 @app.route("/logic-challenges/naval-battle", methods=['GET','POST'])
