@@ -1,0 +1,51 @@
+body {
+    background-image: url('../background/fort-boyard-outside.webp');
+    background-size: cover; /* L'image couvre toute la fenêtre */
+    background-position: center; /* Centre l'image */
+    background-repeat: no-repeat; /* Empêche la répétition */
+}
+
+.fort-boyard-logo {
+    max-width: 220px;  /* Limite la taille du logo à 200px de largeur */
+    height: auto;      /* Garde les proportions de l'image */
+    display: block;    /* Nécessaire pour le centrage */
+    margin: 20px auto 0; /* Ajoute un espace de 20px en haut, centre l'image horizontalement */
+  }
+  
+h2 {
+    color: #bd923c;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.6); /* Ombre noire légèrement floutée */
+}
+
+.content-box {
+    width: 38%; /* La div prend 1/3 de la largeur de la page */
+    word-wrap: break-word; /* Coupe les mots longs si nécessaire */
+    box-sizing: border-box; /* Inclut les bordures et le padding dans la largeur totale */
+    padding: 10px; /* Ajoute un peu d'espace interne pour l'esthétique */
+}
+
+
+.start-button {
+    display: inline-block;          /* Traite le lien comme un bouton */
+    padding: 10px 20px;            /* Ajoute de l'espace à l'intérieur du bouton */
+    text-align: center;            /* Centre le texte dans le bouton */
+    text-decoration: none;         /* Supprime le soulignement du lien */
+    color: #dfdfdf;                   /* Couleur du texte (gris foncé pour le contraste) */
+    background-color: #bd923c;     /* Couleur de fond jaune pastel */
+    border: 2px solid #a26f08;     /* Bordure fine pour le design */
+    border-radius: 25px;           /* Contours arrondis */
+    font-size: 1.2rem;               /* Taille de police confortable */
+    font-weight: bold;             /* Texte en gras */
+    transition: all 0.2s ease;     /* Animation fluide pour les effets */
+  }
+  
+  .start-button:hover {
+    background-color: #cfa758;     /* Couleur légèrement plus vive au survol */
+    border-color: #b98826;         /* Change la couleur de la bordure au survol */
+    transform: scale(1.05);         /* Agrandit légèrement le bouton au survol */
+  }
+  
+  .start-button-box {
+    text-align: center;            /* Centre le bouton horizontalement dans sa div */
+  }
+  

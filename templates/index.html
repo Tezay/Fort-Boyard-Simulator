@@ -3,18 +3,26 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Styles généraux -->
+    <link rel="stylesheet" href="{{url_for('static', filename='css/global-style.css')}}">
+    <!-- Styles spécifiques à cette page -->
+    <link rel="stylesheet" href="{{url_for('static', filename='css/index-style.css')}}">
     <title>Fort Boyard Simulator</title>
 </head>
 <body>
+    <img src="{{ url_for('static', filename='img/fort-boyard-logo.png') }}" alt="Fort Boyard Logo" class="fort-boyard-logo" />
 
-    <h1>Bienvenue à Fort Boyard !</h1>
+    <div class="content-box">
+        <h2>Bienvenue à Fort Boyard !</h2>
+        <p>En équipe de 1 à 3 personnes, vous devrez affronter jusqu’à 8 épreuves réparties en 4 catégories : mathématiques, logique, hasard, ou les célèbres énigmes du Père Fouras.<br> Vous aurez la possibilité de réaliser 2 épreuves par catégorie pour récupérer un maximum de clés. Chaque clé gagnée vous donnera un indice crucial pour l'épreuve finale.<br>Avant chaque épreuve, vous choisirez quel joueur envoyer, vous choisirez le type d'épreuve, et celle-ci sera ensuite tirée au sort.<br>Alors, stratégie, courage et un brin de chance : êtes-vous prêts à affronter les mystères du fort ?</p>
+        
+        <div class="start-button-box">
+            <a href="{{url_for('teamChoice')}}" class="start-button">Commencer l'aventure</a>
+        </div>
+    </div>
 
-    <p>Voici les règles pour votre aventure : vous formerez une équipe de 1 à 3 personnes. Ensemble, vous devrez affronter jusqu’à 8 épreuves réparties en 4 catégories : mathématiques, logique, hasard, ou les célèbres énigmes du Père Fouras.<br> <br>Vous aurez la possibilité de réaliser 2 épreuves par catégorie pour récupérer un maximum de clés. Chaque clé gagnée vous donnera un indice crucial pour la fin du jeu. Cependant, si vous obtenez un total de 5 clés, vous serez obligés de passer directement à l’épreuve finale.<br><br>Avant chaque épreuve, vous choisirez son type, et celle-ci sera ensuite tirée au sort. Et attention ! Vous devrez aussi désigner quel coéquipier relèvera le défi avec vous.<br><br>Alors, stratégie, courage et un brin de chance : êtes-vous prêts à affronter les mystères du fort ?</p>
-
-
-
-    <a href="{{url_for('teamChoice')}}">Aller sur le fort</a>
-
-    <p>Note : Toutes les fonctionnalités le sont pas encore entièrement développées. Afin de pouvoir tester toutes les épreuves indépendamment, une page "liste de toutes les énigmes" est disponible sur le fort lorsque le mode debug de Flask est activé (par défaut)</p>
+    {% if debug_mode %}
+    <p>🛠️ Mode debug activé</p>
+    {% endif %}
 </body>
 </html>

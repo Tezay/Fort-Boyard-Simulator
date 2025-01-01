@@ -1,0 +1,30 @@
+/* Styles généraux applicables à toutes les pages */
+body {
+    margin: 20px;
+    padding: 0;
+    height: 100vh;
+    color: white;
+    font-family: "Palatino Linotype", "Book Antiqua", Palatino, serif;
+}
+
+.content {
+    background: rgba(0, 0, 0, 0.5); /* Fond semi-transparent pour le texte */
+    padding: 20px;
+    border-radius: 10px;
+}
+
+
+h1 {
+    text-align: center;
+    font-size: 2.6rem; /* 2 fois la taille de la police définie au niveau racine */
+  }
+
+h2 {
+    font-size: 2.5rem;
+    margin-top: 0;
+    margin-bottom: 0;
+}
+
+p {
+    font-size: 1.3rem;
+}

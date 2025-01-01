@@ -4,8 +4,14 @@ from utils import *
 
 app = Flask(__name__)
 
+# Permet d'optimiser le chargement des images
+if not app.debug:
+    @app.after_request
+    def addCacheControl(response):
+        response.headers["Cache-Control"] = "public, max-age=31536000"  # Cache d'un an
+        return response
 
-#Route du menu principal
+# Route du menu principal
 @app.route("/")
 def menu():
     # Appelle la fonction qui permet de réinitialiser le nombre de clés
@@ -14,7 +20,9 @@ def menu():
     resetTeam()
     # Appelle de la fonction qui permet de réinitialiser les compteurs d'épreuves
     resetChallengesCount()
-    return render_template("index.html")
+    # Vérifie si le mode débug est actif ou pas
+    debug_mode = app.debug
+    return render_template("index.html", debug_mode=debug_mode)
 
 
 # Route pour le Fort Boyard
