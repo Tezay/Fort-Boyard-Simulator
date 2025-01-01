@@ -213,3 +213,26 @@ def addToChallengesCount(challenge):
     else:
         print(f"{challenge} is not in the file.")
 
+
+
+def resetChallengesCount():
+    try:
+        # Charger le contenu du fichier JSON
+        with open(LOCAL_DATA_FILE_PATH, 'r') as file:
+            data = json.load(file)
+        
+        # Vérifier si "challengesCount" existe dans les données
+        if "challengesCount" in data:
+            # Réinitialiser les compteurs des épreuves
+            for key in data["challengesCount"]:
+                data["challengesCount"][key] = 0
+            
+            # Sauvegarder les modifications dans le fichier
+            with open(LOCAL_DATA_FILE_PATH, 'w') as file:
+                json.dump(data, file, indent=4)
+            print("Les compteurs des épreuves ont été réinitialisés avec succès.")
+        else:
+            print("La clé 'challengesCount' est absente dans le fichier JSON.")
+
+    except Exception as e:
+        print(f"Une erreur inattendue s'est produite : {e}")

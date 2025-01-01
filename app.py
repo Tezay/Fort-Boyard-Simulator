@@ -10,8 +10,10 @@ app = Flask(__name__)
 def menu():
     # Appelle la fonction qui permet de réinitialiser le nombre de clés
     resetKeyCounter()
-    # Appelle la fonction qui permet fe réinitialiser la composition de l'équipe
+    # Appelle la fonction qui permet de réinitialiser la composition de l'équipe
     resetTeam()
+    # Appelle de la fonction qui permet de réinitialiser les compteurs d'épreuves
+    resetChallengesCount()
     return render_template("index.html")
 
 
