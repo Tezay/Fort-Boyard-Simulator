@@ -3,49 +3,60 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Styles généraux -->
+    <link rel="stylesheet" href="{{url_for('static', filename='css/global-style.css')}}">
+    <!-- Styles spécifiques à cette page -->
+    <link rel="stylesheet" href="{{url_for('static', filename='css/team-choice-style.css')}}">
     <title>Choix de l'équipe</title>
 </head>
 <body>
-    <h1>Choix de l'équipe</h1>
-    <h2>Vous allez devoir composer votre équipe, que vous garderez tout au long du jeu !</h2>
-    <p>Entrer les noms des joueurs !</p>
+    <div class="title-box">
+        <h1>Vous devez composer votre équipe !</h1>
+    </div>
 
-    {% if player_indice > 1 %}
-        <div class="players-list">
-            <ul>
-                {% for i in range(player_indice-1) %}
-                    <li>{{ team[i]['name'] }}, {{ team[i]['job'] }}</li>
-                {% endfor %}
-            </ul>
-        </div>
-    {% endif %}
+    <div class="global-box">
+        <div class="content-box">
+            <div class="content">
+                <p>Votre équipe</p>
 
-    {% if not team_completed %}
-
-        <form method="POST">
-
-            <div class="input-box">
-                <input id="player-name" name="player-name" type="text" placeholder="Joueur {{ player_indice }}" required>
-                <input id="player-job" name="player-job" type="text" placeholder="Profession" required>
-                {% if player_indice < 3 %}
-                    <div class="add-player-box">
-                        <button id="add-player" name="action" value="add-player">Ajouter un joueur</button>
+                {% if player_indice > 1 %}
+                    <div class="players-list">
+                        <ul>
+                            {% for i in range(player_indice-1) %}
+                                <li>{{ team[i]['name'] }}, {{ team[i]['job'] }}</li>
+                            {% endfor %}
+                        </ul>
                     </div>
                 {% endif %}
-            </div>
+
+                {% if not team_completed %}
+
+                    <form method="POST">
+
+                        <div class="input-box">
+                            <input id="player-name" name="player-name" type="text" placeholder="Joueur {{ player_indice }}" required>
+                            <input id="player-job" name="player-job" type="text" placeholder="Profession" required>
+                            {% if player_indice < 3 %}
+                                <div class="add-player-box">
+                                    <button id="add-player" name="action" value="add-player">Ajouter un joueur</button>
+                                </div>
+                            {% endif %}
+                        </div>
+                            
+                        <div class="confirm-box">
+                            <button id="confirm-team" name="action" value="confirm-team" class="start-button">Valider l'équipe</button>
+                        </div>
+
+                    </form>
                 
-            <div class="confirm-box">
-                <button id="confirm-team" name="action" value="confirm-team">Valider l'équipe</button>
+                {% else %}
+
+                    <h2 class="start-message">Vous pouvez à présent aller sur le fort !</h2>
+                    <a href="{{url_for('fortBoyard')}}" class="start-button">Aller sur le fort</a>
+
+                {% endif %}
             </div>
-
-        </form>
-    
-    {% else %}
-
-        <h2>Vous pouvez à présent aller sur le fort !</h2>
-        <a href="{{url_for('fortBoyard')}}">Aller sur le fort</a>
-
-    {% endif %}
-
+        </div>
+    </div>
 </body>
 </html>

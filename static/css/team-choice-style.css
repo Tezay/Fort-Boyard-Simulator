@@ -1,0 +1,94 @@
+body {
+    background-image: url('../background/fort-boyard-front.webp');
+    background-size: cover; /* L'image couvre toute la fenêtre */
+    background-position: center; /* Centre l'image */
+    background-repeat: no-repeat; /* Empêche la répétition */
+}
+
+.title-box {
+    margin-top: 120px;
+}
+
+.title-box h1 {
+    color: #bd923c;
+    text-shadow: 8px 8px 16px rgba(0, 0, 0, 1); /* Ombre noire légèrement floutée */
+    font-size: 3rem;
+}
+
+.global-box {
+    display: flex;                  /* Active Flexbox sur le body */
+    justify-content: center;        /* Centre les éléments horizontalement */
+    margin: 0;  
+}
+
+.content-box {
+    position: fixed;
+    width: 670px;                    /* Largeur de la div */
+    height: 420px;                   /* Hauteur de la div */
+    background-image: url('../img/parchemin.png'); /* Chemin de l'image */
+    background-size: cover;          /* L'image couvre entièrement la div */
+    background-position: center;     /* Centre l'image dans la div */
+    background-repeat: no-repeat;    /* Empêche la répétition de l'image */
+    bottom: 20px;
+}
+
+.content {
+    position: absolute;              /* Permet de positionner les éléments par-dessus */
+    top: 50%;                        /* Centre verticalement */
+    left: 50%;                       /* Centre horizontalement */
+    transform: translate(-50%, -50%); /* Ajuste pour être parfaitement centré */
+    color: #bd923c;                     /* Couleur du texte pour le contraste */
+    text-align: center;              /* Centre le texte ou les éléments internes */
+}
+
+
+.content p {
+    margin:0;
+    margin-bottom: 5px;
+    text-decoration: underline;
+    font-weight: bold;
+    font-size: 1.8rem;
+}
+
+.content li {
+    font-size: 1.5rem;
+}
+
+.content ul {
+    margin:0;
+}
+
+.content input {
+    font-size: 1.2rem;
+    width: 150px;
+}
+
+.content button {
+    font-size: 1.2rem;
+}
+
+.start-button {
+    display: inline-block;          /* Traite le lien comme un bouton */
+    padding: 10px 20px;            /* Ajoute de l'espace à l'intérieur du bouton */
+    margin-top: 20px;
+    text-align: center;            /* Centre le texte dans le bouton */
+    color: #dfdfdf;                   /* Couleur du texte (gris foncé pour le contraste) */
+    text-decoration: none;
+    background-color: #bd923c;     /* Couleur de fond jaune pastel */
+    border: 2px solid #a26f08;     /* Bordure fine pour le design */
+    border-radius: 25px;           /* Contours arrondis */
+    font-weight: bold;             /* Texte en gras */
+    transition: all 0.2s ease;     /* Animation fluide pour les effets */
+}
+  
+.start-button:hover {
+    background-color: #cfa758;     /* Couleur légèrement plus vive au survol */
+    border-color: #b98826;         /* Change la couleur de la bordure au survol */
+    transform: scale(1.05);         /* Agrandit légèrement le bouton au survol */
+    cursor: pointer;
+}
+
+.start-message {
+    font-size: 1.5rem;
+    font-weight: bold;
+}

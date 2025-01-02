@@ -7,12 +7,9 @@ body {
     font-family: "Palatino Linotype", "Book Antiqua", Palatino, serif;
 }
 
-.content {
-    background: rgba(0, 0, 0, 0.5); /* Fond semi-transparent pour le texte */
-    padding: 20px;
-    border-radius: 10px;
+button {
+    font-family: "Palatino Linotype", "Book Antiqua", Palatino, serif;
 }
-
 
 h1 {
     text-align: center;
