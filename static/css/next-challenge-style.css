@@ -1,0 +1,53 @@
+body {
+    background-image: url('../background/fort-boyard-corridor.webp');
+    background-size: cover; /* L'image couvre toute la fenêtre */
+    background-position: center; /* Centre l'image */
+    background-repeat: no-repeat; /* Empêche la répétition */
+}
+
+h1 {
+    text-align: center;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* Ombre noire légèrement floutée */
+}
+
+.content-box {
+    background-color: rgba(0, 0, 0, 0.5); /* Noir avec 70% d'opacité */
+    border-radius: 15px; /* Bords arrondis de 15px */
+    padding: 20px 40px; /* Espacement interne pour éviter que le contenu touche les bords */
+    color: white; /* Texte en blanc pour contraster avec le fond noir */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3); /* Optionnel : ombre pour un effet visuel */
+    margin: auto; /* Optionnel : centre la div horizontalement */
+    height: 70%;
+    width: 60%;
+}
+
+.content-box h2 {
+    font-size: 1.8rem;
+    text-align: center;
+}
+
+.content-box h3 {
+    font-size: 1.4rem;
+    text-align: center;
+}
+
+.content-box p{
+    text-align: center;
+    margin-top: 0;
+    margin-bottom: 15px;
+}
+
+.content-box .challenge-box p {
+    margin: 0px;
+}
+
+.challenges-list {
+    margin-top: 20px;
+}
+
+.challenge-box {
+    display: flex;
+    flex-direction: row;
+    align-items: baseline;
+    padding: 10px 30px;
+}
