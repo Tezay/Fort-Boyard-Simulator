@@ -12,11 +12,7 @@ def randomNum():
     return random.randint(1, 50)
 
 ##### Fonctions des énigmes de hasard #####
-# Fonction de l'énigme du nombre aléatoire
-def randomNumberChallenge():
-    number = randomNum()
-    master_answer = random.randint(number-7, number+7)
-    return master_answer, number
+
 
 # Fonction de l'énigme bonneteaux
 def bonneteauChallenge():
@@ -28,29 +24,14 @@ def bonneteauChallenge():
     return bonneteaux_list, right_bonneteau
 
 
-#def diceGameChallenge():
-    try_number = 1
-    number = 6
-    win = False
-    nb = -1
-    while try_number < 3 and nb == -1 and win == False:
-        input("Press enter to continue...")
-        print("vous avez fait ",try_number,"essai")
-        users_dice_roll, game_master_dice_roll = dices()
-        print("vos dés son", users_dice_roll)
-        if number in users_dice_roll:
-            win = True
-            nb = 1
-        print(game_master_dice_roll)
-        if number in game_master_dice_roll:
-            win = False
-        else:
-            try_number += 1
-
-    return win
-
-
-
+# Fonction de l'énigme lancé de dés
 def diceRollChallenge():
     roll = (random.randint(1, 6), random.randint(1, 6))
     return roll
+
+
+# Fonction de l'énigme du nombre aléatoire
+def randomNumberChallenge():
+    number = randomNum()
+    master_answer = random.randint(number-7, number+7)
+    return master_answer, number

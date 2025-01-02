@@ -26,16 +26,22 @@
                 <button id="submit-answer">Envoyer</button>
             </div>
         </form>
-    {% elif abs(user_answer - right_answer) < abs(master_answer - right_answer) %}
+    {% elif user_diff < master_diff %}
         <!-- Résultat : L'utilisateur a gagné -->
         <div id="right-answer">
-            <p>Bravo, tu as été le plus proche ! Le nombre était {{ right_answer }} et la réponse du maître était {{ master_answer }}.</p>
+            <p>Bravo, tu as été le plus proche ! Le nombre était {{ right_answer }}, le maître avait choisi : {{ master_answer }}, et vous aviez choisi {{user_answerx}}.</p>
             <a href="{{ url_for('newKey', key_number=1) }}">Ouvrir la boîte à clé 🔑</a>
         </div>
-    {% elif abs(user_answer - right_answer) > abs(master_answer - right_answer) %}
+    {% elif user_diff == master_diff %}
+        <!-- Egalité -->
+        <div id="egality">
+            <p>Egalité ! Le chiffre à deviner était : {{ right_answer }}, le maître avait choisi : {{ master_answer }}, et vous aviez choisi {{user_answer}}.</p>
+            <a href="{{ url_for('randomNumber') }}">Rejouer ⏪</a>
+        </div>
+    {% else %}
         <!-- Résultat : L'utilisateur a perdu -->
         <div id="wrong-answer">
-            <p>Mauvaise réponse ! La bonne réponse était : {{ right_answer }} et la réponse du maître était {{ master_answer }}.</p>
+            <p>Perdu ! Le chiffre à deviner était : {{ right_answer }}, le maître avait choisi : {{ master_answer }}, et vous aviez choisi {{user_answer}}.</p>
             <a href="{{ url_for('fortBoyard') }}">Retourner sur le fort 🚪</a>
         </div>
     {% endif %}

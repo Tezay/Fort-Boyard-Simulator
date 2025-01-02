@@ -219,6 +219,8 @@ def isTheEquationCorrect():
 
 
 ###### Routes pour les énigmes aléatoires ######
+
+
 #Route pour l'énigmes nombre aléatoire
 @app.route("/random-challenge/random-number", methods=["POST","GET"])
 def randomNumber():
@@ -226,14 +228,22 @@ def randomNumber():
     # Si c'est le cas, il utilise la méthode POST
     if request.method == 'POST':
         user_answer = int(request.form.get("user-answer"))
+        # On calcule la différence entre le résultat donné par le maitre et le joueur, avec la bonne valeur
+        master_diff = abs(randomNumber.master_answer - randomNumber.right_answer)
+        user_diff = abs(user_answer - randomNumber.right_answer)
+        print(master_diff, user_diff)
     # Sinon, il charge la page une première fois pour poser la question
     else:
         # On initialise la réponse à None (car pas encore donnée par l'utilisateur)
         user_answer = None
+        master_diff = None
+        user_diff = None
         # Appelle de la fonction énigme associée
         # [compléter la docstring ici]
         randomNumber.master_answer, randomNumber.right_answer = randomNumberChallenge()
-    return render_template("/random_challenge_template/random-number.html", master_answer=randomNumber.master_answer,right_answer=randomNumber.right_answer, user_answer=user_answer)
+    
+    return render_template("/random_challenge_template/random-number.html", master_answer=randomNumber.master_answer,right_answer=randomNumber.right_answer, user_answer=user_answer, master_diff=master_diff, user_diff=user_diff)
+
 
 # Route pour l'énigme bonneteaux
 @app.route("/random-challenge/bonneteau", methods=['GET','POST'])
