@@ -12,9 +12,10 @@ body {
     margin: 20px auto 0; /* Ajoute un espace de 20px en haut, centre l'image horizontalement */
   }
   
-h2 {
+h1 {
     color: #bd923c;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.6); /* Ombre noire légèrement floutée */
+    text-shadow: 4px 4px 8px rgba(0, 0, 0, 0.6); /* Ombre noire légèrement floutée */
+    margin-top: 0;
 }
 
 .content-box {

@@ -4,12 +4,6 @@ from utils import *
 
 app = Flask(__name__)
 
-# Permet d'optimiser le chargement des images
-if not app.debug:
-    @app.after_request
-    def addCacheControl(response):
-        response.headers["Cache-Control"] = "public, max-age=31536000"  # Cache d'un an
-        return response
 
 # Route du menu principal
 @app.route("/")

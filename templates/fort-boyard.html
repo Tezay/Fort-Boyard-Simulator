@@ -3,18 +3,29 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Styles généraux -->
+    <link rel="stylesheet" href="{{url_for('static', filename='css/global-style.css')}}">
+    <!-- Styles spécifiques à cette page -->
+    <link rel="stylesheet" href="{{url_for('static', filename='css/fort-boyard-style.css')}}">
     <title>Fort Boyard Simulator</title>
 </head>
 <body>
     <h1>Vous êtes dans le fort</h1>
-    <h2>Nombre actuel de clés : {{key_count}}</h2>
-    <a href="{{url_for('nextPlayer')}}">Aller à la prochaine épreuve</a>
-    {% if debug_mode == True %}
-        <div class="debug-mode">
-            <h3>Mode debug :</h3>
-            <p>Cette section est uniquement visible lorsque le mode débug est activé. Elle sert uniquement à tester indépendamment certaines parties du projet, mais n'a pas d'utilité dans le jeu.</p>
-            <a href="{{url_for('challengesList')}}">🛠️ Liste de toutes les énigmes</a>
+
+    <div class="global-box">
+        <div class="interact-box">
+            <div class="content">
+                <h2>Vous avez récupéré : {{key_count}}🗝️</h2>
+                <a href="{{url_for('nextPlayer')}}" class="next-challenge-button">Aller à la prochaine épreuve</a>
+            </div>
+            {% if debug_mode == True %}
+                <div class="debug-mode">
+                    <h3>Mode debug :</h3>
+                    <p>Cette section est uniquement visible lorsque le mode débug est activé.<br>Elle sert à tester indépendamment certaines parties du projet, mais n'a pas d'utilité pour le déroulé du jeu.</p>
+                    <a href="{{url_for('challengesList')}}" class="debug-button">🛠️ Liste de toutes les énigmes</a>
+                </div>
+            {% endif %}
         </div>
-    {% endif %}
+    </div>
 </body>
 </html>

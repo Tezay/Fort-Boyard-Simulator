@@ -1,0 +1,94 @@
+body {
+    background-image: url('../background/fort-boyard-inside.webp');
+    background-size: cover; /* L'image couvre toute la fenêtre */
+    background-position: center; /* Centre l'image */
+    background-repeat: no-repeat; /* Empêche la répétition */
+}
+
+h1 {
+    color: #bd923c;
+    text-shadow: 8px 8px 16px rgba(219, 217, 217, 0.97); /* Ombre noire légèrement floutée */
+    font-size: 3rem;
+    text-align: center;
+}
+
+.global-box {
+    display: flex;                  /* Active Flexbox sur le body */
+    justify-content: center;        /* Centre les éléments horizontalement */
+    margin: 0;  
+}
+
+.interact-box {
+    position: fixed;
+    width: 670px;                    /* Largeur de la div */
+    height: 400px;                   /* Hauteur de la div */
+    bottom: 20px;
+}
+
+.interact-box .content {
+    display: flex;
+    flex-direction: column; /* Pour empiler les enfants verticalement */
+    align-items: center; /* Centre horizontalement les enfants */
+    justify-content: center; /* (Optionnel) Centre verticalement les enfants */
+    text-align: center; /* Centre le texte dans les éléments */
+}
+
+
+.next-challenge-button {
+    display: inline-block;          /* Traite le lien comme un bouton */
+    padding: 10px 20px;            /* Ajoute de l'espace à l'intérieur du bouton */
+    margin-top: 20px;
+    text-align: center;            /* Centre le texte dans le bouton */
+    color: #dfdfdf;                   /* Couleur du texte (gris foncé pour le contraste) */
+    font-size: 1.6rem;
+    text-decoration: none;
+    background-color: #bd923c;     /* Couleur de fond jaune pastel */
+    border: 2px solid #a26f08;     /* Bordure fine pour le design */
+    border-radius: 32px;           /* Contours arrondis */
+    font-weight: bold;             /* Texte en gras */
+    transition: all 0.2s ease;     /* Animation fluide pour les effets */
+}
+
+.next-challenge-button:hover {
+    background-color: #cfa758;     /* Couleur légèrement plus vive au survol */
+    border-color: #b98826;         /* Change la couleur de la bordure au survol */
+    transform: scale(1.05);         /* Agrandit légèrement le bouton au survol */
+    cursor: pointer;
+}
+
+.debug-mode {
+    background-color: rgba(0, 0, 0, 0.6); /* Noir avec 70% d'opacité */
+    border-radius: 15px; /* Bords arrondis de 15px */
+    padding: 15px; /* Espacement interne pour éviter que le contenu touche les bords */
+    color: white; /* Texte en blanc pour contraster avec le fond noir */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3); /* Optionnel : ombre pour un effet visuel */
+    margin: 20px auto; /* Optionnel : centre la div horizontalement */
+}
+
+.debug-mode h3 {
+    text-decoration: underline;
+}
+
+.debug-mode p {
+    font-size: 1.1rem;
+}
+
+.debug-button {
+    display: inline-block;          /* Traite le lien comme un bouton */
+    padding: 10px 20px;            /* Ajoute de l'espace à l'intérieur du bouton */
+    text-align: center;            /* Centre le texte dans le bouton */
+    color: #dfdfdf;                   /* Couleur du texte (gris foncé pour le contraste) */
+    text-decoration: none;
+    background-color: #bd923c;     /* Couleur de fond jaune pastel */
+    border: 2px solid #a26f08;     /* Bordure fine pour le design */
+    border-radius: 32px;           /* Contours arrondis */
+    font-weight: bold;             /* Texte en gras */
+    transition: all 0.2s ease;     /* Animation fluide pour les effets */
+}
+
+.debug-button:hover {
+    background-color: #cfa758;     /* Couleur légèrement plus vive au survol */
+    border-color: #b98826;         /* Change la couleur de la bordure au survol */
+    transform: scale(1.05);         /* Agrandit légèrement le bouton au survol */
+    cursor: pointer;
+}
