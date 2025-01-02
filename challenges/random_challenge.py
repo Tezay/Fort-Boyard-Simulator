@@ -8,9 +8,15 @@ def dices():
     game_master_dice_roll = (random.randint(1, 6), random.randint(1, 6))
     return users_dice_roll, game_master_dice_roll
 
+def randomNum():
+    return random.randint(1, 50)
 
-
-##### Fonctions des énigmes mathématiques #####
+##### Fonctions des énigmes de hasard #####
+# Fonction de l'énigme du nombre aléatoire
+def randomNumberChallenge():
+    number = randomNum()
+    master_answer = random.randint(number-7, number+7)
+    return master_answer, number
 
 # Fonction de l'énigme bonneteaux
 def bonneteauChallenge():

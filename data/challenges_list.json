@@ -12,7 +12,8 @@
     ],
     "random":[
         "bonneteau",
-        "diceRoll"
+        "diceRoll",
+        "randomNumber"
     ],
     "logic":[
         "ticTacToe",
