@@ -38,9 +38,9 @@
                     <table id="player1" border="1">
                         <caption>Joueur 1</caption>
                         <tbody>
-                            {% for row in range(8) %}
+                            {% for row in range(taille_grille) %}
                                 <tr>
-                                    {% for col in range(8) %}
+                                    {% for col in range(taille_grille) %}
                                         <td>
                                             {% if moment_game == "beginning" %}
                                                 <div id="user-input-box-{{row}}-{{col}}" class="user-input-box">
@@ -68,9 +68,9 @@
                     <table id="player2" border="1">
                         <caption>Joueur 2</caption>
                             <tbody>
-                                {% for row in range(8) %}
+                                {% for row in range(taille_grille) %}
                                     <tr>
-                                        {% for col in range(8) %}
+                                        {% for col in range(taille_grille) %}
                                             <td>
                                                 {% if moment_game == "middle" %}
                                                     {% if (row, col) in liste_tir and liste_tir[row, col] %}

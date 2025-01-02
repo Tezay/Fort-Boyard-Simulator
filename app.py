@@ -231,7 +231,6 @@ def randomNumber():
         # On calcule la différence entre le résultat donné par le maitre et le joueur, avec la bonne valeur
         master_diff = abs(randomNumber.master_answer - randomNumber.right_answer)
         user_diff = abs(user_answer - randomNumber.right_answer)
-        print(master_diff, user_diff)
     # Sinon, il charge la page une première fois pour poser la question
     else:
         # On initialise la réponse à None (car pas encore donnée par l'utilisateur)
@@ -328,14 +327,14 @@ def ticTacToe():
     return render_template("logic_challenge_template/tic-tac-toe.html", pos_morpion=ticTacToe.pos_morpion, win=win, error=error)
 
 
-# Route pour l'énigme bonneteaux
+# Route pour l'énigme bataille navale
 @app.route("/logic-challenges/naval-battle", methods=['GET','POST'])
 def navalBattle():
 
     # On vérifie si l'utilisateur charge la page après avoir répondu au questionnaire ET qu'il 
     if request.method == 'POST' and hasattr(navalBattle, 'moment_game'):
+        win = None
         if navalBattle.moment_game == "beginning":
-            win = None
             user_answer = request.form.getlist("cell")
 
             if errorNavalBattle(user_answer, navalBattle.moment_game):
@@ -356,11 +355,10 @@ def navalBattle():
                 user_answer = tuple(map(int, user_answer[0].split("-")))
                 navalBattle.liste_tir[user_answer] = navalBattleGame(navalBattle.bateaux_ordi, user_answer)
 
-                tir_ordi = tirOrdi()
+                tir_ordi = tirOrdi(navalBattle.taille_grille)
                 while tir_ordi in navalBattle.liste_tir_ordi:
-                    tir_ordi = tirOrdi()
+                    tir_ordi = tirOrdi(navalBattle.taille_grille)
                 navalBattle.liste_tir_ordi[tir_ordi] = navalBattleGame(navalBattle.bateaux, tir_ordi)
-                print(navalBattle.liste_tir_ordi)
                 winner_ordi = gagnant(navalBattle.liste_tir_ordi)
 
                 winner = gagnant(navalBattle.liste_tir)
@@ -372,18 +370,20 @@ def navalBattle():
                 navalBattle.error = "tir"
 
     else:
+        # On initialise toutes les variables du jeu
+        navalBattle.taille_grille = 5
         navalBattle.moment_game = "beginning"
         navalBattle.error = None
         navalBattle.toucher = None
         navalBattle.tir = None
         navalBattle.bateaux = None
         navalBattle.liste_tir = {}
-        navalBattle.bateaux_ordi = bateauxOrdi([])
+        navalBattle.bateaux_ordi = bateauxOrdi([], navalBattle.taille_grille)
         navalBattle.liste_tir_ordi = {}
         win = None
 
 
-    return render_template("logic_challenge_template/naval-battle.html", moment_game=navalBattle.moment_game, error=navalBattle.error, bateaux=navalBattle.bateaux, liste_tir=navalBattle.liste_tir, liste_tir_ordi=navalBattle.liste_tir_ordi, win=win)
+    return render_template("logic_challenge_template/naval-battle.html", moment_game=navalBattle.moment_game, taille_grille=navalBattle.taille_grille, error=navalBattle.error, bateaux=navalBattle.bateaux, liste_tir=navalBattle.liste_tir, liste_tir_ordi=navalBattle.liste_tir_ordi, win=win)
 
 
 ##### Route pour l'énigme de Père Fouras ####

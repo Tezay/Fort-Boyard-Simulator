@@ -16,12 +16,12 @@ def navalBattleGame(bateaux, case):
             return True
     return False
 
-def tirOrdi():
-    return (rd.randint(0,7), rd.randint(0,7))
+def tirOrdi(taille):
+    return (rd.randint(0,taille-1), rd.randint(0,taille-1))
 
-def bateauxOrdi(L):
+def bateauxOrdi(L, taille):
     for i in range(4):
-        bateau = (rd.randint(0, 7), rd.randint(0, 7))
+        bateau = (rd.randint(0, taille-1), rd.randint(0, taille-1))
         if bateau not in L:
             L.append(bateau)
     return L
