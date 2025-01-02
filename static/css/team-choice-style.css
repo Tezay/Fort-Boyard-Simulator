@@ -26,7 +26,7 @@ body {
     position: fixed;
     width: 670px;                    /* Largeur de la div */
     height: 420px;                   /* Hauteur de la div */
-    background-image: url('../img/parchemin.png'); /* Chemin de l'image */
+    background-image: url('../img/parchment.png'); /* Chemin de l'image */
     background-size: cover;          /* L'image couvre entièrement la div */
     background-position: center;     /* Centre l'image dans la div */
     background-repeat: no-repeat;    /* Empêche la répétition de l'image */

@@ -3,29 +3,37 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <!-- Styles généraux -->
+        <link rel="stylesheet" href="{{url_for('static', filename='css/global-style.css')}}">
+        <!-- Styles spécifiques à cette page -->
+        <link rel="stylesheet" href="{{url_for('static', filename='css/next-player-style.css')}}">
     <title>Choix du joueur</title>
 </head>
 <body>
     <h1>Choix du joueur</h1>
 
-    {% if selected_player == None %}
+    <div class="content-box">
 
-        <h2>Vous devez choisir quel joueur fera la prochaine épreuve !</h2>
-        <form method='POST'>
-            <div class="player-list">
-                {% for player in team %}
-                    <button id="player" name="identity" value="{{player['name']}}">{{player['name']}}</button>
-                {% endfor %}
+        {% if selected_player == None %}
+
+            <h2>Vous devez choisir quel joueur fera la prochaine épreuve !</h2>
+            <form method='POST'>
+                <div class="player-list">
+                    {% for player in team %}
+                        <button id="player" name="identity" value="{{player['name']}}">{{player['name']}}</button>
+                    {% endfor %}
+                </div>
+            </form>
+
+        {% else %}
+
+            <div class="confirmation-box">
+                <h2>{{selected_player}}, vous pouvez choisir la prochaine épreuve.</h2>
+                <a href="{{url_for('nextChallenge')}}" class="start-button">Choisir l'épreuve</a>    
             </div>
-        </form>
 
-    {% else %}
+        {% endif %}
 
-        <div class="confirmation-box">
-            <p>{{selected_player}}, vous pouvez choisir la prochaine épreuve.</p>
-            <a href="{{url_for('nextChallenge')}}">Choisir l'épreuve</a>    
-        </div>
-
-    {% endif %}
+    </div>
 </body>
 </html>

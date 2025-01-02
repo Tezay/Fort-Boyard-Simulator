@@ -1,0 +1,99 @@
+body {
+    background-image: url('../background/fort-boyard-corridor.webp');
+    background-size: cover; /* L'image couvre toute la fenêtre */
+    background-position: center; /* Centre l'image */
+    background-repeat: no-repeat; /* Empêche la répétition */
+}
+
+h1 {
+    margin-bottom: 10px;
+    margin-left: 70px;
+}
+
+.content-box {
+    position: fixed;
+    background-image: url('../img/vertical-parchment.png'); /* Chemin de l'image */
+    background-size: cover;          /* L'image couvre entièrement la div */
+    background-position: center;     /* Centre l'image dans la div */
+    background-repeat: no-repeat;    /* Empêche la répétition de l'image */
+    width: 480px; /* La div prend 1/3 de la largeur de la page */
+    height: 640px;                   /* Hauteur de la div */
+    word-wrap: break-word; /* Coupe les mots longs si nécessaire */
+    box-sizing: border-box; /* Inclut les bordures et le padding dans la largeur totale */
+    padding: 60px; /* Ajoute un peu d'espace interne pour l'esthétique */
+    text-align: center; /* Centre le contenu horizontalement dans la div parent */
+}
+
+.content-box h2 {
+    font-size: 2.2rem;
+    text-align: center;
+    color: #bd923c;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1); /* Ombre noire légèrement floutée */
+}
+
+
+/* Style général pour centrer les boutons */
+.player-list {
+    display: flex; /* Permet de gérer l'alignement des enfants */
+    flex-direction: column; /* Les boutons seront alignés verticalement */
+    align-items: center; /* Centre les boutons horizontalement */
+    justify-content: center; /* Centre les boutons verticalement */
+    height: 100%; /* S'assure que le div prend toute la hauteur disponible */
+}
+
+/* Style des boutons */
+button#player {
+    display: inline-block; /* S'assure que le bouton respecte les dimensions définies */
+    width: 270px; /* Dimensions fixes pour uniformiser */
+    height: 60px;
+    margin-top: 10px; /* Espacement entre les boutons */
+    border-radius: 18px; /* Bords arrondis */
+    background-color: #bd923c;     /* Couleur de fond jaune pastel */
+    border: 2px solid #a26f08;     /* Bordure fine pour le design */
+    color: white; /* Couleur du texte */
+    font-size: 1.5rem; /* Taille du texte */
+    text-align: center; /* Centre le texte à l'intérieur du bouton */
+    border: none; /* Supprime les bordures par défaut */
+    cursor: pointer; /* Change le curseur en "pointeur" lors du survol */
+    transition: all 0.2s ease; /* Animation pour le survol */
+    box-shadow: 2px 4px 6px rgba(0, 0, 0, 0.3); /* Ombre */
+}
+
+/* Effet au survol */
+button#player:hover {
+    background-color: #cfa758;     /* Couleur légèrement plus vive au survol */
+    border-color: #b98826;         /* Change la couleur de la bordure au survol */
+    transform: scale(1.05);         /* Agrandit légèrement le bouton au survol */
+}
+
+.content-box form {
+    margin: 0;
+    padding: 0;
+    display: flex; /* Permet de centrer le formulaire lui-même */
+    justify-content: center; /* Centre horizontalement */
+    align-items: center; /* Centre verticalement */
+    height: 70%; /* Le formulaire occupe toute la hauteur de la fenêtre */
+}
+
+
+.start-button {
+    display: inline-block;          /* Traite le lien comme un bouton */
+    padding: 10px 20px;            /* Ajoute de l'espace à l'intérieur du bouton */
+    margin-top: 30%;
+    text-align: center;            /* Centre le texte dans le bouton */
+    color: #dfdfdf;                   /* Couleur du texte (gris foncé pour le contraste) */
+    text-decoration: none;
+    background-color: #bd923c;     /* Couleur de fond jaune pastel */
+    border: 2px solid #a26f08;     /* Bordure fine pour le design */
+    border-radius: 32px;           /* Contours arrondis */
+    font-weight: bold;             /* Texte en gras */
+    transition: all 0.2s ease;     /* Animation fluide pour les effets */
+    font-size: 1.3rem;
+}
+  
+.start-button:hover {
+    background-color: #cfa758;     /* Couleur légèrement plus vive au survol */
+    border-color: #b98826;         /* Change la couleur de la bordure au survol */
+    transform: scale(1.05);         /* Agrandit légèrement le bouton au survol */
+    cursor: pointer;
+}
