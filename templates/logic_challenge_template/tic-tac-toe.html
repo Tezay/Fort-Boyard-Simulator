@@ -3,8 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Styles généraux -->
+    <link rel="stylesheet" href="{{url_for('static', filename='css/global-style.css')}}">
     <!-- Import de la feuille de style -->
-    <link rel="stylesheet" href="{{url_for('static', filename='css/logic_style/naval-battle.css')}}">
+    <link rel="stylesheet" href="{{url_for('static', filename='css/global-logic-style.css')}}">
     <title>Epreuve : Morpion</title>
 </head>
 <body>
@@ -14,7 +16,7 @@
     {% if win == "player" %}
         <div id="right-answer" class="hidden">
             <p>Bravo, vous avez gagné !</p>
-            <a href="{{url_for('newKey', key_number='1')}}">Ouvrir la boite à clé 🔑</a>
+            <a href="{{url_for('newKey', key_number='1')}}" class="key-button">Ouvrir la boite à clé 🔑</a>
         </div>
     {% elif win == "master" %}
         <div id="wrong-answer" class="hidden">
@@ -23,7 +25,7 @@
         </div>
     {% else %}
 
-        <div id="game">
+        <div id="game" class="game-box">
             <div id="error-message">
                 {% if error == "verif_player" %}
                     <div>vous n'avez le droit de jouer qu'un seul symbole</div>
@@ -42,7 +44,7 @@
                                             {% elif pos_morpion[row][col] == 2 %}
                                                 <div id="cross">❌</div>
                                             {% else %}
-                                                <div id="empty">
+                                                <div id="empty" class="user-input-box">
                                                     <input type="checkbox" name="cell" value="{{row}}-{{col}}">
                                                 </div>
                                             {% endif %}

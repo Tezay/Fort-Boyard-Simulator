@@ -112,11 +112,14 @@ def verifDiag(pos_morpion, person):
     return False
 
 def estSol(pos_morpion, person):
-    print("lin:", verifLin(pos_morpion, person))
-    print("col:", verifCol(pos_morpion, person))
-    print("anti-diag:", verifAntiDiag(pos_morpion, person))
-    print("diag:", verifDiag(pos_morpion, person))
     return verifLin(pos_morpion, person) or verifCol(pos_morpion, person) or verifAntiDiag(pos_morpion, person) or verifDiag(pos_morpion, person)
+
+def verifEgal(pos_morpion):
+    for line in pos_morpion:
+        for elt in line:
+            if elt == 0:
+                return False
+    return True
 
 def errorTicTacToe(player_move):
     if len(player_move) != 1:

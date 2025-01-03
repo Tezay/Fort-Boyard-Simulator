@@ -1,6 +1,5 @@
 from flask import Flask, render_template, request, redirect, url_for, abort, session
 from challenges import *
-from challenges.random_challenge import randomNumberChallenge, coinChallenge
 from utils import *
 
 app = Flask(__name__)
@@ -221,7 +220,7 @@ def isTheEquationCorrect():
 ###### Routes pour les énigmes aléatoires ######
 
 
-#Route pour l'énigmes nombre aléatoire
+#Route pour l'énigmes pile ou face
 
 @app.route("/random-challenge/heads-or-tails", methods=["POST","GET"])
 def headsOrTails():
@@ -230,16 +229,17 @@ def headsOrTails():
     if request.method == 'POST':
         choice = request.form['choice']
         if choice == "Tail":
-            user_answer = Tail
+            user_answer = "Tail"
         else:
-            user_answer = Head
+            user_answer = "Head"
         # On initialise la réponse à None (car pas encore donnée par l'utilisateur)
-        user_answer = None
         # Appelle de la fonction énigme associée
         # [compléter la docstring ici]
+    else:
+        user_answer = None
         headsOrTails.right_answer= coinChallenge()
 
-    return render_template("/random_challenge_template/heads-or-tails.html", right_answer=headsOrTails.right_answer, user_answer=user_answer )
+    return render_template("/random_challenge_template/heads-or-tails.html", right_answer=headsOrTails.right_answer, user_answer=user_answer)
 
 
 @app.route("/random-challenge/random-number", methods=["POST","GET"])
@@ -331,7 +331,10 @@ def ticTacToe():
                 if estSol(ticTacToe.pos_morpion, "master"):
                     win = "master"
                 else:
-                    win = None
+                    if verifEgal(ticTacToe.pos_morpion):
+                        return redirect(url_for("ticTacToe"))
+                    else:
+                        win = None  
 
             error  = None
 

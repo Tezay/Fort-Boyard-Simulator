@@ -178,6 +178,12 @@ def equalityAnswer(right_result,result):
         return True
     else:
         return False
+    
+# Fonction pour faire le PGCD de deux nombres
+def pgcd(a, b):
+    while b != 0:
+        a, b = b, a % b
+    return a
 
 ##### Fonctions des énigmes mathématiques #####
 # Pour chaque fonction :
@@ -224,20 +230,20 @@ def linearEquationChallenge():
     # Ajouter la fraction exacte sous forme de chaîne
     right_answer.append(f"{-b}/{a}")
 
+    pgcd = pgcd(a, -b)
+    if pgcd != 1:
+        right_answer.append(f"{-b//pgcd}/{a//pgcd}")
+
+    if a//pgcd == 1:
+        right_answer.append(f"{-b//pgcd}")
+
     # Ajouter la version décimale avec arrondi à différentes précisions
     for precision in range(1, 10):  # On arrondit jusqu'à 3 décimales
         arrondi = round(solution_exacte, precision)
         right_answer.append(f"{arrondi}".replace(".", ","))  # Format français avec virgule
-        right_answer.append(f"{arrondi}".replace(",", "."))  # Format anglais avec point
+        right_answer.append(f"{arrondi}")  # Format anglais avec point
 
-    # Ajouter une marge d'erreur pour les réponses proches
-    marge_erreur = 0.005
-    for delta in [-marge_erreur, marge_erreur]:
-        valeur_proche = solution_exacte + delta
-        valeur_proche_arrondie = round(valeur_proche, 2)  # Arrondi à 2 décimales
-        right_answer.append(f"{valeur_proche_arrondie}".replace(".", ","))
-        right_answer.append(f"{valeur_proche_arrondie}".replace(",", "."))
-
+    print(right_answer)
     b = f"+{b}" if b > 0 else f"{b}"
     question = {'a': a, 'b': b}
 
