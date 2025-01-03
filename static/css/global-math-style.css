@@ -1,0 +1,66 @@
+body {
+    background-image: url('../background/challenge-room.webp');
+    background-size: cover; /* L'image couvre toute la fenêtre */
+    background-position: center; /* Centre l'image */
+    background-repeat: no-repeat; /* Empêche la répétition */
+}
+
+h1 {
+    text-align: center;
+}
+
+p {
+    font-size: 1.6rem;
+    text-shadow: 4px 4px 8px rgba(0, 0, 0, 0.6); /* Ombre noire légèrement floutée */
+}
+
+
+
+#user-answer {
+    padding: 10px 20px;            /* Ajoute de l'espace à l'intérieur du bouton */
+    text-align: center;            /* Centre le texte dans le bouton */
+    text-decoration: none;
+    border: 2px solid #a26f08;     /* Bordure fine pour le design */
+    border-radius: 25px;           /* Contours arrondis */
+}
+
+#submit-answer {
+    padding: 10px 20px;            /* Ajoute de l'espace à l'intérieur du bouton */
+    text-align: center;            /* Centre le texte dans le bouton */
+    color: #dfdfdf;                   /* Couleur du texte (gris foncé pour le contraste) */
+    text-decoration: none;
+    background-color: #bd923c;     /* Couleur de fond jaune pastel */
+    border: 2px solid #a26f08;     /* Bordure fine pour le design */
+    border-radius: 25px;           /* Contours arrondis */
+    font-weight: bold;             /* Texte en gras */
+    transition: all 0.2s ease;     /* Animation fluide pour les effets */
+}
+
+#submit-answer:hover {
+    background-color: #cfa758;     /* Couleur légèrement plus vive au survol */
+    border-color: #b98826;         /* Change la couleur de la bordure au survol */
+    transform: scale(1.05);         /* Agrandit légèrement le bouton au survol */
+    cursor: pointer;
+}
+
+.key-button {
+    display: inline-block;          /* Traite le lien comme un bouton */
+    padding: 10px 20px;            /* Ajoute de l'espace à l'intérieur du bouton */
+    margin-top: 20px;
+    text-align: center;            /* Centre le texte dans le bouton */
+    color: #dfdfdf;                   /* Couleur du texte (gris foncé pour le contraste) */
+    text-decoration: none;
+    background-color: #bd923c;     /* Couleur de fond jaune pastel */
+    border: 2px solid #a26f08;     /* Bordure fine pour le design */
+    border-radius: 25px;           /* Contours arrondis */
+    font-weight: bold;             /* Texte en gras */
+    transition: all 0.2s ease;     /* Animation fluide pour les effets */
+    box-shadow: 2px 4px 6px rgba(198, 170, 15, 0.396); /* Ombre */
+}
+  
+.key-button:hover {
+    background-color: #cfa758;     /* Couleur légèrement plus vive au survol */
+    border-color: #b98826;         /* Change la couleur de la bordure au survol */
+    transform: scale(1.05);         /* Agrandit légèrement le bouton au survol */
+    cursor: pointer;
+}
