@@ -11,6 +11,9 @@ def dices():
 def randomNum():
     return random.randint(1, 50)
 
+def randomCoin():
+    coin = [heads, tails]
+    return random.choice(coin)
 ##### Fonctions des énigmes de hasard #####
 
 
@@ -33,5 +36,9 @@ def diceRollChallenge():
 # Fonction de l'énigme du nombre aléatoire
 def randomNumberChallenge():
     number = randomNum()
-    master_answer = random.randint(number-7, number+7)
+    master_answer = random.randint(number-11, number+11)
     return master_answer, number
+
+def coinChallenge():
+    coin = randomCoin()
+    return coin

@@ -1,6 +1,6 @@
 from flask import Flask, render_template, request, redirect, url_for, abort, session
 from challenges import *
-from challenges.random_challenge import randomNumberChallenge
+from challenges.random_challenge import randomNumberChallenge, coinChallenge
 from utils import *
 
 app = Flask(__name__)
@@ -222,6 +222,26 @@ def isTheEquationCorrect():
 
 
 #Route pour l'énigmes nombre aléatoire
+
+@app.route("/random-challenge/heads-or-tails", methods=["POST","GET"])
+def headsOrTails():
+    # On vérifie si l'utilisateur charge la page après avoir répondu à a question (form)
+    # Si c'est le cas, il utilise la méthode POST
+    if request.method == 'POST':
+        choice = request.form['choice']
+        if choice == "Tail":
+            user_answer = Tail
+        else:
+            user_answer = Head
+        # On initialise la réponse à None (car pas encore donnée par l'utilisateur)
+        user_answer = None
+        # Appelle de la fonction énigme associée
+        # [compléter la docstring ici]
+        headsOrTails.right_answer= coinChallenge()
+
+    return render_template("/random_challenge_template/heads-or-tails.html", right_answer=headsOrTails.right_answer, user_answer=user_answer )
+
+
 @app.route("/random-challenge/random-number", methods=["POST","GET"])
 def randomNumber():
     # On vérifie si l'utilisateur charge la page après avoir répondu à a question (form)

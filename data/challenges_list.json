@@ -13,7 +13,8 @@
     "random":[
         "bonneteau",
         "diceRoll",
-        "randomNumber"
+        "randomNumber",
+        "headsOrTails"
     ],
     "logic":[
         "ticTacToe",
