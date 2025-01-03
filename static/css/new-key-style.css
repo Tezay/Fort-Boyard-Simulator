@@ -1,0 +1,54 @@
+body {
+    background-image: url('../background/pere-fouras-room.webp');
+    background-size: cover; /* L'image couvre toute la fenêtre */
+    background-position: center; /* Centre l'image */
+    background-repeat: no-repeat; /* Empêche la répétition */
+}
+
+h1 {
+    text-align: center;
+    margin-bottom: 0;
+}
+
+.video-box {
+    display: flex;
+    justify-content: center;
+}
+
+.video-box video {
+    width: 40%;
+    height: auto; /* Conserver les proportions */
+    mask-image: url('../img/texture.png');
+    -webkit-mask-image: url('../img/texture.png'); /* Support pour les navigateurs basés sur WebKit */
+    mask-repeat: no-repeat;
+    -webkit-mask-repeat: no-repeat;
+    mask-size: cover;
+    -webkit-mask-size: cover;
+    background-color: transparent; /* Assurez-vous que la vidéo ne dépasse pas la zone masquée */
+}
+
+.button-box {
+    display: flex; /* Utilisation de flexbox */
+    justify-content: center; /* Centre horizontalement les éléments */
+}
+
+.exit-button {
+    display: inline-block;          /* Traite le lien comme un bouton */
+    padding: 10px 20px;            /* Ajoute de l'espace à l'intérieur du bouton */
+    text-align: center;            /* Centre le texte dans le bouton */
+    color: #dfdfdf;                   /* Couleur du texte (gris foncé pour le contraste) */
+    text-decoration: none;
+    background-color: #bd923c;     /* Couleur de fond jaune pastel */
+    border: 2px solid #a26f08;     /* Bordure fine pour le design */
+    border-radius: 32px;           /* Contours arrondis */
+    font-weight: bold;             /* Texte en gras */
+    transition: all 0.2s ease;     /* Animation fluide pour les effets */
+    font-size: 1.3rem;
+}
+  
+.exit-button:hover {
+    background-color: #cfa758;     /* Couleur légèrement plus vive au survol */
+    border-color: #b98826;         /* Change la couleur de la bordure au survol */
+    transform: scale(1.05);         /* Agrandit légèrement le bouton au survol */
+    cursor: pointer;
+}

@@ -1,8 +1,10 @@
 import json
 import random
+import os
 
 LOCAL_DATA_FILE_PATH = "data/local_data.json"
 CHALLENGES_LIST_FILE_PATH = "data/challenges_list.json"
+VIDEO_FOLDER_PATH = "static/video/"
 
 
 ###### Toutes les fonctions qui permettent la liaison avec les fichiers de données JSON ######
@@ -236,3 +238,16 @@ def resetChallengesCount():
 
     except Exception as e:
         print(f"Une erreur inattendue s'est produite : {e}")
+
+
+##### Fonction pour séléctionner un fichier vidéo au hasard pour la page "ney-key" #####
+
+def selectRandomVideo():
+    # Liste tous les fichiers dans le dossier "video"
+    file_name = os.listdir(VIDEO_FOLDER_PATH)
+    # Retourne le path d'un fichier au hasard parmi le dossier
+    if file_name:
+        return "video/" + random.choice(file_name)
+    else:
+         return None
+    

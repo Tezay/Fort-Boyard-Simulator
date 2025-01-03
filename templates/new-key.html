@@ -3,10 +3,26 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Styles généraux -->
+    <link rel="stylesheet" href="{{url_for('static', filename='css/global-style.css')}}">
+    <!-- Styles spécifiques à cette page -->
+    <link rel="stylesheet" href="{{url_for('static', filename='css/new-key-style.css')}}">
     <title>Nouvelle clé !</title>
 </head>
 <body>
     <h1>Vous venez de récupérer une nouvelle clé ! 🔑</h1>
-    <a href="{{url_for('fortBoyard')}}">Sortir de la salle</a>
+
+    <div class="video-box">
+
+        <video autoplay muted loop playsinline>
+            <source src="{{ url_for('static', filename=video_path) }}" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+
+    </div>
+
+    <div class="button-box">
+        <a href="{{url_for('fortBoyard')}}" class="exit-button">Sortir de la salle</a>
+    </div>
 </body>
 </html>

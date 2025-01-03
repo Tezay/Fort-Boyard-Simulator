@@ -506,9 +506,13 @@ def selectRandomChallenge():
 #Route pour afficher l'obtention d'une nouvelle clé
 @app.route("/new-key")
 def newKey():
+    # On récupère le path d'une vidéo au hasard parmi le dossier video
+    video_path = selectRandomVideo()
+    # On récupère en paramètre de la requète le nombre de clé à ajouter aux joueurs
     key_number = int(request.args.get('key_number'))
+    # On ajoute le nombre de clé au fichier JSON
     addToKeyCounter(key_number)
-    return render_template('new-key.html')
+    return render_template('new-key.html', video_path=video_path)
 
 # Route pour afficher la liste de toutes les énigmes disponibles dans le jeu
 # Note : Ne sert que pour debug des énigmes, ou pour démo (pas utile dans le jeu)
