@@ -243,7 +243,6 @@ def linearEquationChallenge():
         right_answer.append(f"{arrondi}".replace(".", ","))  # Format français avec virgule
         right_answer.append(f"{arrondi}")  # Format anglais avec point
 
-    print(right_answer)
     b = f"+{b}" if b > 0 else f"{b}"
     question = {'a': a, 'b': b}
 

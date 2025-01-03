@@ -319,22 +319,20 @@ def ticTacToe():
         player_move = request.form.getlist("cell")
 
         if errorTicTacToe(player_move):
+            win = None
             player_move = tuple(map(int, player_move[0].split("-")))
             ticTacToe.pos_morpion = updateBoard(ticTacToe.pos_morpion, player_move, "player")
-            if estSol(ticTacToe.pos_morpion, "player"):
+            if isSol(ticTacToe.pos_morpion, "player"):
                 win = "player"
+            elif verifEgal(ticTacToe.pos_morpion):
+                return redirect(url_for("ticTacToe"))
             else:
                 master_move = masterMove()
                 while ticTacToe.pos_morpion[master_move[0]][master_move[1]] != 0:
                     master_move = masterMove()
                 ticTacToe.pos_morpion = updateBoard(ticTacToe.pos_morpion, master_move, "master")
-                if estSol(ticTacToe.pos_morpion, "master"):
+                if isSol(ticTacToe.pos_morpion, "master"):
                     win = "master"
-                else:
-                    if verifEgal(ticTacToe.pos_morpion):
-                        return redirect(url_for("ticTacToe"))
-                    else:
-                        win = None  
 
             error  = None
 

@@ -111,7 +111,7 @@ def verifDiag(pos_morpion, person):
         return True
     return False
 
-def estSol(pos_morpion, person):
+def isSol(pos_morpion, person):
     return verifLin(pos_morpion, person) or verifCol(pos_morpion, person) or verifAntiDiag(pos_morpion, person) or verifDiag(pos_morpion, person)
 
 def verifEgal(pos_morpion):

@@ -74,6 +74,29 @@ form {
 }
 
 
+
+#submit-answer {
+    display: inline-block;          /* Traite le lien comme un bouton */
+    padding: 10px 20px;            /* Ajoute de l'espace à l'intérieur du bouton */
+    margin-top: 20px;
+    text-align: center;            /* Centre le texte dans le bouton */
+    color: #dfdfdf;                   /* Couleur du texte (gris foncé pour le contraste) */
+    text-decoration: none;
+    background-color: #bd923c;     /* Couleur de fond jaune pastel */
+    border: 2px solid #a26f08;     /* Bordure fine pour le design */
+    border-radius: 25px;           /* Contours arrondis */
+    font-weight: bold;             /* Texte en gras */
+    transition: all 0.2s ease;     /* Animation fluide pour les effets */
+}
+  
+#submit-answer:hover {
+    background-color: #cfa758;     /* Couleur légèrement plus vive au survol */
+    border-color: #b98826;         /* Change la couleur de la bordure au survol */
+    transform: scale(1.05);         /* Agrandit légèrement le bouton au survol */
+    cursor: pointer;
+}
+
+
 .key-button {
     display: inline-block;          /* Traite le lien comme un bouton */
     padding: 10px 20px;            /* Ajoute de l'espace à l'intérieur du bouton */
