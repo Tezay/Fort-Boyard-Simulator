@@ -1,0 +1,59 @@
+body {
+    background-image: url('../background/treasure-room.webp');
+    background-size: cover; /* L'image couvre toute la fenêtre */
+    background-position: center; /* Centre l'image */
+    background-repeat: no-repeat; /* Empêche la répétition */
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+h1 {
+    text-shadow: 4px 4px 8px rgba(0, 0, 0, 1); /* Ombre noire légèrement floutée */
+}
+
+p, a {
+    margin-top: 0;
+    font-size: 1.4rem;
+}
+
+.content-box {
+    background-color: rgba(0, 0, 0, 0.6); /* Noir avec 70% d'opacité */
+    border-radius: 15px; /* Bords arrondis de 15px */
+    padding: 10px 40px; /* Espacement interne pour éviter que le contenu touche les bords */
+    color: white; /* Texte en blanc pour contraster avec le fond noir */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3); /* Optionnel : ombre pour un effet visuel */
+    margin: auto; /* Optionnel : centre la div horizontalement */
+    height: 30%;
+    width: 40%;
+    display: flex; /* Permet de centrer le formulaire lui-même */
+    flex-direction: column;
+    justify-content: center; /* Centre horizontalement */
+    align-items: center; /* Centre verticalement */
+    text-align: center;
+}
+
+.exit-button {
+    display: inline-block;          /* Traite le lien comme un bouton */
+    padding: 10px 20px;            /* Ajoute de l'espace à l'intérieur du bouton */
+    margin-top: 20px;
+    text-align: center;            /* Centre le texte dans le bouton */
+    color: #dfdfdf;                   /* Couleur du texte (gris foncé pour le contraste) */
+    text-decoration: none;
+    background-color: #bd923c;     /* Couleur de fond jaune pastel */
+    border: 2px solid #a26f08;     /* Bordure fine pour le design */
+    border-radius: 25px;           /* Contours arrondis */
+    font-weight: bold;             /* Texte en gras */
+    transition: all 0.2s ease;     /* Animation fluide pour les effets */
+    box-shadow: 2px 4px 6px rgba(198, 170, 15, 0.396); /* Ombre */
+}
+  
+.exit-button:hover {
+    background-color: #cfa758;     /* Couleur légèrement plus vive au survol */
+    border-color: #b98826;         /* Change la couleur de la bordure au survol */
+    transform: scale(1.05);         /* Agrandit légèrement le bouton au survol */
+    cursor: pointer;
+}

@@ -474,10 +474,17 @@ def finalChallenge():
 
     return render_template("final_challenge_template/final-challenge.html", keyCount=finalChallenge.keyCount, code_word=finalChallenge.code_word.lower(), clues_list=finalChallenge.clues_list, number_of_clues=finalChallenge.number_of_clues, number_of_try=finalChallenge.number_of_try, user_answer=user_answer)
 
+# Route pour accéder à la page qui précède la salle du trésor
+@app.route("/before-treasure")
+def beforeTreasure():
+    return render_template("final_challenge_template/before-treasure.html")
+
+# Route pour la salle du trésor
 @app.route("/treasure-room")
 def treasureRoom():
     return render_template("final_challenge_template/treasure-room.html")
 
+# Route pour la fin du jeu
 @app.route('/end-game', methods=['POST'])
 def endGame():
     score = request.form.get('score', 0)

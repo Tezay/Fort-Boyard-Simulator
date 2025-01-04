@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Styles généraux -->
+    <link rel="stylesheet" href="{{url_for('static', filename='css/global-style.css')}}">
+    <!-- Styles spécifiques à cette page -->
+    <link rel="stylesheet" href="{{url_for('static', filename='css/before-treasure-style.css')}}">
+    <title>Salle du trésor</title>
+</head>
+<body>
+    <h1>Vous allez entrer dans la salle du trésor !</h1>
+
+        <div class="content-box">
+            <div class="content">
+                <p>Une fois entré dans la salle du trésor, vous aurez 20 secondes pour récupérer le plus de pièces possible.<br>Entrez quand vous serez prêt !</p>
+                <a href="{{url_for('treasureRoom')}}" class="exit-button">Entrer dans la salle du trésor 🪙</a>
+            </div>
+        </div>
+</body>
+</html>
