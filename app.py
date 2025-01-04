@@ -63,7 +63,7 @@ def teamChoice():
 # Route pour l'énigme factorielle
 @app.route("/math-challenge/factorial", methods=["POST","GET"])
 def factorial():
-    # On vérifie si l'utilisateur charge la page après avoir répondu à a question (form)
+    # On vérifie si l'utilisateur charge la page après avoir répondu à la question (form)
     # Si c'est le cas, il utilise la méthode POST
     if request.method == 'POST':
         # On récupère la réponse de l'utilisateur (provenant du formulaire)
@@ -82,7 +82,7 @@ def factorial():
 # Route pour l'énigme d'équation linéaire
 @app.route("/math-challenge/linear-equation", methods=["POST","GET"])
 def linearEquation():
-        # On vérifie si l'utilisateur charge la page après avoir répondu à a question (form)
+        # On vérifie si l'utilisateur charge la page après avoir répondu à la question (form)
         # Si c'est le cas, il utilise la méthode POST
         if request.method == 'POST':
             user_answer = request.form.get("user-answer")
@@ -99,7 +99,7 @@ def linearEquation():
 
 @app.route("/math-challenge/prime-number", methods=["POST","GET"])
 def primeNumber():
-    # On vérifie si l'utilisateur charge la page après avoir répondu à a question (form)
+    # On vérifie si l'utilisateur charge la page après avoir répondu à la question (form)
     # Si c'est le cas, il utilise la méthode POST
     if request.method == 'POST':
         user_answer = int(request.form.get("user-answer"))
@@ -116,7 +116,7 @@ def primeNumber():
 # Route pour l'énigme roulette mathématique
 @app.route("/math-challenge/roulette", methods=['GET','POST'])
 def roulette():
-    # On vérifie si l'utilisateur charge la page après avoir répondu à a question (form)
+    # On vérifie si l'utilisateur charge la page après avoir répondu à la question (form)
     # Si c'est le cas, il utilise la méthode POST
     if request.method == 'POST':
         user_answer = int(request.form.get("user-answer"))
@@ -134,7 +134,7 @@ def roulette():
 # route pour l'énigme trouver le nombre premier
 @app.route("/math-challenge/who-is-prime-number", methods=["POST","GET"])
 def whoisprimeNumber():
-    # On vérifie si l'utilisateur charge la page après avoir répondu à a question (form)
+    # On vérifie si l'utilisateur charge la page après avoir répondu à la question (form)
     # Si c'est le cas, il utilise la méthode POST
     if request.method == 'POST':
         user_answer = int(request.form.get("user-answer"))
@@ -150,7 +150,7 @@ def whoisprimeNumber():
 # route pour l'énigme trouver le carré
 @app.route("/math-challenge/what-the-square", methods=["POST","GET"])
 def whatTheSquare():
-    # On vérifie si l'utilisateur charge la page après avoir répondu à a question (form)
+    # On vérifie si l'utilisateur charge la page après avoir répondu à la question (form)
     # Si c'est le cas, il utilise la méthode POST
     if request.method == 'POST':
         user_answer = int(request.form.get("user-answer"))
@@ -167,7 +167,7 @@ def whatTheSquare():
 # route pour l'énigme trouver la racine carré
 @app.route("/math-challenge/what-the-square-root", methods=["POST","GET"])
 def whatTheSquareRoot():
-    # On vérifie si l'utilisateur charge la page après avoir répondu à a question (form)
+    # On vérifie si l'utilisateur charge la page après avoir répondu à la question (form)
     # Si c'est le cas, il utilise la méthode POST
     if request.method == 'POST':
         user_answer = int(request.form.get("user-answer"))
@@ -182,7 +182,7 @@ def whatTheSquareRoot():
 
 @app.route("/math-challenge/what-the-sequence", methods=["POST","GET"])
 def whatTheSequence():
-    # On vérifie si l'utilisateur charge la page après avoir répondu à a question (form)
+    # On vérifie si l'utilisateur charge la page après avoir répondu à la question (form)
     # Si c'est le cas, il utilise la méthode POST
     if request.method == 'POST':
         user_answer = int(request.form.get("user-answer"))
@@ -197,7 +197,7 @@ def whatTheSequence():
 
 @app.route("/math-challenge/is-the-equation-correct", methods=["POST","GET"])
 def isTheEquationCorrect():
-    # On vérifie si l'utilisateur charge la page après avoir répondu à a question (form)
+    # On vérifie si l'utilisateur charge la page après avoir répondu à la question (form)
     # Si c'est le cas, il utilise la méthode POST
     if request.method == 'POST':
         choice = request.form['choice']
@@ -224,7 +224,7 @@ def isTheEquationCorrect():
 
 @app.route("/random-challenge/Faces-or-Piles", methods=["POST","GET"])
 def headsOrTails():
-    # On vérifie si l'utilisateur charge la page après avoir répondu à a question (form)
+    # On vérifie si l'utilisateur charge la page après avoir répondu à la question (form)
     # Si c'est le cas, il utilise la méthode POST
     if request.method == 'POST':
         choice = request.form['choice']
@@ -244,7 +244,7 @@ def headsOrTails():
 
 @app.route("/random-challenge/random-number", methods=["POST","GET"])
 def randomNumber():
-    # On vérifie si l'utilisateur charge la page après avoir répondu à a question (form)
+    # On vérifie si l'utilisateur charge la page après avoir répondu à la question (form)
     # Si c'est le cas, il utilise la méthode POST
     if request.method == 'POST':
         user_answer = int(request.form.get("user-answer"))
@@ -267,7 +267,7 @@ def randomNumber():
 # Route pour l'énigme bonneteaux
 @app.route("/random-challenge/bonneteau", methods=['GET','POST'])
 def bonneteau():
-    # On vérifie si l'utilisateur charge la page après avoir répondu à a question (form)
+    # On vérifie si l'utilisateur charge la page après avoir répondu à la question (form)
     # Si c'est le cas, il utilise la méthode POST
     if request.method == 'POST':
         user_answer = request.form['user-answer']
@@ -432,7 +432,7 @@ def navalBattle():
 
 @app.route("/pere-fouras-challenge", methods=['GET','POST'])
 def pereFouras():
-    # On vérifie si l'utilisateur charge la page après avoir répondu à a question (form)
+    # On vérifie si l'utilisateur charge la page après avoir répondu à la question (form)
     # Si c'est le cas, il utilise la méthode POST
     if request.method == 'POST':
         # On récupère la réponse de l'utilisateur (provenant du formulaire)
