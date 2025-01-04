@@ -3,8 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Styles généraux -->
+    <link rel="stylesheet" href="{{url_for('static', filename='css/global-style.css')}}">
     <!-- Import de la feuille de style -->
-    <link rel="stylesheet" href="{{url_for('static', filename='css/logic_style/naval-battle.css')}}">
+    <link rel="stylesheet" href="{{url_for('static', filename='css/global-logic-style.css')}}">
     <title>Bataille Navale</title>
 </head>
 <body>
@@ -14,7 +16,7 @@
     {% if win == "player" %}
         <div id="right-answer" class="hidden">
             <p>Bravo, vous avez gagné !</p>
-            <a href="{{url_for('newKey', key_number='1')}}">Ouvrir la boite à clé 🔑</a>
+            <a href="{{url_for('newKey', key_number='1')}}" class="key-button">Ouvrir la boite à clé 🔑</a>
         </div>
     {% elif win == "ordi" %}
         <div id="wrong-answer" class="hidden">
@@ -23,20 +25,20 @@
         </div>
     {% else %}
 
-        <div id="game">
+        <div id="game" class="game-box">
             <div id="error-message">
                 {% if error == "bateau" %}
-                <div>Il faut placer 4 bateaux</div>
+                <div>Vous devez placer 4 bateaux sur la grille !</div>
                 {% endif %}
                 {% if error == "tir" %}
-                    <div>Il ne faut tirer qu'un seul missile</div>
+                    <div>Vous devez tirer 1 missile par tour !</div>
                 {% endif %}
             </div>
             <form method="POST">
                 <div id="game-board">
                     <!-- Grille du joueur 1 -->
                     <table id="player1" border="1">
-                        <caption>Joueur 1</caption>
+                        <caption>Votre grille</caption>
                         <tbody>
                             {% for row in range(taille_grille) %}
                                 <tr>
@@ -66,7 +68,7 @@
 
                     <!-- Grille du joueur 2 -->
                     <table id="player2" border="1">
-                        <caption>Joueur 2</caption>
+                        <caption>Grille du maître</caption>
                             <tbody>
                                 {% for row in range(taille_grille) %}
                                     <tr>

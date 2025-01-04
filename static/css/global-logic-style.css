@@ -1,0 +1,117 @@
+body {
+    background-image: url('../background/challenge-room.webp');
+    background-size: cover; /* L'image couvre toute la fenêtre */
+    background-position: center; /* Centre l'image */
+    background-repeat: no-repeat; /* Empêche la répétition */
+}
+
+
+h1 {
+    text-align: center;
+}
+
+
+#game {
+    display: flex;
+    flex-direction: column; /* Aligne les éléments verticalement */
+    justify-content: center;
+    align-items: center; /* Centre horizontalement */
+    background-color: rgba(0, 0, 0, 0.6); /* Noir avec 70% d'opacité */
+    border-radius: 15px; /* Bords arrondis de 15px */
+    padding: 20px 40px; /* Espacement interne pour éviter que le contenu touche les bords */
+    color: white; /* Texte en blanc pour contraster avec le fond noir */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3); /* Optionnel : ombre pour un effet visuel */
+    margin: auto; /* Optionnel : centre la div horizontalement */
+    height: 50%;
+    width: 40%;
+}
+#game-board {
+    display: flex; /* Utilise Flexbox pour aligner horizontalement les enfants */
+    gap: 10px; /* Espacement optionnel entre les éléments */
+    padding: 10px; /* Optionnel : pour ajouter de l'espace intérieur */
+}
+table {
+    border-collapse: collapse;
+    background-color: #1459e4e3;
+}
+table td, table th {
+width: 50px;
+height: 50px;
+text-align: center;
+border: 1px solid #000;
+}
+form {
+    display: flex;
+    flex-direction: column; /* Aligne les éléments verticalement */
+    justify-content: center;
+    align-items: center; /* Centre horizontalement */
+    height: 100%; /* Prend toute la hauteur possible */
+}
+#submit-answer {
+    margin-top: 20px;
+    padding: 10px 20px;
+    font-size: 16px; /* Taille du texte pour le bouton */
+    cursor: pointer; /* Change le curseur en main au survol */
+}
+.user-input-box {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    /* Facultatif, si vous souhaitez centrer la case à cocher */
+}
+
+.user-input-box input[type="checkbox"] {
+    width: 100%;
+    height: 100%;
+    margin: 0; /* Supprime les marges par défaut */
+    box-sizing: border-box; /* Assure que la largeur/hauteur inclut les bordures et le padding */
+    cursor: pointer; /* Améliore l'expérience utilisateur */
+}
+
+
+
+#submit-answer {
+    display: inline-block;          /* Traite le lien comme un bouton */
+    padding: 10px 20px;            /* Ajoute de l'espace à l'intérieur du bouton */
+    margin-top: 20px;
+    text-align: center;            /* Centre le texte dans le bouton */
+    color: #dfdfdf;                   /* Couleur du texte (gris foncé pour le contraste) */
+    text-decoration: none;
+    background-color: #bd923c;     /* Couleur de fond jaune pastel */
+    border: 2px solid #a26f08;     /* Bordure fine pour le design */
+    border-radius: 25px;           /* Contours arrondis */
+    font-weight: bold;             /* Texte en gras */
+    transition: all 0.2s ease;     /* Animation fluide pour les effets */
+}
+  
+#submit-answer:hover {
+    background-color: #cfa758;     /* Couleur légèrement plus vive au survol */
+    border-color: #b98826;         /* Change la couleur de la bordure au survol */
+    transform: scale(1.05);         /* Agrandit légèrement le bouton au survol */
+    cursor: pointer;
+}
+
+
+.key-button {
+    display: inline-block;          /* Traite le lien comme un bouton */
+    padding: 10px 20px;            /* Ajoute de l'espace à l'intérieur du bouton */
+    margin-top: 20px;
+    text-align: center;            /* Centre le texte dans le bouton */
+    color: #dfdfdf;                   /* Couleur du texte (gris foncé pour le contraste) */
+    text-decoration: none;
+    background-color: #bd923c;     /* Couleur de fond jaune pastel */
+    border: 2px solid #a26f08;     /* Bordure fine pour le design */
+    border-radius: 25px;           /* Contours arrondis */
+    font-weight: bold;             /* Texte en gras */
+    transition: all 0.2s ease;     /* Animation fluide pour les effets */
+    box-shadow: 2px 4px 6px rgba(198, 170, 15, 0.396); /* Ombre */
+}
+  
+.key-button:hover {
+    background-color: #cfa758;     /* Couleur légèrement plus vive au survol */
+    border-color: #b98826;         /* Change la couleur de la bordure au survol */
+    transform: scale(1.05);         /* Agrandit légèrement le bouton au survol */
+    cursor: pointer;
+}

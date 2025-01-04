@@ -3,53 +3,60 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Styles généraux -->
+    <link rel="stylesheet" href="{{url_for('static', filename='css/global-style.css')}}">
+    <!-- Styles spécifiques à cette page -->
+    <link rel="stylesheet" href="{{url_for('static', filename='css/global-random-style.css')}}">
     <title>Epreuve : Lancer de dés </title>
 </head>
 <body>
     <h1>Epreuve : Lancer de dés</h1>
-    {% if number_of_try == 0 %}
-        <h2>Explication etc. Vous devez obtenir 6 avec un des deux dés pour gagner.</h2>
-        <form method="POST">
-                <button type="submit">Lancer les dés</button>
-        </form>
-        
-    {% elif number_of_try <= 3 %}
 
-        <p>Nombre d'essai : {{ number_of_try }}</p>
-
-        {% if turn == 'player' %}
-
-            <p>Le maitre a fait : {{ roll }}</p>
-            {% if 6 in roll %}
-                <h2>Le maitre a gagné !</h2>
-                <a href="{{url_for('fortBoyard')}}">Retourner sur le fort 🚪</a>
-            {% else %}
-                <form method="POST">
+    <div class="content-box">
+        {% if number_of_try == 0 %}
+            <p>Explication etc. Vous devez obtenir 6 avec un des deux dés pour gagner.</p>
+            <form method="POST">
                     <button type="submit">Lancer les dés</button>
-                </form>
+            </form>
+            
+        {% elif number_of_try <= 3 %}
+
+            <p>Nombre d'essai : {{ number_of_try }}</p>
+
+            {% if turn == 'player' %}
+
+                <p>Le maitre a fait : {{ roll }}</p>
+                {% if 6 in roll %}
+                    <h2>Le maitre a gagné !</h2>
+                    <a href="{{url_for('fortBoyard')}}" class="exit-button">Retourner sur le fort 🚪</a>
+                {% else %}
+                    <form method="POST">
+                        <button type="submit">Lancer les dés</button>
+                    </form>
+                {% endif %}
+
+            {% elif turn == 'master' %}
+                <p>Vous avez fait : {{ roll }}</p>
+                {% if 6 in roll %}
+                    <h2>Vous avez gagné !</h2>
+                    <a href="{{url_for('newKey', key_number='1')}}" class="exit-button">Ouvrir la boite à clé 🔑</a>
+                {% else %}
+                    <form method="POST">
+                        <button type="submit">Voir le lancer du maitre</button>
+                    </form>
+                {% endif %}
+
             {% endif %}
 
-        {% elif turn == 'master' %}
-            <p>Vous avez fait : {{ roll }}</p>
-            {% if 6 in roll %}
-                <h2>Vous avez gagné !</h2>
-                <a href="{{url_for('newKey', key_number='1')}}">Ouvrir la boite à clé 🔑</a>
-            {% else %}
-                <form method="POST">
-                    <button type="submit">Voir le lancer du maitre</button>
-                </form>
-            {% endif %}
+
+        {% else %}
+
+                <h2>Personne n'a gagné.</h2>
+                <a href="{{url_for('fortBoyard')}}" class="exit-button">Retourner sur le fort 🚪</a>
 
         {% endif %}
 
-
-    {% else %}
-
-            <h2>Personne n'a gagné.</h2>
-            <a href="{{url_for('fortBoyard')}}">Retourner sur le fort 🚪</a>
-
-    {% endif %}
-
+    </div>
 
 </body>
 </html>

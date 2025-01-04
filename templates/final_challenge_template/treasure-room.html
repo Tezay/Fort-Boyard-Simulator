@@ -3,9 +3,22 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Styles généraux -->
+    <link rel="stylesheet" href="{{url_for('static', filename='css/global-style.css')}}">
+    <!-- Styles spécifiques à cette page -->
+    <link rel="stylesheet" href="{{url_for('static', filename='css/treasure-room-style.css')}}">
+    <!-- Script JavaScript spécifique à cette page (pour gérer le jeu des pièces) -->
+    <script defer="defer" language="JavaScript" src="{{url_for('static', filename='js/treasure-room-script.js')}}"></script>
     <title>Salle du trésor</title>
 </head>
 <body>
-    <h1>Salle du trésor</h1>
+    <h1>Salle du Trésor</h1>
+    <div id="timer">Temps restant : 20s</div>
+    <div id="score">Score : 0</div>
+    <div id="game-container"></div>
+    <form id="game-over-form" method="POST" action="/end-game" style="display: none;">
+        <input type="hidden" name="score" id="final-score" value="0">
+    </form>
+
 </body>
 </html>

@@ -11,26 +11,29 @@
 </head>
 <body>
     <h1>Epreuve : Equation linéaire</h1>
-    <div class="question-box">
-        <p>Résoudre l'équation {{ question['a']}}x {{ question['b']}} = 0. Que vaut x ?</p>
-    </div>
-    {% if user_answer == None %}
-        <form method="POST">
-            <div id="user-input-box" class="user-input-box">
-                <input id="user-answer" name="user-answer" type="text" placeholder="Entrez la valeur de x" required>
-                <button id="submit-answer">Envoyer</button>
+
+    <div class="content-box">
+        <div class="question-box">
+            <p>Résoudre l'équation {{ question['a']}}x {{ question['b']}} = 0. Que vaut x ?</p>
+        </div>
+        {% if user_answer == None %}
+            <form method="POST">
+                <div id="user-input-box" class="user-input-box">
+                    <input id="user-answer" name="user-answer" type="text" placeholder="Entrez la valeur de x" required>
+                    <button id="submit-answer">Envoyer</button>
+                </div>
+            </form>
+        {% elif user_answer in right_answer %}
+            <div id="right-answer">
+                <p>Bravo, tu as trouvé la bonne réponse !</p>
+                <a href="{{url_for('newKey', key_number='1')}}" class="exit-button">Ouvrir la boite à clé 🔑</a>
             </div>
-        </form>
-    {% elif user_answer in right_answer %}
-        <div id="right-answer">
-            <p>Bravo, tu as trouvé la bonne réponse !</p>
-            <a href="{{url_for('newKey', key_number='1')}}" class="key-button">Ouvrir la boite à clé 🔑</a>
-        </div>
-    {% elif user_answer != None %}
-        <div id="wrong-answer">
-            <p>Mauvaise réponse ! La bonne réponse était : x = {{ right_answer[0] }}</p>
-            <a href="{{url_for('fortBoyard')}}">Retourner sur le fort 🚪</a>
-        </div>
-    {% endif %}
+        {% elif user_answer != None %}
+            <div id="wrong-answer">
+                <p>Mauvaise réponse ! La bonne réponse était : x = {{ right_answer[0] }}</p>
+                <a href="{{url_for('fortBoyard')}}" class="exit-button">Retourner sur le fort 🚪</a>
+            </div>
+        {% endif %}
+    </div>
 </body>
 </html>
