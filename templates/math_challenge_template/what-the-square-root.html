@@ -7,31 +7,32 @@
     <link rel="stylesheet" href="{{url_for('static', filename='css/global-style.css')}}">
     <!-- Styles spécifiques à cette page -->
     <link rel="stylesheet" href="{{url_for('static', filename='css/global-math-style.css')}}">
-    <title>Epreuve : Quelle est la racine carré  ?</title>
+    <title>Epreuve : Racine carré</title>
 </head>
 <body>
-    <h1>Epreuve : Quelle est la racine carré ?</h1>
-    <div class="question-box">
-        <p>Trouver la racine carré du nombre suivant : {{ question }}  ?</p>
-    </div>
-    {% if user_answer == None %}
-        <form method="POST">
-            <div id="user-input-box" class="user-input-box">
-                <input id="user-answer" name="user-answer" type="number" placeholder="Entrez votre réponse" required>
-                <button id="submit-answer">Envoyer</button>
+    <h1>Epreuve : Racine carré</h1>
+    <div class="content-box">
+        <div class="question-box">
+            <p>Quelle est la racine carré du nombre suivant : {{ question }}  ?</p>
+        </div>
+        {% if user_answer == None %}
+            <form method="POST">
+                <div id="user-input-box" class="user-input-box">
+                    <input id="user-answer" name="user-answer" type="number" placeholder="Entrez votre réponse" required>
+                    <button id="submit-answer">Envoyer</button>
+                </div>
+            </form>
+        {% elif user_answer == right_answer %}
+            <div id="right-answer">
+                <p>Bravo, tu as trouvé la bonne réponse !</p>
+                <a href="{{url_for('newKey', key_number='1')}}" class="exit-button">Ouvrir la boite à clé 🔑</a>
             </div>
-        </form>
-    {% elif user_answer == right_answer %}
-        <div id="right-answer">
-            <p>Bravo, tu as trouvé la bonne réponse !</p>
-            <a href="{{url_for('newKey', key_number='1')}}" class="key-button">Ouvrir la boite à clé 🔑</a>
-        </div>
-    {% elif user_answer != None %}
-        <div id="wrong-answer">
-            <p>Mauvaise réponse ! La bonne réponse était : {{ right_answer }}</p>
-            <a href="{{url_for('fortBoyard')}}">Retourner sur le fort 🚪</a>
-        </div>
-    {% endif %}
-
+        {% elif user_answer != None %}
+            <div id="wrong-answer">
+                <p>Mauvaise réponse ! La bonne réponse était : {{ right_answer }}</p>
+                <a href="{{url_for('fortBoyard')}}" class="exit-button">Retourner sur le fort 🚪</a>
+            </div>
+        {% endif %}
+    </div>
 </body>
 </html>

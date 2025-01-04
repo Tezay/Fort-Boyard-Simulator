@@ -180,7 +180,7 @@ def equalityAnswer(right_result,result):
         return False
     
 # Fonction pour faire le PGCD de deux nombres
-def pgcd(a, b):
+def findPgcd(a, b):
     while b != 0:
         a, b = b, a % b
     return a
@@ -230,7 +230,7 @@ def linearEquationChallenge():
     # Ajouter la fraction exacte sous forme de chaîne
     right_answer.append(f"{-b}/{a}")
 
-    pgcd = pgcd(a, -b)
+    pgcd = findPgcd(a, -b)
     if pgcd != 1:
         right_answer.append(f"{-b//pgcd}/{a//pgcd}")
 
@@ -245,7 +245,7 @@ def linearEquationChallenge():
 
     b = f"+{b}" if b > 0 else f"{b}"
     question = {'a': a, 'b': b}
-
+    
     return question, right_answer
 
 
