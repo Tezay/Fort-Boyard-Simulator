@@ -69,4 +69,45 @@ http://127.0.0.1:5000/
 
 ## 2. Documentation Technique
 
-A compléter...
+### 1. Initialisation
+1.1 Composition de l'équipe 
+
+- Nombre de joueurs, nom et profession des joueurs 
+
+### 2. Début du jeux
+2.1 Entrez sur le fort 
+
+2.2 Choix du joueur qui fera l'épreuve 
+
+2.3 Choix de l'épreuve 
+  
+- Choix parmi les 4 type d'épreuves possible 
+  - mathématique
+  - logique
+  - aléatoire
+  - Pere Fouras 
+
+2.4 Dans le type d'épreuve choisi auparavant choix aléatoire d'une épreuve
+
+### 3. Début des épreuves 
+3.1 Exécution de l'épreuve : 
+
+- Le joueur séléctionner réalise l'epreuve qu'il a choisis.
+  
+  - Épreuve réussie -> Clef gagné et ajouter au compteur 
+  - Épreuve raté -> Aucune clef n'est donné
+
+### 4. Duré du jeux
+
+4.1 Chaque type d'épreuve doit être efféctué au moins 1 fois et au maximum 2 fois 
+
+4.2 Il faut au minimum trois clefs pour rentrer dans l'épreuve final 
+
+4.3 Au bout de 5 clefs les épreuve s'arrette et c'est le passage à l'épreuve final
+
+### 5. Épreuve finale 
+
+5.1 En fonction du nombre de clefs, le même nombre d'indices est donné 
+  
+  - Trois chances pour réussir l'épreuve finale
+  - À chaque essaie un indice est ajouté pour aider les joueures 
