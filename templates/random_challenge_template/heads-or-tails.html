@@ -11,27 +11,29 @@
 </head>
 <body>
     <h1>Epreuve : Pile ou Face</h1>
-    <div class="question-box">
-        <p>Pile ou Face ?</p>
+    <div class="content-box">
+        <div class="question-box">
+            <p>Pile ou Face ?</p>
+        </div>
+        {% if user_answer == None %}
+            <form method='POST'>
+            <button id="submit-answer" name="choice" value="Pile">Pile</button>
+            <button id="submit-answer" name="choice" value="Face">Face</button>
+            </form>
+        {% elif user_answer == right_answer %}
+            <div id="right-answer">
+                <p>Bravo, tu as trouvé la bonne réponse !</p>
+                <a href="{{url_for('newKey', key_number='1')}}" class="exit-button">Ouvrir la boite à clé 🔑</a>
+            </div>
+        {% elif user_answer != None %}
+            <div id="wrong-answer">
+                {% if right_answer != user_answer  %}
+                    <p>Raté ! La pièce est tombée sur : {{ right_answer }}</p>
+                    <a href="{{url_for('fortBoyard')}}" class="exit-button">Retourner sur le fort 🚪</a>
+                {% endif %}
+            </div>
+        {% endif %}
     </div>
-    {% if user_answer == None %}
-        <form method='POST'>
-          <button id="submit-answer" name="choice" value="Pile">Pile</button>
-          <button id="submit-answer" name="choice" value="Face">Face</button>
-        </form>
-    {% elif user_answer == right_answer %}
-        <div id="right-answer">
-            <p>Bravo, tu as trouvé la bonne réponse !</p>
-            <a href="{{url_for('newKey', key_number='1')}}" class="key-button">Ouvrir la boite à clé 🔑</a>
-        </div>
-    {% elif user_answer != None %}
-        <div id="wrong-answer">
-            {% if right_answer != user_answer  %}
-                <p>Raté ! La pièce est tombée sur : {{ right_answer }}</p>
-                <a href="{{url_for('fortBoyard')}}">Retourner sur le fort 🚪</a>
-            {% endif %}
-        </div>
-    {% endif %}
 
 </body>
 </html>

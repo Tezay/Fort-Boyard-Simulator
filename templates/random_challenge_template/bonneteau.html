@@ -13,14 +13,14 @@
 <body>
     <h1>Epreuve Bonneteau</h1>
 
-    <div class="question-box">
-        <p>Choisissez un bonneteau parmi les 3 suivants !</p>
-    </div>
-
 
     {% if user_answer == None or (user_answer != right_answer.lower() and counter < 2) %}
 
-        <div class="content-box">
+        <div class="content-video-box">
+
+            <div class="question-box">
+                <p>Choisissez un bonneteau parmi les 3 suivants !</p>
+            </div>
 
             <div class="video-box">
 
@@ -38,7 +38,7 @@
                     <button id="submit-answer" name="user-answer" value="c">C</button>
                 </div>
                 {% if counter > 0 %}
-                    <p>Mauvais bonneteau ! Tu as encore {{ counter }} sur 2.</p>
+                    <p>Mauvais bonneteau ! Il te reste {{ counter }} essai.</p>
                 {% endif %}
             </form>
 
@@ -47,12 +47,12 @@
     {% elif user_answer == right_answer.lower() %}
         <div id="right-answer">
             <p>Bravo, tu as choisi le bon bonneteau !</p>
-            <a href="{{url_for('newKey', key_number='1')}}"  class="key-button">Récupérer la clé 🔑</a>
+            <a href="{{url_for('newKey', key_number='1')}}"  class="exit-button">Récupérer la clé 🔑</a>
         </div>
     {% else %}
         <div id="wrong-answer">
             <p>Mauvais bonneteau ! Le bon bonneteau était : {{ right_answer }}</p>
-            <a href="{{url_for('fortBoyard')}}">Retourner sur le fort 🚪</a>
+            <a href="{{url_for('fortBoyard')}}" class="exit-button">Retourner sur le fort 🚪</a>
         </div>
     {% endif %}
 

@@ -15,7 +15,7 @@
     background-color: transparent; /* Assurez-vous que la vidéo ne dépasse pas la zone masquée */
 }
 
-.content-box {
+.content-video-box {
     display: flex;
     flex-direction: column; /* Aligne les éléments verticalement */
     justify-content: center;
@@ -32,5 +32,11 @@
     width: 600px;
     display: flex;
     justify-content: center;
+}
 
+.question-box p {
+    text-shadow: 4px 4px 4px rgba(0, 0, 0, 1); /* Ombre noire légèrement floutée */
+    font-size: 1.8rem;
+    margin-bottom: 0;
+    text-decoration: underline;
 }

@@ -22,7 +22,7 @@ p {
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3); /* Optionnel : ombre pour un effet visuel */
     margin: auto; /* Optionnel : centre la div horizontalement */
     height: 40%;
-    width: 65%;
+    width: 60%;
     display: flex; /* Permet de centrer le formulaire lui-même */
     flex-direction: column;
     justify-content: center; /* Centre horizontalement */
@@ -65,6 +65,7 @@ p {
     flex-direction: column;
     justify-content: center; /* Centre horizontalement */
     align-items: center; /* Centre verticalement */
+    text-align: center;
 }
 
 .exit-button {

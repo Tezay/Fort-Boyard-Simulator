@@ -14,6 +14,30 @@ p {
     text-shadow: 4px 4px 8px rgba(0, 0, 0, 0.6); /* Ombre noire légèrement floutée */
 }
 
+.content-box {
+    background-color: rgba(0, 0, 0, 0.6); /* Noir avec 70% d'opacité */
+    border-radius: 15px; /* Bords arrondis de 15px */
+    padding: 10px 40px; /* Espacement interne pour éviter que le contenu touche les bords */
+    color: white; /* Texte en blanc pour contraster avec le fond noir */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3); /* Optionnel : ombre pour un effet visuel */
+    margin: auto; /* Optionnel : centre la div horizontalement */
+    height: 40%;
+    width: 60%;
+    display: flex; /* Permet de centrer le formulaire lui-même */
+    flex-direction: column;
+    justify-content: center; /* Centre horizontalement */
+    align-items: center; /* Centre verticalement */
+}
+
+
+#user-answer {
+    padding: 10px 20px;            /* Ajoute de l'espace à l'intérieur du bouton */
+    text-align: center;            /* Centre le texte dans le bouton */
+    font-size: 1.3rem;
+    text-decoration: none;
+    border: 2px solid #a26f08;     /* Bordure fine pour le design */
+    border-radius: 25px;           /* Contours arrondis */
+}
 
 
 #submit-answer {
@@ -24,7 +48,7 @@ p {
     background-color: #bd923c;     /* Couleur de fond jaune pastel */
     border: 2px solid #a26f08;     /* Bordure fine pour le design */
     border-radius: 32px;           /* Contours arrondis */
-    font-size: 1.5rem;
+    font-size: 1.3rem;
     font-weight: bold;             /* Texte en gras */
     transition: all 0.2s ease;     /* Animation fluide pour les effets */
     margin-left: 10px;
@@ -38,7 +62,15 @@ p {
     cursor: pointer;
 }
 
-.key-button {
+#right-answer, #wrong-answer {
+    display: flex; /* Permet de centrer le formulaire lui-même */
+    flex-direction: column;
+    justify-content: center; /* Centre horizontalement */
+    align-items: center; /* Centre verticalement */
+    text-align: center;
+}
+
+.exit-button {
     display: inline-block;          /* Traite le lien comme un bouton */
     padding: 10px 20px;            /* Ajoute de l'espace à l'intérieur du bouton */
     margin-top: 20px;
@@ -53,7 +85,7 @@ p {
     box-shadow: 2px 4px 6px rgba(198, 170, 15, 0.396); /* Ombre */
 }
   
-.key-button:hover {
+.exit-button:hover {
     background-color: #cfa758;     /* Couleur légèrement plus vive au survol */
     border-color: #b98826;         /* Change la couleur de la bordure au survol */
     transform: scale(1.05);         /* Agrandit légèrement le bouton au survol */

@@ -36,7 +36,9 @@ def diceRollChallenge():
 # Fonction de l'énigme du nombre aléatoire
 def randomNumberChallenge():
     number = randomNum()
-    master_answer = random.randint(number-11, number+11)
+    master_answer = 0
+    while not (1 <= master_answer <= 50):
+        master_answer = random.randint(number-20, number+20)
     return master_answer, number
 
 def coinChallenge():
