@@ -4,7 +4,7 @@ Projet EFREI TI101 - Programmation en Python
 ## 1. Présentation Générale
 
 ### Etat du projet
-Ce projet est en cours de développement, les fonctionnalités proposées ne sont pas encore entièrement terminées.
+Achevé
 
 ### Contributeurs
 - Eliot.C : Tezay
@@ -74,40 +74,168 @@ http://127.0.0.1:5000/
 
 - Nombre de joueurs, nom et profession des joueurs 
 
-### 2. Début du jeux
-2.1 Entrez sur le fort 
+### 2. Début du jeu
+2.1 Entrée sur le fort 
 
 2.2 Choix du joueur qui fera l'épreuve 
 
 2.3 Choix de l'épreuve 
   
 - Choix parmi les 4 type d'épreuves possible 
-  - mathématique
-  - logique
-  - aléatoire
+  - Mathématiques
+  - Logique
+  - Aléatoire
   - Pere Fouras 
 
-2.4 Dans le type d'épreuve choisi auparavant choix aléatoire d'une épreuve
+2.4 Dans le type d'épreuve choisie auparavant choix aléatoire d'une épreuve
 
 ### 3. Début des épreuves 
 3.1 Exécution de l'épreuve : 
 
-- Le joueur séléctionner réalise l'epreuve qu'il a choisis.
+- Le joueur sélectionné réalise l'épreuve qu'il a choisie.
   
-  - Épreuve réussie -> Clef gagné et ajouter au compteur 
-  - Épreuve raté -> Aucune clef n'est donné
+  - Épreuve réussie -> Clef gagnée et ajoutée au compteur 
+  - Épreuve ratée -> Aucune clef n'est donnée
 
-### 4. Duré du jeux
+### 4. Déroulement du jeu
 
-4.1 Chaque type d'épreuve doit être efféctué au moins 1 fois et au maximum 2 fois 
+4.1 Chaque type d'épreuve doit être effectuée au minimum 1 fois et au maximum 2 fois 
 
 4.2 Il faut au minimum trois clefs pour rentrer dans l'épreuve final 
 
-4.3 Au bout de 5 clefs les épreuve s'arrette et c'est le passage à l'épreuve final
+4.3 Au bout de 5 clefs les épreuves s'arrêtent et c'est le passage à l'épreuve finale
 
 ### 5. Épreuve finale 
 
 5.1 En fonction du nombre de clefs, le même nombre d'indices est donné 
   
   - Trois chances pour réussir l'épreuve finale
-  - À chaque essaie un indice est ajouté pour aider les joueures 
+  - À chaque essaie raté un indice est ajouté pour aider les joueurs 
+  - Si l'énigme est réussie accès à la salle du trésor 
+
+### 6. Salle du trésor
+
+- Récupérer le plus de pièces possibles en un temps imparti
+
+## 3. Journal de bords
+
+### 28 nov. 2024
+
+- Création du projet GitHub et répartition du travail :
+
+  - Épreuve Hasard -> Tezay
+  - Épreuve Mathématiques -> CSScooby
+  
+
+### 5 déc. 2024
+
+- Tezay 
+
+  - Première feature Flask 
+  - Épreuve Hasard bonneteau
+
+- CSScooby 
+  
+  - Épreuve Mathématiques nombres premiers
+
+### 10 déc. 2024
+
+- Tezay 
+
+  - Modification de la vérification des questions pour utiliser uniquement du python
+
+- CSScooby 
+  
+  - Épreuve Mathématiques roulette et équation linéaire
+  - Épreuve Hasard jeu de dé 
+
+### 11 déc. 2024
+
+- Tezay 
+
+  - Optimisation de Flask 
+  - Épreuve Hasard bataille navale
+  - Optimisation des épreuves
+
+- CSScooby 
+  
+  - Épreuve Hasard jeu de dé
+
+### 12 et 13 déc. 2024
+
+- Tezay 
+
+  - Optimisation de l'épreuve Hasard bataille navale
+  - Prise en compte des fractions dans les épreuves de mathématiques
+
+### 17 déc. 2024
+
+- Tezay 
+
+  - Modification front
+  - Correction de Bug
+
+- CSScooby 
+  
+  - Modification épreuve Mathématiques roulette
+
+### 19 et 20 déc. 2024
+
+- Tezay 
+
+  - Modification Bonneteau
+  - Énigmes Père Fouras
+  - README
+
+- CSScooby 
+  
+  - Explication des règles du jeu
+
+### 24 et 25 déc. 2024
+
+- CSScooby 
+  
+  - Épreuve Mathématiques nombres premiers
+
+### 26 déc. 2024
+
+- Tezay 
+
+  - Épreuve Hasard jeu de dé 
+  - Énigmes Père Fouras
+
+### 30 et 31 déc. 2024
+
+- Tezay 
+
+  - Fonction choix des équipes
+  - Restructuration Json
+  - Épreuve du Tic Tac Toe 
+
+- CSScooby 
+  
+  - Épreuve de Mathématiques : 3 épreuves
+  - Modification des explications des règles
+
+### 1 et 2 jan. 2024
+
+- Tezay 
+
+  - Correction des derniers Bug
+  - CSS
+
+- CSScooby 
+  
+  - Dernière épreuve
+  - Correction des derniers Bug
+
+### 3 et 4 jan. 2024 
+
+- Tezay
+  
+  - CSS
+  - Salle du trésor
+
+- CSScooby 
+
+  - README
