@@ -227,25 +227,30 @@ def linearEquationChallenge():
     # Construire une liste de réponses acceptables
     right_answer = []
 
-    # Ajouter la fraction exacte sous forme de chaîne
-    right_answer.append(f"{-b}/{a}")
+    
 
     pgcd = findPgcd(a, -b)
+    print(pgcd)
     if pgcd != 1:
+        right_answer.append(f"{b//pgcd}/{-a//pgcd}")
         right_answer.append(f"{-b//pgcd}/{a//pgcd}")
 
-    if a//pgcd == 1:
-        right_answer.append(f"{-b//pgcd}")
+    if a//pgcd == 1 or a//pgcd == -1:
+        right_answer.append(f"{-(a//pgcd)*b//pgcd}")
+
+    # Ajouter la fraction exacte sous forme de chaîne
+    right_answer.append(f"{-b}/{a}")
+    right_answer.append(f"{b}/{-a}")
 
     # Ajouter la version décimale avec arrondi à différentes précisions
     for precision in range(1, 10):  # On arrondit jusqu'à 3 décimales
         arrondi = round(solution_exacte, precision)
         right_answer.append(f"{arrondi}".replace(".", ","))  # Format français avec virgule
         right_answer.append(f"{arrondi}")  # Format anglais avec point
-
+    print(right_answer)
     b = f"+{b}" if b > 0 else f"{b}"
     question = {'a': a, 'b': b}
-    
+    print(right_answer)
     return question, right_answer
 
 
