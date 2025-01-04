@@ -43,11 +43,90 @@ h1 {
 
 .challenges-list {
     margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Style des boutons */
+.challenge-button {
+    display: flex; /* Active le flexbox */
+    align-items: center; /* Centre verticalement */
+    justify-content: center; /* Centre horizontalement */
+    width: 180px; /* Dimensions fixes pour uniformiser */
+    height: 40px;
+    margin-top: 10px; /* Espacement entre les boutons */
+    border-radius: 18px; /* Bords arrondis */
+    background-color: #bd923c;     /* Couleur de fond jaune pastel */
+    border: 2px solid #a26f08;     /* Bordure fine pour le design */
+    color: white; /* Couleur du texte */
+    font-size: 1.4rem; /* Taille du texte */
+    text-align: center; /* Centre le texte à l'intérieur du bouton */
+    border: none; /* Supprime les bordures par défaut */
+    cursor: pointer; /* Change le curseur en "pointeur" lors du survol */
+    transition: all 0.2s ease; /* Animation pour le survol */
+    box-shadow: 2px 4px 6px rgba(0, 0, 0, 0.3); /* Ombre */
+    text-decoration: none;
+}
+
+/* Effet au survol */
+.challenge-button:hover {
+    background-color: #cfa758;     /* Couleur légèrement plus vive au survol */
+    border-color: #b98826;         /* Change la couleur de la bordure au survol */
+    transform: scale(1.05);         /* Agrandit légèrement le bouton au survol */
+}
+
+.inactive-challenge-button {
+    display: flex; /* Active le flexbox */
+    align-items: center; /* Centre verticalement */
+    justify-content: center; /* Centre horizontalement */
+    width: 180px; /* Dimensions fixes pour uniformiser */
+    height: 40px;
+    margin-top: 10px; /* Espacement entre les boutons */
+    border-radius: 18px; /* Bords arrondis */
+    background-color: #bd923c82;     /* Couleur de fond jaune pastel */
+    border: 2px solid #a26f08b3;     /* Bordure fine pour le design */
+    color: white; /* Couleur du texte */
+    font-size: 1.4rem; /* Taille du texte */
+    text-align: center; /* Centre le texte à l'intérieur du bouton */
+    border: none; /* Supprime les bordures par défaut */
+    cursor: pointer; /* Change le curseur en "pointeur" lors du survol */
+}
+
+.final-challenge-button {
+    display: inline-block;          /* Traite le lien comme un bouton */
+    padding: 10px 20px;            /* Ajoute de l'espace à l'intérieur du bouton */
+    margin-top: 5px;
+    text-align: center;            /* Centre le texte dans le bouton */
+    color: #dfdfdf;                   /* Couleur du texte (gris foncé pour le contraste) */
+    text-decoration: none;
+    background-color: #bd923c;     /* Couleur de fond jaune pastel */
+    border: 2px solid #a26f08;     /* Bordure fine pour le design */
+    border-radius: 32px;           /* Contours arrondis */
+    font-weight: bold;             /* Texte en gras */
+    transition: all 0.2s ease;     /* Animation fluide pour les effets */
+    font-size: 1.3rem;
+}
+
+.final-challenge-button:hover {
+    background-color: #cfa758;     /* Couleur légèrement plus vive au survol */
+    border-color: #b98826;         /* Change la couleur de la bordure au survol */
+    transform: scale(1.05);         /* Agrandit légèrement le bouton au survol */
+    cursor: pointer;
 }
 
 .challenge-box {
     display: flex;
     flex-direction: row;
-    align-items: baseline;
-    padding: 10px 30px;
+    align-items:center;
+    padding: 2px 40px;
+    margin-bottom: 10px;
+    border-radius: 24px;
+    justify-content: space-between;
+    width: 65%;
+    background-color: rgba(0, 0, 0, 0.4); /* Noir avec 70% d'opacité */
+    border-radius: 25px; /* Bords arrondis de 15px */
+    color: white; /* Texte en blanc pour contraster avec le fond noir */
+    box-shadow: 0 4px 6px rgba(126, 126, 126, 0.5); /* Optionnel : ombre pour un effet visuel */
 }

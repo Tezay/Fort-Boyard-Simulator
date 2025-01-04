@@ -1,9 +1,5 @@
 # Moduls import
 import random
-from multiprocessing.connection import answer_challenge
-from random import randint
-from wsgiref.util import request_uri
-
 
 ##### Fonctions utiles #####
 
@@ -52,7 +48,7 @@ def nearestPrimeNumber(n):
 def fiveNumbersRandom():
     five_number = []
     for nb in range(5):
-        five_number.append(randint(1, 20))
+        five_number.append(random.randint(1, 20))
     return five_number
 
 #Choix d'un opérateur aléatoire
@@ -136,8 +132,8 @@ def squareRootOfWhat():
     return number, squared_number
 
 def valueSequence():
-    U0 = randint(-25, 25)
-    r = randint(-10,10)
+    U0 = random.randint(-25, 25)
+    r = random.randint(-10,10)
     return U0, r
 
 def sequence(U0, r):
@@ -158,8 +154,8 @@ def sequenceNumber(sequence):
 
 
 def equality():
-    number1 = randint(-25, 25)
-    number2 = randint(-25, 25)
+    number1 = random.randint(-25, 25)
+    number2 = random.randint(-25, 25)
     operator = randomOperator()
     return number1, number2 ,operator
 
@@ -170,7 +166,7 @@ def equalityResult(number1,number2,operator):
         right_result = number1 - number2
     elif operator == "*":
         right_result = number1 * number2
-    result_liste = [randint(right_result-10,right_result+10),right_result]
+    result_liste = [random.randint(right_result-10,right_result+10),right_result]
     return right_result, random.choice(result_liste)
 
 def equalityAnswer(right_result,result):
@@ -199,24 +195,24 @@ def equalityChallenge():
 
 def sequenceChallenge():
     U0, r = valueSequence()
-    number = randint(4,20)
+    number = random.randint(4,20)
     entire_sequence = sequence(U0, r)
     right_answer, question = sequenceNumber(entire_sequence)
     return question, right_answer
 
 def factorialChallenge():
-    question = randint(1,10)
+    question = random.randint(1,10)
     right_answer = factorial(question)
     return question, right_answer
 
 def primeNumberChallenge():
-    question = randint(10,20)
+    question = random.randint(10,20)
     right_answer = nearestPrimeNumber(question)
     return question, right_answer
 
 def linearEquationChallenge():
     # Générer les coefficients a et b
-    a = randint(1, 10)
+    a = random.randint(1, 10)
     b = 0
     while b == 0:
         b = random.randint(-10, 10)
@@ -226,8 +222,6 @@ def linearEquationChallenge():
 
     # Construire une liste de réponses acceptables
     right_answer = []
-
-    
 
     pgcd = findPgcd(a, -b)
     print(pgcd)
@@ -250,9 +244,8 @@ def linearEquationChallenge():
     print(right_answer)
     b = f"+{b}" if b > 0 else f"{b}"
     question = {'a': a, 'b': b}
-    print(right_answer)
-    return question, right_answer
 
+    return question, right_answer
 
 def rouletteChallenge():
     numbers_list = fiveNumbersRandom()
