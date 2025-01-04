@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Styles généraux -->
+    <link rel="stylesheet" href="{{url_for('static', filename='css/global-style.css')}}">
+    <!-- Styles spécifiques à cette page -->
+    <link rel="stylesheet" href="{{url_for('static', filename='css/end-game-style.css')}}">
+    <title>Fin du jeu</title>
+</head>
+<body>
+    <div class="content-box">
+        <h1>Fin du Jeu</h1>
+        <p>Vous avez récupéré <strong>{{ score }}</strong> pièces !</p>
+        <a href="/" class="replay-button">Rejouer</a>
+    </div>
+</body>
+</html>

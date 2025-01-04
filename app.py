@@ -478,6 +478,11 @@ def finalChallenge():
 def treasureRoom():
     return render_template("final_challenge_template/treasure-room.html")
 
+@app.route('/end-game', methods=['POST'])
+def endGame():
+    score = request.form.get('score', 0)
+    return render_template('final_challenge_template/end-game.html', score=score)
+
 
 # Route pour séléctionner le joueur pour la prochaine épreuve
 @app.route("/next-player", methods=['GET','POST'])

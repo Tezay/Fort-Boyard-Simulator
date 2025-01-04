@@ -1,0 +1,35 @@
+body {
+    background-image: url('../background/treasure-room.webp');
+    background-size: cover; /* L'image couvre toute la fenêtre */
+    background-position: center; /* Centre l'image */
+    background-repeat: no-repeat; /* Empêche la répétition */
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-shadow: 4px 4px 8px rgba(0, 0, 0, 1); /* Ombre noire légèrement floutée */
+}
+
+#game-container {
+    position: relative;
+    width: 65%;
+    height: 60%;
+    overflow: hidden;
+    background-color: rgba(0, 0, 0, 0.6); /* Noir avec 70% d'opacité */
+    border-radius: 15px; /* Bords arrondis de 15px */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3); /* Optionnel : ombre pour un effet visuel */
+}
+.coin {
+    position: absolute;
+    width: 30px;
+    height: 30px;
+    background-color: gold;
+    border-radius: 50%;
+    cursor: pointer;
+}
+#timer, #score {
+    font-size: 1.5em;
+    margin: 10px 0;
+}
