@@ -452,7 +452,7 @@ def pereFouras():
         # Passe la réponse attendue en minuscules
         pereFouras.right_answer = pereFouras.right_answer
 
-    return render_template("pere-fouras.html", question=pereFouras.question, right_answer=pereFouras.right_answer, user_answer=user_answer, number_of_try=pereFouras.number_of_try)
+    return render_template("pere-fouras.html", question=pereFouras.question, right_answer=pereFouras.right_answer.lower(), user_answer=user_answer, number_of_try=pereFouras.number_of_try)
 
 
 #### Route pour l'épreuve finale ####
