@@ -12,7 +12,7 @@ def randomNum():
     return random.randint(1, 50)
 
 def randomCoin():
-    coin = [heads, tails]
+    coin = ["Face", "Pile"]
     return random.choice(coin)
 ##### Fonctions des énigmes de hasard #####
 

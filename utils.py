@@ -4,7 +4,7 @@ import os
 
 LOCAL_DATA_FILE_PATH = "data/local_data.json"
 CHALLENGES_LIST_FILE_PATH = "data/challenges_list.json"
-VIDEO_FOLDER_PATH = "static/video/"
+VIDEO_FOLDER_PATH = "static/video/new_key/"
 
 
 ###### Toutes les fonctions qui permettent la liaison avec les fichiers de données JSON ######
@@ -247,7 +247,7 @@ def selectRandomVideo():
     file_name = os.listdir(VIDEO_FOLDER_PATH)
     # Retourne le path d'un fichier au hasard parmi le dossier
     if file_name:
-        return "video/" + random.choice(file_name)
+        return "video/new_key/" + random.choice(file_name)
     else:
          return None
     

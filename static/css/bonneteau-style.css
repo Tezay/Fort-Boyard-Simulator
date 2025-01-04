@@ -1,0 +1,36 @@
+.video-box {
+    display: flex;
+    justify-content: center;
+}
+
+.video-box video {
+    width: 100%;
+    height: auto; /* Conserver les proportions */
+    mask-image: url('../img/texture2.png');
+    -webkit-mask-image: url('../img/texture2.png'); /* Support pour les navigateurs basés sur WebKit */
+    mask-repeat: no-repeat;
+    -webkit-mask-repeat: no-repeat;
+    mask-size: cover;
+    -webkit-mask-size: cover;
+    background-color: transparent; /* Assurez-vous que la vidéo ne dépasse pas la zone masquée */
+}
+
+.content-box {
+    display: flex;
+    flex-direction: column; /* Aligne les éléments verticalement */
+    justify-content: center;
+    align-items: center; /* Centre horizontalement */
+}
+
+.user-input-box {
+    background-color: rgba(0, 0, 0, 0.6); /* Noir avec 70% d'opacité */
+    border-radius: 15px; /* Bords arrondis de 15px */
+    padding: 20px 40px; /* Espacement interne pour éviter que le contenu touche les bords */
+    color: white; /* Texte en blanc pour contraster avec le fond noir */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3); /* Optionnel : ombre pour un effet visuel */
+    margin: auto; /* Optionnel : centre la div horizontalement */
+    width: 600px;
+    display: flex;
+    justify-content: center;
+
+}

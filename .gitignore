@@ -3,10 +3,10 @@ data/local_data.json
 
 # Ignore all files in video/ folder
 # Videos were recorded by students. This is to ensure their privacy
-static/video/*
+static/video/new_key/*
 
 # Exception for default_video.mp4 (Père Fouras)
-!static/video/default_video.mp4
+!static/video/new_key/default_video.mp4
 
 
 # Byte-compiled / optimized / DLL files

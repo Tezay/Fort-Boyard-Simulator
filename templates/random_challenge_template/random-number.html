@@ -3,8 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- Import de la feuille de style -->
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/math-style.css') }}">
+    <!-- Styles généraux -->
+    <link rel="stylesheet" href="{{url_for('static', filename='css/global-style.css')}}">
+    <!-- Styles spécifiques à cette page -->
+    <link rel="stylesheet" href="{{url_for('static', filename='css/global-random-style.css')}}">
     <title>Epreuve : Deviner le nombre aléatoire</title>
 </head>
 <body>
@@ -17,12 +19,7 @@
         <!-- Formulaire pour la réponse utilisateur -->
         <form method="POST">
             <div id="user-input-box" class="user-input-box">
-                <input id="user-answer"
-                       name="user-answer"
-                       type="number"
-                       min="1" max="50"
-                       placeholder="Entrez un nombre"
-                       required>
+                <input id="user-answer" name="user-answer" type="number" min="1" max="50" placeholder="Entrez un nombre" required>
                 <button id="submit-answer">Envoyer</button>
             </div>
         </form>
@@ -30,7 +27,7 @@
         <!-- Résultat : L'utilisateur a gagné -->
         <div id="right-answer">
             <p>Bravo, tu as été le plus proche ! Le nombre était {{ right_answer }}, le maître avait choisi : {{ master_answer }}, et vous aviez choisi {{user_answerx}}.</p>
-            <a href="{{ url_for('newKey', key_number=1) }}">Ouvrir la boîte à clé 🔑</a>
+            <a href="{{ url_for('newKey', key_number=1) }}" class="key-button">Ouvrir la boîte à clé 🔑</a>
         </div>
     {% elif user_diff == master_diff %}
         <!-- Egalité -->

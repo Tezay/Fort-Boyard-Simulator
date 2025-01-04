@@ -3,31 +3,51 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- Import de la feuille de style -->
-    <link rel="stylesheet" href="{{url_for('static', filename='css/math-style.css')}}">
+    <!-- Styles généraux -->
+    <link rel="stylesheet" href="{{url_for('static', filename='css/global-style.css')}}">
+    <!-- Styles spécifiques à cette page -->
+    <link rel="stylesheet" href="{{url_for('static', filename='css/global-random-style.css')}}">
+    <link rel="stylesheet" href="{{url_for('static', filename='css/bonneteau-style.css')}}">
     <title>Epreuve : Bonneteau</title>
 </head>
 <body>
     <h1>Epreuve Bonneteau</h1>
 
     <div class="question-box">
-        <p>Choisissez un bonneteau parmi les suivants : {{ bonneteaux_list }} ?</p>
+        <p>Choisissez un bonneteau parmi les 3 suivants !</p>
     </div>
 
+
     {% if user_answer == None or (user_answer != right_answer.lower() and counter < 2) %}
-        <form method="POST">
-            <div id="user-input-box" class="user-input-box">
-                <input id="user-answer" name="user-answer" type="text" placeholder="Entrez votre réponse" required>
-                <button id="submit-answer">Envoyer</button>
+
+        <div class="content-box">
+
+            <div class="video-box">
+
+                <video autoplay muted playsinline>
+                    <source src="{{ url_for('static', filename='video/bonneteaux/bonneteaux.mp4') }}" type="video/mp4">
+                    Votre navigateur ne supporte pas ce format vidéo.
+                </video>
+
             </div>
-            {% if counter > 0 %}
-                <p>Essai {{ counter }} sur 2. Réessayez !</p>
-            {% endif %}
-        </form>
+
+            <form method="POST">
+                <div id="user-input-box" class="user-input-box">
+                    <button id="submit-answer" name="user-answer" value="a">A</button>
+                    <button id="submit-answer" name="user-answer" value="b">B</button>
+                    <button id="submit-answer" name="user-answer" value="c">C</button>
+                </div>
+                {% if counter > 0 %}
+                    <p>Mauvais bonneteau ! Tu as encore {{ counter }} sur 2.</p>
+                {% endif %}
+            </form>
+
+        </div>
+
     {% elif user_answer == right_answer.lower() %}
         <div id="right-answer">
             <p>Bravo, tu as choisi le bon bonneteau !</p>
-            <a href="{{url_for('newKey', key_number='1')}}">Récupérer la clé 🔑</a>
+            <a href="{{url_for('newKey', key_number='1')}}"  class="key-button">Récupérer la clé 🔑</a>
         </div>
     {% else %}
         <div id="wrong-answer">

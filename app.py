@@ -201,7 +201,6 @@ def isTheEquationCorrect():
     # Si c'est le cas, il utilise la méthode POST
     if request.method == 'POST':
         choice = request.form['choice']
-        question , right_answer= equalityChallenge()
         if choice == "yes":
             user_answer = True
         else:
@@ -214,6 +213,7 @@ def isTheEquationCorrect():
         # Appelle de la fonction énigme associée
         # [compléter la docstring ici]
         isTheEquationCorrect.question, isTheEquationCorrect.right_answer = equalityChallenge()
+
     return render_template("math_challenge_template/is-the-equation-correct.html", question=isTheEquationCorrect.question, right_answer=isTheEquationCorrect.right_answer, user_answer=user_answer)
 
 
@@ -222,22 +222,22 @@ def isTheEquationCorrect():
 
 #Route pour l'énigmes pile ou face
 
-@app.route("/random-challenge/heads-or-tails", methods=["POST","GET"])
+@app.route("/random-challenge/Faces-or-Piles", methods=["POST","GET"])
 def headsOrTails():
     # On vérifie si l'utilisateur charge la page après avoir répondu à a question (form)
     # Si c'est le cas, il utilise la méthode POST
     if request.method == 'POST':
         choice = request.form['choice']
-        if choice == "Tail":
-            user_answer = "Tail"
+        if choice == "Pile":
+            user_answer = "Pile"
         else:
-            user_answer = "Head"
+            user_answer = "Face"
         # On initialise la réponse à None (car pas encore donnée par l'utilisateur)
         # Appelle de la fonction énigme associée
         # [compléter la docstring ici]
     else:
         user_answer = None
-        headsOrTails.right_answer= coinChallenge()
+        headsOrTails.right_answer = coinChallenge()
 
     return render_template("/random_challenge_template/heads-or-tails.html", right_answer=headsOrTails.right_answer, user_answer=user_answer)
 
@@ -270,7 +270,7 @@ def bonneteau():
     # On vérifie si l'utilisateur charge la page après avoir répondu à a question (form)
     # Si c'est le cas, il utilise la méthode POST
     if request.method == 'POST':
-        user_answer = request.form.get("user-answer").lower()
+        user_answer = request.form['user-answer']
         # On incrémente de 1 le compteur d'essai du joueur
         bonneteau.counter += 1
     # Sinon, il charge la page une première fois pour poser la question
@@ -316,21 +316,27 @@ def diceRoll():
 @app.route("/logic-challenges/tic-tac-toe", methods=['GET','POST'])
 def ticTacToe():
     if request.method == 'POST' and hasattr(ticTacToe, 'pos_morpion'):
+        # Récupère le mouvement du joueur depuis le formulaire
         player_move = request.form.getlist("cell")
 
         if errorTicTacToe(player_move):
             win = None
+            # Convertit la position du joueur en tuple pour la mise à jour de la grille
             player_move = tuple(map(int, player_move[0].split("-")))
             ticTacToe.pos_morpion = updateBoard(ticTacToe.pos_morpion, player_move, "player")
+            # Vérifie si le joueur a gagné après son coup
             if isSol(ticTacToe.pos_morpion, "player"):
                 win = "player"
             elif verifEgal(ticTacToe.pos_morpion):
-                return redirect(url_for("ticTacToe"))
+                return redirect(url_for("ticTacToe"))  # Si égalité, recharge la page
             else:
+                # Si le joueur n'a pas gagné, l'ordinateur joue
                 master_move = masterMove()
                 while ticTacToe.pos_morpion[master_move[0]][master_move[1]] != 0:
-                    master_move = masterMove()
+                    # Génère un nouveau coup si la case est déjà prise
+                    master_move = masterMove() 
                 ticTacToe.pos_morpion = updateBoard(ticTacToe.pos_morpion, master_move, "master")
+                # Vérifie si l'ordinateur a gagné après son coup
                 if isSol(ticTacToe.pos_morpion, "master"):
                     win = "master"
 
@@ -341,10 +347,13 @@ def ticTacToe():
             error = "verif_player"
 
     else:
+        # Si c'est la première fois qu'on charge la page, on initialise la grille vide
         win = None
+        # On initialise une grille 3x3 vide
         ticTacToe.pos_morpion = [[0 for j in range(3)] for i in range(3)]
         error = None
 
+    # Rendu du template avec la grille, le gagnant et les erreurs éventuelles
     return render_template("logic_challenge_template/tic-tac-toe.html", pos_morpion=ticTacToe.pos_morpion, win=win, error=error)
 
 
@@ -352,46 +361,58 @@ def ticTacToe():
 @app.route("/logic-challenges/naval-battle", methods=['GET','POST'])
 def navalBattle():
 
-    # On vérifie si l'utilisateur charge la page après avoir répondu au questionnaire ET qu'il 
+    # Vérifie si le formulaire a été soumis et si la variable 'moment_game' existe
     if request.method == 'POST' and hasattr(navalBattle, 'moment_game'):
         win = None
         if navalBattle.moment_game == "beginning":
+            # Si le jeu commence, on récupère les positions des bateaux
             user_answer = request.form.getlist("cell")
 
             if errorNavalBattle(user_answer, navalBattle.moment_game):
+                # Change le moment du jeu à "middle"
                 navalBattle.moment_game = "middle"
                 navalBattle.bateaux = []
 
+                # Ajoute les bateaux aux positions choisies
                 for answer in user_answer:
                     navalBattle.bateaux.append(tuple(map(int, answer.split("-"))))
+                # Réinitialise l'erreur
                 navalBattle.error = None
 
             else:
+                # Erreur si la configuration des bateaux est invalide
                 navalBattle.error = "bateau"
 
         elif navalBattle.moment_game == "middle":
+            # Lorsque le jeu est au milieu, on gère les tirs des deux joueurs
             user_answer = request.form.getlist("cell")
 
             if errorNavalBattle(user_answer, navalBattle.moment_game):
                 user_answer = tuple(map(int, user_answer[0].split("-")))
                 navalBattle.liste_tir[user_answer] = navalBattleGame(navalBattle.bateaux_ordi, user_answer)
 
+                # L'ordinateur fait un tir
                 tir_ordi = tirOrdi(navalBattle.taille_grille)
                 while tir_ordi in navalBattle.liste_tir_ordi:
+                    # Assure que l'ordinateur ne tire pas deux fois au même endroit
                     tir_ordi = tirOrdi(navalBattle.taille_grille)
                 navalBattle.liste_tir_ordi[tir_ordi] = navalBattleGame(navalBattle.bateaux, tir_ordi)
-                winner_ordi = gagnant(navalBattle.liste_tir_ordi)
 
+                # Vérifie si l'ordinateur ou le joueur a gagné
+                winner_ordi = gagnant(navalBattle.liste_tir_ordi)
                 winner = gagnant(navalBattle.liste_tir)
 
+                # Détermine le gagnant
                 win = whoWin(winner, winner_ordi)
 
+                # Réinitialise les erreurs
                 navalBattle.error = None
             else:
+                # Erreur si le tir est invalide
                 navalBattle.error = "tir"
 
     else:
-        # On initialise toutes les variables du jeu
+        # On initialise toutes les variables du jeu au début
         navalBattle.taille_grille = 5
         navalBattle.moment_game = "beginning"
         navalBattle.error = None
@@ -399,11 +420,11 @@ def navalBattle():
         navalBattle.tir = None
         navalBattle.bateaux = None
         navalBattle.liste_tir = {}
-        navalBattle.bateaux_ordi = bateauxOrdi([], navalBattle.taille_grille)
+        navalBattle.bateaux_ordi = bateauxOrdi([], navalBattle.taille_grille) # Place les bateaux de l'ordinateur
         navalBattle.liste_tir_ordi = {}
-        win = None
+        win = None # Pas de gagnant au début
 
-
+    # Rendu du template avec les données du jeu : taille de la grille, état du jeu, erreurs et résultats
     return render_template("logic_challenge_template/naval-battle.html", moment_game=navalBattle.moment_game, taille_grille=navalBattle.taille_grille, error=navalBattle.error, bateaux=navalBattle.bateaux, liste_tir=navalBattle.liste_tir, liste_tir_ordi=navalBattle.liste_tir_ordi, win=win)
 
 
@@ -450,9 +471,8 @@ def finalChallenge():
         finalChallenge.number_of_clues = finalChallenge.keyCount
         finalChallenge.number_of_try = 0
         finalChallenge.code_word, finalChallenge.clues_list = final()
-        print(finalChallenge.code_word)
 
-    return render_template("final_challenge_template/final-challenge.html", keyCount=finalChallenge.keyCount, code_word=finalChallenge.code_word, clues_list=finalChallenge.clues_list, number_of_clues=finalChallenge.number_of_clues, number_of_try=finalChallenge.number_of_try, user_answer=user_answer)
+    return render_template("final_challenge_template/final-challenge.html", keyCount=finalChallenge.keyCount, code_word=finalChallenge.code_word.lower(), clues_list=finalChallenge.clues_list, number_of_clues=finalChallenge.number_of_clues, number_of_try=finalChallenge.number_of_try, user_answer=user_answer)
 
 @app.route("/treasure-room")
 def treasureRoom():

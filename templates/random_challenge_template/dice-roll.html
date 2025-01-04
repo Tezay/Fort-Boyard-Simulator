@@ -3,6 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Styles généraux -->
+    <link rel="stylesheet" href="{{url_for('static', filename='css/global-style.css')}}">
+    <!-- Styles spécifiques à cette page -->
+    <link rel="stylesheet" href="{{url_for('static', filename='css/global-random-style.css')}}">
     <title>Epreuve : Lancer de dés </title>
 </head>
 <body>
@@ -33,7 +37,7 @@
             <p>Vous avez fait : {{ roll }}</p>
             {% if 6 in roll %}
                 <h2>Vous avez gagné !</h2>
-                <a href="{{url_for('newKey', key_number='1')}}">Ouvrir la boite à clé 🔑</a>
+                <a href="{{url_for('newKey', key_number='1')}}" class="key-button">Ouvrir la boite à clé 🔑</a>
             {% else %}
                 <form method="POST">
                     <button type="submit">Voir le lancer du maitre</button>
