@@ -64,6 +64,12 @@ Depuis un navigateur, se connecter en local sur le port 5000 (Flask) :
 http://127.0.0.1:5000/
 ```
 
+## Lancer le projet en mode debug (pour tester indépendamment toutes les épreuves)
+Pour lancer le projet en mode debug, exécuter le fichier **app.py** (rajouter `-d True` pour lancer en mode débug)
+```bash
+python app.py -d True
+```
+
 ## 2. Documentation Technique
 
 ### 1. Initialisation

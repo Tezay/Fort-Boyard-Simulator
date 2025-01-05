@@ -1,8 +1,10 @@
+# Imports des modules
 from flask import Flask, render_template, request, redirect, url_for, abort, session
 from challenges import *
 from utils import *
 import argparse
 
+# On créer l'application Flask
 app = Flask(__name__)
 
 
@@ -17,12 +19,14 @@ def menu():
     resetChallengesCount()
     # Vérifie si le mode débug est actif ou pas
     debug_mode = app.debug
+    # On retourne la template de la page HTML dédiée, et on passe en paramètre la variable debug_mode
     return render_template("index.html", debug_mode=debug_mode)
 
 
 # Route pour le Fort Boyard
 @app.route("/fort-boyard")
 def fortBoyard():
+    # On récupère le nombre de clés
     key_count = getKeyCounter()
     # Vérifie si le mode debug est actif ou pas
     # Permet d'avoir accès à la page admin (repertorie toutes les énigmes dispo) lorsqu'actif
@@ -35,7 +39,8 @@ def fortBoyard():
 # Route pour le choix de l'équipe
 @app.route('/team-choice', methods=['GET', 'POST'])
 def teamChoice():
-
+    # On vérifie si l'utilisateur charge la page après avoir répondu à la question (form)
+    # Si c'est le cas, il utilise la méthode POST
     if request.method == 'POST':
         # Vérifie si l'utilisateur ajoute encore un joueur ou s'il confirme l'équipe, et affecte la variable team_completed en fonction
         action = request.form['action']
@@ -295,8 +300,8 @@ def bonneteau():
 @app.route("/random-challenge/dice-roll", methods=['GET','POST'])
 def diceRoll():
 
-    # Structure de l'énigme à optimiser
-
+    # On vérifie si l'utilisateur charge la page après avoir répondu à la question (form)
+    # Si c'est le cas, il utilise la méthode POST
     if request.method == 'POST':
         # On vérifie à qui était le tour précédent, et définie le prochain tour pour l'autre joueur
         if diceRoll.turn == 'player':
@@ -304,7 +309,7 @@ def diceRoll():
             diceRoll.number_of_try += 1
         else:
             diceRoll.turn = 'player'
-    
+    # Sinon on charge une première fois la page en initialisant les variables
     else:
         diceRoll.number_of_try = 0
         diceRoll.turn = 'player'
@@ -321,6 +326,8 @@ def diceRoll():
 # Route pour l'épreuve morpion
 @app.route("/logic-challenges/tic-tac-toe", methods=['GET','POST'])
 def ticTacToe():
+    # On vérifie si l'utilisateur charge la page après avoir répondu à la question (form) ET si il vient de poser un symbole
+    # Si c'est le cas, il utilise la méthode POST
     if request.method == 'POST' and hasattr(ticTacToe, 'pos_morpion'):
         # Récupère le mouvement du joueur depuis le formulaire
         player_move = request.form.getlist("cell")
@@ -465,12 +472,13 @@ def pereFouras():
 
 @app.route("/final-challenge", methods=['GET','POST'])
 def finalChallenge():
-
+    # On vérifie si l'utilisateur charge la page après avoir répondu à la question (form)
+    # Si c'est le cas, il utilise la méthode POST
     if request.method == 'POST':
         user_answer = request.form.get("user-answer").lower()
         finalChallenge.number_of_try += 1
         finalChallenge.number_of_clues += 1
-
+    # Sinon on charge une première fois la page, en initialisant les variables
     else: 
         user_answer = None
         finalChallenge.keyCount = getKeyCounter()
@@ -493,7 +501,9 @@ def treasureRoom():
 # Route pour la fin du jeu
 @app.route('/end-game', methods=['POST'])
 def endGame():
+    # On récupère le score du formulaire, et on met 0 par défaut
     score = request.form.get('score', 0)
+    # On appelle la fonction qui permet de stocker toutes les données de la partie dans un fichier log
     storeGameData(score)
     return render_template('final_challenge_template/end-game.html', score=score)
 
@@ -501,6 +511,8 @@ def endGame():
 # Route pour séléctionner le joueur pour la prochaine épreuve
 @app.route("/next-player", methods=['GET','POST'])
 def nextPlayer():
+    # On vérifie si l'utilisateur charge la page après avoir répondu à la question (form)
+    # Si c'est le cas, il utilise la méthode POST
     if request.method == 'POST':
         # On récupère le joueur qui a été séléctionné
         selected_player = request.form['identity']
@@ -518,7 +530,9 @@ def nextPlayer():
 # Route pour accéder à la prochaine épreuve
 @app.route("/next-challenge")
 def nextChallenge():
+    # On récupère le nombre d'épreuve restantes
     challenges_count = getChallengesCount()
+    # On récupère le nombre de clé
     key_count = getKeyCounter()
     # Initialise la variable qui donne accès à l'épreuve finale à False, et si les joueurs ont cumulé +3 clés passe à True
     final_challenge_access = False
@@ -568,13 +582,13 @@ def page_not_found(e):
 
 
 if __name__ == "__main__":
-    parser = argparse.ArgumentParser()
 
-    # Définir les arguments
+    # On définit les arguments
+    parser = argparse.ArgumentParser()
     parser.add_argument("-d", "--debug", type=bool, default=False, help="Activer le mode debug")
 
-    # Analyser les arguments
+    # On nalyse les arguments
     args = parser.parse_args()
 
-    # Appeler la fonction avec les paramètres obtenus
+    # Appelle de la fonction avec les paramètres obtenus
     app.run(debug=args.debug)
