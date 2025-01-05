@@ -118,7 +118,7 @@ http://127.0.0.1:5000/
 
 ### 6. Salle du trésor
 
-![Capture d'écran](repo_images/teasure-room.png)
+![Capture d'écran](repo_images/treasure-room.png)
 - Récupérer le plus de pièces possible dans le temps imparti (20sec)
 
 ## 3. Journal de bords
