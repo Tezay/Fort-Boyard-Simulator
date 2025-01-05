@@ -78,7 +78,7 @@ def factorial():
         # On initialise la réponse à None (car pas encore donnée par l'utilisateur)
         user_answer = None
         # Appelle de la fonction énigme associée
-        # [compléter la docstring ici]
+        # On enregistre les variables données par la fonction épreuve, sous forme d'attribut (pour pouvoir garder en mémoire leur contenu après rafraichissement de la page)
         factorial.question, factorial.right_answer = factorialChallenge()
 
     return render_template("math_challenge_template/factorial.html", question=factorial.question, right_answer=factorial.right_answer, user_answer=user_answer)
@@ -95,7 +95,7 @@ def linearEquation():
             # On initialise la réponse à None (car pas encore donnée par l'utilisateur)
             user_answer = None
             # Appelle de la fonction énigme associée
-            # [compléter la docstring ici]
+            # On enregistre les variables données par la fonction épreuve, sous forme d'attribut (pour pouvoir garder en mémoire leur contenu après rafraichissement de la page)
             linearEquation.question, linearEquation.right_answer = linearEquationChallenge()
 
         return render_template("math_challenge_template/linear-equation.html", question=linearEquation.question, right_answer=linearEquation.right_answer, user_answer=user_answer)
@@ -112,7 +112,7 @@ def primeNumber():
         # On initialise la réponse à None (car pas encore donnée par l'utilisateur)
         user_answer = None
         # Appelle de la fonction énigme associée
-        # [compléter la docstring ici]
+        # On enregistre les variables données par la fonction épreuve, sous forme d'attribut (pour pouvoir garder en mémoire leur contenu après rafraichissement de la page)
         primeNumber.question, primeNumber.right_answer = primeNumberChallenge()
 
     return render_template("math_challenge_template/prime-number.html", question=primeNumber.question, right_answer=primeNumber.right_answer, user_answer=user_answer)
@@ -129,7 +129,7 @@ def roulette():
         # On initialise la réponse à None (car pas encore donnée par l'utilisateur)
         user_answer = None
         # Appelle de la fonction énigme associée
-        # [compléter la docstring ici]
+        # On enregistre les variables données par la fonction épreuve, sous forme d'attribut (pour pouvoir garder en mémoire leur contenu après rafraichissement de la page)
         roulette.question, roulette.right_answer = rouletteChallenge()
 
     return render_template("math_challenge_template/roulette.html", question=roulette.question, right_answer=roulette.right_answer, user_answer=user_answer)
@@ -147,7 +147,7 @@ def whoisprimeNumber():
         # On initialise la réponse à None (car pas encore donnée par l'utilisateur)
         user_answer = None
         # Appelle de la fonction énigme associée
-        # [compléter la docstring ici]
+        # On enregistre les variables données par la fonction épreuve, sous forme d'attribut (pour pouvoir garder en mémoire leur contenu après rafraichissement de la page)
         whoisprimeNumber.question, whoisprimeNumber.right_answer = findPrimeNumberChallenge()
     return render_template("math_challenge_template/who-is-prime.html", question=whoisprimeNumber.question, right_answer=whoisprimeNumber.right_answer, user_answer=user_answer)
 
@@ -163,7 +163,7 @@ def whatTheSquare():
         # On initialise la réponse à None (car pas encore donnée par l'utilisateur)
         user_answer = None
         # Appelle de la fonction énigme associée
-        # [compléter la docstring ici]
+        # On enregistre les variables données par la fonction épreuve, sous forme d'attribut (pour pouvoir garder en mémoire leur contenu après rafraichissement de la page)
         whatTheSquare.question, whatTheSquare.right_answer = squareChallenge()
     return render_template("math_challenge_template/what-the-square.html", question=whatTheSquare.question, right_answer=whatTheSquare.right_answer, user_answer=user_answer)
 
@@ -180,7 +180,7 @@ def whatTheSquareRoot():
         # On initialise la réponse à None (car pas encore donnée par l'utilisateur)
         user_answer = None
         # Appelle de la fonction énigme associée
-        # [compléter la docstring ici]
+        # On enregistre les variables données par la fonction épreuve, sous forme d'attribut (pour pouvoir garder en mémoire leur contenu après rafraichissement de la page)
         whatTheSquareRoot.question, whatTheSquareRoot.right_answer = squareRootChallenge()
     return render_template("math_challenge_template/what-the-square-root.html", question=whatTheSquareRoot.question, right_answer=whatTheSquareRoot.right_answer, user_answer=user_answer)
 
@@ -195,7 +195,7 @@ def whatTheSequence():
         # On initialise la réponse à None (car pas encore donnée par l'utilisateur)
         user_answer = None
         # Appelle de la fonction énigme associée
-        # [compléter la docstring ici]
+        # On enregistre les variables données par la fonction épreuve, sous forme d'attribut (pour pouvoir garder en mémoire leur contenu après rafraichissement de la page)
         whatTheSequence.question, whatTheSequence.right_answer = sequenceChallenge()
     return render_template("math_challenge_template/what-the-sequence.html", question=whatTheSequence.question, right_answer=whatTheSequence.right_answer, user_answer=user_answer)
 
@@ -215,7 +215,7 @@ def isTheEquationCorrect():
         # On initialise la réponse à None (car pas encore donnée par l'utilisateur)
         user_answer = None
         # Appelle de la fonction énigme associée
-        # [compléter la docstring ici]
+        # On enregistre les variables données par la fonction épreuve, sous forme d'attribut (pour pouvoir garder en mémoire leur contenu après rafraichissement de la page)
         isTheEquationCorrect.question, isTheEquationCorrect.right_answer = equalityChallenge()
 
     return render_template("math_challenge_template/is-the-equation-correct.html", question=isTheEquationCorrect.question, right_answer=isTheEquationCorrect.right_answer, user_answer=user_answer)
@@ -238,9 +238,11 @@ def headsOrTails():
             user_answer = "Face"
         # On initialise la réponse à None (car pas encore donnée par l'utilisateur)
         # Appelle de la fonction énigme associée
-        # [compléter la docstring ici]
+        # On enregistre les variables données par la fonction épreuve, sous forme d'attribut (pour pouvoir garder en mémoire leur contenu après rafraichissement de la page)
     else:
         user_answer = None
+
+        #On enregistre les variables données par la fonction épreuve, sous forme d'attribut (pour pouvoir garder en mémoire leur contenu après rafraichissement de la page)
         headsOrTails.right_answer = coinChallenge()
 
     return render_template("/random_challenge_template/heads-or-tails.html", right_answer=headsOrTails.right_answer, user_answer=user_answer)
@@ -262,7 +264,7 @@ def randomNumber():
         master_diff = None
         user_diff = None
         # Appelle de la fonction énigme associée
-        # [compléter la docstring ici]
+        # On enregistre les variables données par la fonction épreuve, sous forme d'attribut (pour pouvoir garder en mémoire leur contenu après rafraichissement de la page)
         randomNumber.master_answer, randomNumber.right_answer = randomNumberChallenge()
     
     return render_template("/random_challenge_template/random-number.html", master_answer=randomNumber.master_answer,right_answer=randomNumber.right_answer, user_answer=user_answer, master_diff=master_diff, user_diff=user_diff)
@@ -284,7 +286,7 @@ def bonneteau():
         # On initialise le compteur d'essai à 0
         bonneteau.counter = 0
         # Appelle de la fonction énigme associée
-        # [compléter la docstring ici]
+        # On enregistre les variables données par la fonction épreuve, sous forme d'attribut (pour pouvoir garder en mémoire leur contenu après rafraichissement de la page)
         bonneteau.bonneteaux_list, bonneteau.right_bonneteau = bonneteauChallenge()
 
     return render_template("random_challenge_template/bonneteau.html", bonneteaux_list=bonneteau.bonneteaux_list, right_answer=bonneteau.right_bonneteau, user_answer=user_answer, counter=bonneteau.counter)
@@ -451,7 +453,7 @@ def pereFouras():
         # On initialise le nombre d'essai à 0
         pereFouras.number_of_try = 0 
         # Appelle de la fonction énigme associée
-        # [compléter la docstring ici]
+        # On enregistre les variables données par la fonction épreuve, sous forme d'attribut (pour pouvoir garder en mémoire leur contenu après rafraichissement de la page)
         pereFouras.question, pereFouras.right_answer = pereFourasChallenge()
         # Passe la réponse attendue en minuscules
         pereFouras.right_answer = pereFouras.right_answer

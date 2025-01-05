@@ -15,12 +15,12 @@ Notre projet se démarque par l'utilisation du framework Flask, qui permet une e
 ### Fonctionnalités Principales
 - Enigmes de mathématiques, logique, chance, et épreuve du Père Fouras.
 - Gestion des composants du jeu dans des fichiers JSON.
-- etc.
+- Enregistrement des données de partie dans un fichier de log txt.
 
 ### Technologies Utilisées
-- **Langages de programmation :** Python (pour l'intégralité du backend), HTML et CSS (pour la partie bonus, frontend)
-- **Bibliothèques :** Flask, random
-- **Outils :** VSCode, pyCharm, chatGPT 4o
+- **Langages de programmation :** Python (pour l'intégralité du backend), HTML, CSS et JavaScript (pour la partie bonus, frontend)
+- **Bibliothèques :** Flask, random, json, os, datetime
+- **Outils :** VSCode, pyCharm, chatGPT 4o (pour la partie frontend bonus)
 
 ### Installation
 
@@ -55,7 +55,7 @@ cp data/local_data_example.json data/local_data.Json
 ```
 
 ### Utilisation
-Pour lancer le projet, exécuter le fichier **app.py**
+Pour lancer le projet, exécuter le fichier **app.py** (rajouter `-d True` pour lancer en mode débug)
 ```bash
 python app.py
 ```
