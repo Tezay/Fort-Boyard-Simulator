@@ -3,9 +3,6 @@ Projet EFREI TI101 - Programmation en Python
 
 ## 1. Présentation Générale
 
-### Etat du projet
-Achevé
-
 ### Contributeurs
 - Eliot.C : Tezay
 - Eliot.C : CSScooby
@@ -70,44 +67,50 @@ http://127.0.0.1:5000/
 ## 2. Documentation Technique
 
 ### 1. Initialisation
-1.1 Composition de l'équipe 
+1.1 Page d'accueil
+![Capture d'écran](repo_images/index.png)
 
+1.1 Composition de l'équipe 
+![Capture d'écran](repo_images/team-choice.png)
 - Nombre de joueurs, nom et profession des joueurs 
 
 ### 2. Début du jeu
 2.1 Entrée sur le fort 
+![Capture d'écran](repo_images/fort-boyard.png)
 
 2.2 Choix du joueur qui fera l'épreuve 
+![Capture d'écran](repo_images/next-player.png)
 
-2.3 Choix de l'épreuve 
-  
-- Choix parmi les 4 type d'épreuves possible 
+2.3 Choix de l'épreuve
+![Capture d'écran](repo_images/next-challenge.png)
+- Choix parmi les 4 type d'épreuves suivantes :
   - Mathématiques
   - Logique
   - Aléatoire
   - Pere Fouras 
 
-2.4 Dans le type d'épreuve choisie auparavant choix aléatoire d'une épreuve
+2.4 Choix aléatoire d'une épreuve pour le type d'épreuve séléctionné
 
 ### 3. Début des épreuves 
 3.1 Exécution de l'épreuve : 
 
 - Le joueur sélectionné réalise l'épreuve qu'il a choisie.
   
-  - Épreuve réussie -> Clef gagnée et ajoutée au compteur 
-  - Épreuve ratée -> Aucune clef n'est donnée
+  - Épreuve réussie -> clé gagnée et ajoutée au compteur 
+  - Épreuve ratée -> Aucune clé n'est donnée
 
 ### 4. Déroulement du jeu
 
 4.1 Chaque type d'épreuve doit être effectuée au minimum 1 fois et au maximum 2 fois 
 
-4.2 Il faut au minimum trois clefs pour rentrer dans l'épreuve final 
+4.2 Il faut au minimum trois clés pour rentrer dans l'épreuve final 
 
-4.3 Au bout de 5 clefs les épreuves s'arrêtent et c'est le passage à l'épreuve finale
+4.3 Au bout de 5 clés les épreuves s'arrêtent et c'est le passage à l'épreuve finale
 
 ### 5. Épreuve finale 
 
-5.1 En fonction du nombre de clefs, le même nombre d'indices est donné 
+5.1 En fonction du nombre de clés, le même nombre d'indices est donné 
+![Capture d'écran](repo_images/final-challenge.png)
   
   - Trois chances pour réussir l'épreuve finale
   - À chaque essaie raté un indice est ajouté pour aider les joueurs 
@@ -115,7 +118,8 @@ http://127.0.0.1:5000/
 
 ### 6. Salle du trésor
 
-- Récupérer le plus de pièces possibles en un temps imparti
+![Capture d'écran](repo_images/teasure-room.png)
+- Récupérer le plus de pièces possible dans le temps imparti (20sec)
 
 ## 3. Journal de bords
 
@@ -235,6 +239,8 @@ http://127.0.0.1:5000/
   
   - CSS
   - Salle du trésor
+  - Derniers correctifs
+  - README
 
 - CSScooby 
 

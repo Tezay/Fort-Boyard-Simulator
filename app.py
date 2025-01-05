@@ -1,6 +1,7 @@
 from flask import Flask, render_template, request, redirect, url_for, abort, session
 from challenges import *
 from utils import *
+import argparse
 
 app = Flask(__name__)
 
@@ -565,4 +566,13 @@ def page_not_found(e):
 
 
 if __name__ == "__main__":
-    app.run(debug=True)
+    parser = argparse.ArgumentParser()
+
+    # Définir les arguments
+    parser.add_argument("-d", "--debug", type=bool, default=False, help="Activer le mode debug")
+
+    # Analyser les arguments
+    args = parser.parse_args()
+
+    # Appeler la fonction avec les paramètres obtenus
+    app.run(debug=args.debug)
