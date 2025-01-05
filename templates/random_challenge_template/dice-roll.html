@@ -14,9 +14,9 @@
 
     <div class="content-box">
         {% if number_of_try == 0 %}
-            <p>Explication etc. Vous devez obtenir 6 avec un des deux dés pour gagner.</p>
+            <p>Vous et le maître allez lancer à tour de rôle 2 dés.<br>Vous devez obtenir 6 avec un des deux dés pour gagner.</p>
             <form method="POST">
-                    <button type="submit">Lancer les dés</button>
+                    <button type="submit" id="submit-answer">Lancer les dés</button>
             </form>
             
         {% elif number_of_try <= 3 %}
