@@ -45,10 +45,13 @@ def teamChoice():
         player_job = request.form.get('player-job')
 
         # On ajoute le joueur au fichier JSON avec la fonction dédiée (Par défaut on initialise is_leader à False)
-        addToTeam(player_name,False,player_job)
+        addToTeam(player_name,teamChoice.is_first_player,player_job)
+        # On passe à False la variable qui vérifie si c'est le premier joueur
+        teamChoice.is_first_player = False
     else:
         # On initialise la variable à False une première fois
         teamChoice.team_completed = False
+        teamChoice.is_first_player = True
 
     # Récupère la liste des joueurs de l'équipe
     team = getTeam()
@@ -488,6 +491,7 @@ def treasureRoom():
 @app.route('/end-game', methods=['POST'])
 def endGame():
     score = request.form.get('score', 0)
+    storeGameData(score)
     return render_template('final_challenge_template/end-game.html', score=score)
 
 
@@ -509,18 +513,16 @@ def nextPlayer():
 
 
 # Route pour accéder à la prochaine épreuve
-# A TERMINER (il est 2h du mat mieux vaut aller dormir...)
 @app.route("/next-challenge")
 def nextChallenge():
     challenges_count = getChallengesCount()
-    remaining_challenges_counter = getRemainingChallengesCounter()
     key_count = getKeyCounter()
     # Initialise la variable qui donne accès à l'épreuve finale à False, et si les joueurs ont cumulé +3 clés passe à True
     final_challenge_access = False
     if key_count >= 3:
         final_challenge_access = True
 
-    return render_template("next-challenge.html", challenges_count=challenges_count,remaining_challenges_counter=remaining_challenges_counter,key_count=key_count, final_challenge_access=final_challenge_access)
+    return render_template("next-challenge.html", challenges_count=challenges_count,key_count=key_count, final_challenge_access=final_challenge_access)
 
 
 # Route pour séléctionner une épreuve aléatoire parmi la catégorie spécifiée
@@ -555,12 +557,6 @@ def challengesList():
      challenges_list = getChallengesList()
      return render_template("/challenges-list.html", challenges_list=challenges_list)
 
-
-# Gestionnaire d'erreur
-@app.errorhandler(403)
-def page_forbidden(e):
-    # Rendu d'une page HTML personnalisée
-    return render_template('/error_templates/403.html'), 403
 
 @app.errorhandler(404)
 def page_not_found(e):

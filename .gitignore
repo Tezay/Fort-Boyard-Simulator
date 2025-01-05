@@ -8,6 +8,9 @@ static/video/new_key/*
 # Exception for default_video.mp4 (Père Fouras)
 !static/video/new_key/default_video.mp4
 
+# Ignore log files
+/log/
+
 
 # Byte-compiled / optimized / DLL files
 __pycache__/

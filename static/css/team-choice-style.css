@@ -24,13 +24,18 @@ body {
 
 .content-box {
     position: fixed;
-    width: 670px;                    /* Largeur de la div */
+    width: 680px;                    /* Largeur de la div */
     height: 420px;                   /* Hauteur de la div */
     background-image: url('../img/parchment.png'); /* Chemin de l'image */
     background-size: cover;          /* L'image couvre entièrement la div */
     background-position: center;     /* Centre l'image dans la div */
     background-repeat: no-repeat;    /* Empêche la répétition de l'image */
     bottom: 20px;
+}
+
+.info-message {
+    text-align: center;
+    font-size: 1rem;
 }
 
 .content {
@@ -43,12 +48,16 @@ body {
 }
 
 
-.content p {
-    margin:0;
+.content .team-message {
     margin-bottom: 5px;
+    margin-top: 5px;
     text-decoration: underline;
     font-weight: bold;
     font-size: 1.8rem;
+}
+
+.content .info-message {
+    margin: 0;
 }
 
 .content li {

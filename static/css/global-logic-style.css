@@ -10,6 +10,9 @@ h1 {
     text-align: center;
 }
 
+p {
+    text-shadow: 4px 4px 8px rgba(0, 0, 0, 1); /* Ombre noire légèrement floutée */
+}
 
 #game {
     display: flex;
@@ -93,6 +96,13 @@ form {
     cursor: pointer;
 }
 
+#right-answer, #wrong-answer {
+    display: flex; /* Permet de centrer le formulaire lui-même */
+    flex-direction: column;
+    justify-content: center; /* Centre horizontalement */
+    align-items: center; /* Centre verticalement */
+    text-align: center;
+}
 
 .key-button {
     display: inline-block;          /* Traite le lien comme un bouton */

@@ -124,7 +124,7 @@ def whoIsPrime():
 
 #Quel est son carré
 def squareOfWhat():
-    number = random.randint(1, 50)
+    number = random.randint(2, 25)
     squared_number = squareNum(number)
     return number , squared_number
 
@@ -145,12 +145,12 @@ def valueSequence():
 def sequence(U0, r):
     sequence = []
     operator = randomOperator()
-#Suite arythmétique
+    #Suite arythmétique
     for n in range(6):
         if operator == "+" or operator == "-":
             #Formule de Un Suite arythmétique
             number = U0 + r*n
-#Suite géométrique
+    #Suite géométrique
         elif operator == "*":
             #Formule de Un Suite géométrique
             number = U0 * r ** n

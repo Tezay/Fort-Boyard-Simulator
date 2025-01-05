@@ -27,8 +27,11 @@
 
         <div id="game" class="game-box">
             <div id="error-message">
+                {% if moment_game == "beginning" %}
+                    <div>Vous devez placer 4 bateaux sur votre grille pour commencer.</div>
+                {% endif %}
                 {% if error == "bateau" %}
-                <div>Vous devez placer 4 bateaux sur la grille !</div>
+                    <div>Vous devez placer 4 bateaux sur la grille !</div>
                 {% endif %}
                 {% if error == "tir" %}
                     <div>Vous devez tirer 1 missile par tour !</div>
