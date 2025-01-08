@@ -193,10 +193,10 @@ def findPgcd(a, b):
         a, b = b, a % b
     return a
 
-##### Fonctions des énigmes mathématiques #####
-# Pour chaque fonction :
-# Sortie : Booléen (énigme réussie ou pas), Entier (réponse donnée)
 
+##### Fonctions des énigmes mathématiques #####
+
+# Fonction pour l'épreuve vérification d'une égalité
 def equalityChallenge():
     # Appel des fonctions utiles
     number1 , number2, operator = equality()
@@ -206,7 +206,7 @@ def equalityChallenge():
     right_answer = equalityAnswer(right_result, result)
     return question, right_answer
 
-
+# Fonction pour l'épreuve deviner la suite
 def sequenceChallenge():
     # Appel des fonctions utiles
     U0, r = valueSequence()
@@ -216,18 +216,21 @@ def sequenceChallenge():
     right_answer, question = sequenceNumber(entire_sequence)
     return question, right_answer
 
+# Fonction pour l'épreuve trouver la factorielle
 def factorialChallenge():
     # Question et Réponse du Challenge
     question = random.randint(1,10)
     right_answer = factorial(question)
     return question, right_answer
 
+# Fonction pour l'épreuve deviner le nombre premier le plus proche
 def primeNumberChallenge():
     # Question et Réponse du Challenge
     question = random.randint(10,20)
     right_answer = nearestPrimeNumber(question)
     return question, right_answer
 
+# Fonction pour l'épreuve de résolution de l'équation linéaire
 def linearEquationChallenge():
     # Générer les coefficients a et b
     a = random.randint(1, 10)
@@ -235,36 +238,43 @@ def linearEquationChallenge():
     while b == 0:
         b = random.randint(-10, 10)
 
-    # Calculer la solution exacte
+    # On calcule la solution exacte
     solution_exacte = -b / a
-
-    # Construire une liste de réponses acceptables
+    # On construit une liste des réponses acceptables
     right_answer = []
-
+    # On calcule le PGCD(a,b)
     pgcd = findPgcd(a, -b)
-    print(pgcd)
-    if pgcd != 1:
-        right_answer.append(f"{b//pgcd}/{-a//pgcd}")
-        right_answer.append(f"{-b//pgcd}/{a//pgcd}")
 
+    # On vérifie si le dénominateur vaut -1 ou 1, et on simplifie la réponse si c'est le cas
     if a//pgcd == 1 or a//pgcd == -1:
         right_answer.append(f"{-(a//pgcd)*b//pgcd}")
 
-    # Ajouter la fraction exacte sous forme de chaîne
+    # On vérifie si la fraction est réductible, donc si PGCD(numérateur,dénominateur) est différent de 1
+    if pgcd != 1 or pgcd != -1:
+        right_answer.append(f"{-b//pgcd}/{a//pgcd}")
+        right_answer.append(f"{b//pgcd}/{-a//pgcd}")
+
+    # On ajoute la fraction exacte sous forme de chaîne
     right_answer.append(f"{-b}/{a}")
     right_answer.append(f"{b}/{-a}")
 
-    # Ajouter la version décimale avec arrondi à différentes précisions
+    # On ajoute la version décimale avec arrondi à différentes précisions
     for precision in range(1, 10):  # On arrondit jusqu'à 3 décimales
         arrondi = round(solution_exacte, precision)
         right_answer.append(f"{arrondi}".replace(".", ","))  # Format français avec virgule
         right_answer.append(f"{arrondi}")  # Format anglais avec point
-    print(right_answer)
-    b = f"+{b}" if b > 0 else f"{b}"
+
+    # On rajoute un (+) si b positif, sinon on laisse le (-)
+    if b > 0:
+        b = f"+{b}"
+    else:
+        b = f"{b}"
+
     question = {'a': a, 'b': b}
 
     return question, right_answer
 
+# Fonction pour l'épreuve roulette 
 def rouletteChallenge():
     # Appel des fonctions utiles
     numbers_list = fiveNumbersRandom()

@@ -326,14 +326,17 @@ def diceRoll():
 # Route pour l'épreuve morpion
 @app.route("/logic-challenges/tic-tac-toe", methods=['GET','POST'])
 def ticTacToe():
+    # On initialise la variable qui vérifie la victoire à None
+    win = None
     # On vérifie si l'utilisateur charge la page après avoir répondu à la question (form) ET si il vient de poser un symbole
     # Si c'est le cas, il utilise la méthode POST
     if request.method == 'POST' and hasattr(ticTacToe, 'pos_morpion'):
         # Récupère le mouvement du joueur depuis le formulaire
         player_move = request.form.getlist("cell")
 
+        # On execute le code du jeu uniquement s'il n'y a pas d'erreur (la fonction renvoie True)
         if errorTicTacToe(player_move):
-            win = None
+            error = None
             # Convertit la position du joueur en tuple pour la mise à jour de la grille
             player_move = tuple(map(int, player_move[0].split("-")))
             ticTacToe.pos_morpion = updateBoard(ticTacToe.pos_morpion, player_move, "player")
@@ -353,16 +356,11 @@ def ticTacToe():
                 if isSol(ticTacToe.pos_morpion, "master"):
                     win = "master"
 
-            error  = None
-
         else:
-            win = None
             error = "verif_player"
 
     else:
-        # Si c'est la première fois qu'on charge la page, on initialise la grille vide
-        win = None
-        # On initialise une grille 3x3 vide
+        # Si c'est la première fois qu'on charge la page, on initialise la grille 3x3 vide
         ticTacToe.pos_morpion = [[0 for j in range(3)] for i in range(3)]
         error = None
 
@@ -381,6 +379,7 @@ def navalBattle():
             # Si le jeu commence, on récupère les positions des bateaux
             user_answer = request.form.getlist("cell")
 
+            # On execute le code du jeu uniquement s'il n'y a pas d'erreur (la fonction renvoie True)
             if errorNavalBattle(user_answer, navalBattle.moment_game):
                 # Change le moment du jeu à "middle"
                 navalBattle.moment_game = "middle"
@@ -400,6 +399,7 @@ def navalBattle():
             # Lorsque le jeu est au milieu, on gère les tirs des deux joueurs
             user_answer = request.form.getlist("cell")
 
+            # On execute le code du jeu uniquement s'il n'y a pas d'erreur (la fonction renvoie True)
             if errorNavalBattle(user_answer, navalBattle.moment_game):
                 user_answer = tuple(map(int, user_answer[0].split("-")))
                 navalBattle.liste_tir[user_answer] = navalBattleGame(navalBattle.bateaux_ordi, user_answer)
@@ -426,7 +426,7 @@ def navalBattle():
 
     else:
         # On initialise toutes les variables du jeu au début
-        navalBattle.taille_grille = 5
+        navalBattle.taille_grille = 5 # Grille 5x5
         navalBattle.moment_game = "beginning"
         navalBattle.error = None
         navalBattle.toucher = None
@@ -443,6 +443,7 @@ def navalBattle():
 
 ##### Route pour l'énigme de Père Fouras ####
 
+# Route pour l'épreuve du Père Fouras
 @app.route("/pere-fouras-challenge", methods=['GET','POST'])
 def pereFouras():
     # On vérifie si l'utilisateur charge la page après avoir répondu à la question (form)
@@ -470,6 +471,7 @@ def pereFouras():
 
 #### Route pour l'épreuve finale ####
 
+# Route pour l'épreuve finale
 @app.route("/final-challenge", methods=['GET','POST'])
 def finalChallenge():
     # On vérifie si l'utilisateur charge la page après avoir répondu à la question (form)

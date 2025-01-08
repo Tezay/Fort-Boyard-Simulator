@@ -55,7 +55,7 @@ cp data/local_data_example.json data/local_data.Json
 ```
 
 ### Utilisation
-Pour lancer le projet, exécuter le fichier **app.py** (rajouter `-d True` pour lancer en mode débug)
+Pour lancer le projet, exécuter le fichier **app.py**
 ```bash
 python app.py
 ```
@@ -64,8 +64,8 @@ Depuis un navigateur, se connecter en local sur le port 5000 (Flask) :
 http://127.0.0.1:5000/
 ```
 
-## Lancer le projet en mode debug (pour tester indépendamment toutes les épreuves)
-Pour lancer le projet en mode debug, exécuter le fichier **app.py** (rajouter `-d True` pour lancer en mode débug)
+#### Lancer le projet en mode debug (pour tester indépendamment toutes les épreuves)
+Pour lancer le projet en mode debug, rajouter le paramètre `-d True` lors de l'exécution du fichier **app.py**
 ```bash
 python app.py -d True
 ```

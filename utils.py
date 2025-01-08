@@ -14,12 +14,12 @@ VIDEO_FOLDER_PATH = "static/video/new_key/"
 # Fonction pour renvoyer le nombre de clés
 def getKeyCounter():
     try:
+        # Lire le contenu du fichier JSON
         with open(LOCAL_DATA_FILE_PATH, 'r') as file:
             data = json.load(file)
             return data.get("keyCounter", 0)  # Retourne 0 si 'keyCounter' n'existe pas
-    except FileNotFoundError:
-        print("Error : Specified JSON file is not found.")
-        return None
+    except Exception as e:
+        print(f"Error: {e}")
 
 # Fonction pour ajouter un nombre donné de clés au compteur dans le fichier JSON
 def addToKeyCounter(value):
@@ -28,7 +28,7 @@ def addToKeyCounter(value):
         return
 
     try:
-        # Lecture des données existantes
+        # Lire le contenu du fichier JSON
         with open(LOCAL_DATA_FILE_PATH, 'r') as file:
             data = json.load(file)
         
@@ -41,13 +41,13 @@ def addToKeyCounter(value):
         
         print(f"Value successfully added. New keyCounter: {data['keyCounter']}")
     
-    except FileNotFoundError:
-        print("Error : Specified JSON file is not found.")
+    except Exception as e:
+        print(f"Error: {e}")
 
 # Fonction pour réinitialiser le nombre de clés (appelée au début de chaque partie)
 def resetKeyCounter():
     try:
-        # Lecture des données existantes
+        # Lire le contenu du fichier JSON
         with open(LOCAL_DATA_FILE_PATH, 'r') as file:
             data = json.load(file)
         
@@ -60,8 +60,8 @@ def resetKeyCounter():
         
         print("Key counter successfully reset.")
     
-    except FileNotFoundError:
-        print("Error : Specified JSON file is not found.")
+    except Exception as e:
+        print(f"Error: {e}")
 
 
 # Fonction pour ajouter un nouveau joueur à l'équipe
@@ -91,14 +91,14 @@ def addToTeam(player_name, is_leader, job):
 # Fonction pour réinitialiser l'équipe
 def resetTeam():
     try:
-        # Lire le contenu du fichier JSON
+        # Charger le contenu du fichier JSON
         with open(LOCAL_DATA_FILE_PATH, 'r', encoding='utf-8') as file:
             data = json.load(file)
         
         # Vider la section "team"
         data["team"] = {}
         
-        # Écrire les modifications dans le fichier
+        # On écrit les modifications dans le fichier
         with open(LOCAL_DATA_FILE_PATH, 'w', encoding='utf-8') as file:
             json.dump(data, file, ensure_ascii=False, indent=4)
         
@@ -108,11 +108,11 @@ def resetTeam():
 
 # Fonction pour obtenir la liste des joueurs de l'équipe
 def getTeam():
-    # Lire le contenu du fichier JSON
+    # Charger le contenu du fichier JSON
     with open(LOCAL_DATA_FILE_PATH, 'r', encoding='utf-8') as file:
         data = json.load(file)
     
-    # Extraire et formater les informations des joueurs
+    # On extrait les informations des joueurs
     team_list = []
     for player_name, player_data in data.get("team", {}).items():
         player_info = {
@@ -129,7 +129,7 @@ def addToPassedChallenges(player):
     with open(LOCAL_DATA_FILE_PATH, 'r', encoding='utf-8') as file:
         data = json.load(file)
 
-    # Vérifier si le joueur existe dans l'équipe
+    # On vérifie si le joueur existe dans l'équipe
     if player in data['team']:
         # Ajouter +1 à passedChallenges du joueur
         data['team'][player]['passedChallenges'] += 1
@@ -166,7 +166,7 @@ def getChallengesList():
         # Ouvrir le fichier JSON et charger les données
         with open(CHALLENGES_LIST_FILE_PATH, 'r') as file:
             data = json.load(file)
-        # Retourner toutes les énigmes par catégorie
+        # On renvoie toutes les énigmes par catégorie
         return data
     except Exception as e:
         print(f"Error: {e}")
@@ -230,7 +230,7 @@ def resetChallengesCount():
 def selectRandomVideo():
     # Liste tous les fichiers dans le dossier "video"
     file_name = os.listdir(VIDEO_FOLDER_PATH)
-    # Retourne le path d'un fichier au hasard parmi le dossier
+    # On renvoie le path d'un fichier au hasard parmi le dossier
     if file_name:
         return "video/new_key/" + random.choice(file_name)
     else:
@@ -238,7 +238,7 @@ def selectRandomVideo():
     
 # Fonction pour enregister les données de la partie dans un fichier log
 def storeGameData(score):
-    # Charger les données JSON à partir du fichier
+    # On charge les données JSON à partir du fichier
     with open(LOCAL_DATA_FILE_PATH, "r", encoding="utf-8") as file:
         data = json.load(file)
 
@@ -270,7 +270,7 @@ def storeGameData(score):
     log_dir = "log"
     os.makedirs(log_dir, exist_ok=True)
 
-    # Générer un nom de fichier unique avec horodatage
+    # On génère un nom de fichier unique avec horodatage
     timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
     log_file = os.path.join(log_dir, f"game_log_{timestamp}.txt")
 

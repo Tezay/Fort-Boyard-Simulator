@@ -105,7 +105,10 @@ def verifAntiDiag(pos_morpion, person):
 def verifDiag(pos_morpion, person):
     n = len(pos_morpion)
     counter = 0
-    key = 1 if person == "player" else 2
+    if person == "player":
+        key = 1
+    else:
+        key = 2
     for i in range(n):
         for j in range(n):
             if i - j == 0 and pos_morpion[i][j] == key:
