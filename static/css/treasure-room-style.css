@@ -25,7 +25,7 @@ body {
     position: absolute;
     width: 30px;
     height: 30px;
-    background-color: gold;
+    background-color: #d5a13a;
     border-radius: 50%;
     cursor: pointer;
 }
